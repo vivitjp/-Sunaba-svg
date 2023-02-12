@@ -1,0 +1,10 @@
+{
+  "name": "index",
+  "directory": ["./src/library"],
+  "delete": true,
+  "location": "top",
+  "structure": "flat",
+  "singleQuotes": true,
+  "include": [".ts", ".tsx"],
+  "exclude": [".stories.tsx", ".spec.tsx"]
+}

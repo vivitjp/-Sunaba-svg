@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+}
+
+dialog {
+  width: 80%;
+  height: 160px;
+  background-color: white;
+  border: none;
+  border-radius: 0.6rem;
+  box-shadow: 0 0 3px #aaa;
+}
+dialog::backdrop {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+}
