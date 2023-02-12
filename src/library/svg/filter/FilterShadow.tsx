@@ -12,15 +12,13 @@ export const FilterShadow: React.FC<FilterShadow> = ({
   color = "#000",
 }: FilterShadow) => {
   return (
-    <defs>
-      <filter id={id}>
-        <feDropShadow
-          dx={d[0]}
-          dy={d[1]}
-          stdDeviation={deviation}
-          floodColor={color}
-        />
-      </filter>
-    </defs>
+    <filter id={id}>
+      <feDropShadow
+        dx={d[0]}
+        dy={d[1]}
+        stdDeviation={deviation}
+        floodColor={color}
+      />
+    </filter>
   )
 }

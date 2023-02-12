@@ -1,9 +1,7 @@
-import React, { useCallback, useState } from "react"
-import { FilterShadow, Group, Path, SVG, line } from "../library"
+import { useCallback } from "react"
+import { FilterShadow, Group, Path, SVG, line, MarkerCircle } from "../library"
 
 export const Top = () => {
-  const [xxxx, setXxxx] = useState<string>("")
-
   const handleClick = useCallback(() => {
     const target = document.getElementById("target")
     const body = document.getElementById("part1")
@@ -16,24 +14,27 @@ export const Top = () => {
       <div>
         <SVG height={300} width={500} viewBoxHeight={900} viewBoxWidth={1500}>
           <defs>
+            <MarkerCircle id="idMarkerCircle" R={10} />
+            <FilterShadow id="idShadow" />
             <Path
               id="part1"
               path={line({ d1: [100, 100], d2: [600, 400] })}
               stroke="green"
               strokeWidth="2"
+              marker-start="url(#idMarkerCircle)"
+              marker-end="url(#idMarkerCircle)"
             >
               <title>Hello World</title>
               <animate
                 attributeName="stroke-width"
-                values="2;5;2"
-                dur="3s"
+                values="2;4;2"
+                dur="4s"
                 repeatCount="indefinite"
               />
             </Path>
           </defs>
-          <FilterShadow id="idShadow" />
           {/* <use xlinkHref="#part1" /> */}
-          <Group id="target" filter="idShadow"></Group>
+          <Group id="target" filter="idShadow" />
         </SVG>
       </div>
     </>
