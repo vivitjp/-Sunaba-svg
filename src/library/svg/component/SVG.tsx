@@ -1,9 +1,9 @@
-const URL = "http://www.w3.org/2000/svg"
-const XLINK = "http://www.w3.org/1999/xlink"
-
 //--------------------------------------------
 // SVG Tag: <SVG>
 //--------------------------------------------
+
+import { SVG_URL } from "../const/const"
+
 type SVG = {
   width: number
   height: number
@@ -27,7 +27,7 @@ export const SVG: React.FC<SVG> = ({
       width={width}
       height={height}
       viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
-      xmlns={URL}
+      xmlns={SVG_URL}
       preserveAspectRatio={preserveAspectRatio}
     >
       {children}

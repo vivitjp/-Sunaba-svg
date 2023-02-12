@@ -2,7 +2,7 @@ type MarkerCircle = {
   id: string
   R?: number
   color?: string
-}
+} & React.SVGProps<SVGMarkerElement>
 
 export const MarkerCircle: React.FC<MarkerCircle> = ({
   id,

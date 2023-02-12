@@ -1,4 +1,5 @@
-import { Top } from "../pages/Top"
+import { Home } from "~/Home"
+import { AnimateLine } from "../pages/AnimateLine"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -12,8 +13,8 @@ export type Menu = {
 }
 
 //{name: '', path:'/', element:  },
-//{name: '', path:'/', element:  },
 
 export const menuGroup: MenuGroup = {
-  SVG: [{ name: "Top", path: "/", element: Top }],
+  Home: [{ name: "Home", path: "/", element: Home }],
+  SVG: [{ name: "AnimateLine", path: "/AnimateLine", element: AnimateLine }],
 }

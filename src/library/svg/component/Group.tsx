@@ -1,6 +1,7 @@
 //--------------------------------------------
 // SVG Tag: <Group>
 //--------------------------------------------
+
 type Group = {
   children?: React.ReactNode
 } & React.SVGProps<SVGGElement>

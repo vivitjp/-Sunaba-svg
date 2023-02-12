@@ -1,6 +1,12 @@
 {
   "name": "index",
-  "directory": ["./src/library"],
+  "directory": [
+    "./src/component",
+    "./src/context",
+    "./src/feature",
+    "./src/layout",
+    "./src/library"
+  ],
   "delete": true,
   "location": "top",
   "structure": "flat",

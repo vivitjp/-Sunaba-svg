@@ -1,10 +1,10 @@
 //--------------------------------------------
 // SVG Tag: <Path>
-//
-// stroke-dasharray="4 4" 破線
 //--------------------------------------------
+
 type Path = {
   path: string
+  marker?: string
 } & React.SVGProps<SVGPathElement>
 
 export const Path: React.FC<Path> = ({
@@ -14,6 +14,7 @@ export const Path: React.FC<Path> = ({
   fillRule = "evenodd",
   strokeWidth = 1,
   filter,
+  marker,
   children,
   ...arg
 }: Path) => {
@@ -27,6 +28,9 @@ export const Path: React.FC<Path> = ({
       fill={fill}
       strokeWidth={strokeWidth}
       filter={filter && `url(#${filter})`}
+      markerStart={marker ? `url(#${marker})` : ""}
+      markerMid={marker ? `url(#${marker})` : ""}
+      markerEnd={marker ? `url(#${marker})` : ""}
       {...arg}
     >
       {children}

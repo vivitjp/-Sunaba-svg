@@ -1,26 +1,32 @@
 //--------------------------------------------
 // SVG Tag: <Polyline>
 //--------------------------------------------
+
+import { ReactNode } from "react"
+import { getPoints } from "../lib/points"
+import { Coordinate } from "../type/type"
+
 type Polyline = {
-  points: string
+  coordinates: Coordinate[]
   marker?: string
+  children: ReactNode
 } & React.SVGProps<SVGPolylineElement>
 
 export const Polyline: React.FC<Polyline> = ({
-  points,
+  coordinates,
   stroke = "#777",
   fill = "none",
   strokeWidth = 1,
   filter,
-  children,
   marker,
+  children,
   ...arg
 }: Polyline) => {
-  if (!points) return <></>
+  if (!coordinates.length) return <></>
 
   return (
     <polyline
-      points={points}
+      points={getPoints(coordinates)}
       stroke={stroke}
       strokeWidth={strokeWidth}
       fill={fill}
@@ -29,6 +35,8 @@ export const Polyline: React.FC<Polyline> = ({
       markerMid={marker ? `url(#${marker})` : ""}
       markerEnd={marker ? `url(#${marker})` : ""}
       {...arg}
-    />
+    >
+      {children}
+    </polyline>
   )
 }
