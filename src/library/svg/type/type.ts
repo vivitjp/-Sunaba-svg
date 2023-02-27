@@ -1,4 +1,3 @@
-export type XAxis = number
-export type YAxis = number
+export type Coordinate = number[]
 
-export type Coordinate = [XAxis, YAxis]
+export type LineCoordinate = { d1: Coordinate; d2: Coordinate }

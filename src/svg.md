@@ -1,8 +1,6 @@
-## SVG ライブラリの使い方
+## SVG
 
-TODO: 各コンポーネントのオプション解説
-
-### SVG
+### Size & viewBox
 
 ```ts
 TODO

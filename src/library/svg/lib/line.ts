@@ -3,8 +3,8 @@
 //--------------------------------------------
 
 type Line = {
-  d1: [number, number] //x,y
-  d2: [number, number] //x,y
+  d1: number[] //x,y
+  d2: number[] //x,y
   abs?: boolean //Absolute Coordinate 絶対 vs 相対
 }
 export const line = ({ d1, d2, abs = true }: Line) => {

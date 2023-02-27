@@ -2,31 +2,41 @@
 // SVG Tag: <SVG>
 //--------------------------------------------
 
+import { useMemo } from "react"
 import { SVG_URL } from "../const/const"
+import { getViewbox } from "~/library"
 
-type SVG = {
+export type SVG = {
   width: number
   height: number
-  viewBoxWidth?: number
-  viewBoxHeight?: number
+  ratio?: number
+  margin?: number
+  viewboxWidth?: number
+  viewboxHeight?: number
   children: React.ReactNode
+  viewbox?: string
 } & React.SVGProps<SVGSVGElement>
 
 export const SVG: React.FC<SVG> = ({
   width,
   height,
-  viewBoxWidth = width,
-  viewBoxHeight = height,
+  ratio = 1,
+  margin = 0,
   children,
+  viewbox,
   preserveAspectRatio = "xMinYMin meet",
   ...args
 }: SVG) => {
+  const viewboxByRatio = useMemo(() => {
+    return getViewbox({ width, height, margin, ratio })
+  }, [width, height, margin, ratio])
+
   return (
     <svg
       {...args}
       width={width}
       height={height}
-      viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
+      viewBox={viewbox ?? viewboxByRatio}
       xmlns={SVG_URL}
       preserveAspectRatio={preserveAspectRatio}
     >

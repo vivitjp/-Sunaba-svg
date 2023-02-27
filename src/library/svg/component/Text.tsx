@@ -17,7 +17,7 @@ export const Text: React.FC<Text> = ({
   fill = "#555",
   stroke = "none",
   strokeWidth = 0,
-  textAnchor = "start",
+  textAnchor = "start", //"middle","end"
   fontWeight = "normal",
   fontFamily = "sans-serif",
   filter,

@@ -22,6 +22,7 @@ export const Path: React.FC<Path> = ({
 
   return (
     <path
+      {...arg}
       d={path}
       fillRule={fillRule}
       stroke={stroke}
@@ -31,7 +32,6 @@ export const Path: React.FC<Path> = ({
       markerStart={marker ? `url(#${marker})` : ""}
       markerMid={marker ? `url(#${marker})` : ""}
       markerEnd={marker ? `url(#${marker})` : ""}
-      {...arg}
     >
       {children}
     </path>
