@@ -10,8 +10,12 @@ export const Section = styled.section`
 
 type Props = {
   width?: number
+  height?: number
+  minHeight?: number
   border?: string
+  fontSize?: number
   padding?: number
+  align?: string
 }
 
 export const Column = styled.div<Props>`
@@ -38,37 +42,40 @@ export const Row = styled.div<Props>`
   border-radius: 5px;
 `
 
-type Div = {
-  width?: number
-  height?: number
-  border?: string
-}
-
-export const Div = styled.div<Div>`
-  width: ${({ width }) => `${width ? `${width}px` : "100%"}`};
-  height: ${({ height }) => `${height ? `${height}px` : "100%"}`};
-  border: ${({ border }) => `1px solid ${border ? `${border}` : "#ddd"}`};
+export const Div = styled.div<Props>`
+  width: ${({ width }) => `${width ? `${width}px` : "auto"}`};
+  height: ${({ height }) => `${height ? `${height}px` : "auto"}`};
+  border: ${({ border }) => `1px solid ${border ? `${border}` : "none"}`};
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "16px"}`};
   padding: 0;
   margin: 0;
   overflow: hidden;
 `
 
-export const GRAY = styled.span`
-  color: #777;
+export const DivShadow = styled.div<Props>`
+  width: ${({ width }) => `${width ? `${width}px` : "auto"}`};
+  height: ${({ height }) => `${height ? `${height}px` : "auto"}`};
+  border: ${({ border }) => `1px solid ${border ? `${border}` : "none"}`};
+  padding: ${({ padding }) => `${padding ? `${padding}px` : "5px"}`};
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: 2px 2px 10px #bbb;
 `
-export const Code = styled.pre<{ align?: string }>`
-  text-align: ${({ align }) => `${align ?? "center"}`};
+
+export const Code = styled.code<Props>`
+  text-align: ${({ align = "center" }) => `${align}`};
   width: 100%;
-  color: #777;
+  min-height: ${({ minHeight }) => `${minHeight ? `${minHeight}px` : "auto"}`};
   padding: 6px;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "12px"}`};
   font-family: monospace;
   overflow: auto;
 `
 
 export const S = styled.span`
-  color: Firebrick;
+  color: var(--main-color);
   font-size: 1.1rem;
   font-family: monospace;
 `

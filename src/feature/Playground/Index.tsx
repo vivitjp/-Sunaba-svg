@@ -3,20 +3,7 @@ import { useState } from "react"
 import { SVGRuled } from "~/component/SVGRuled"
 import { SelectSet } from "~/component/SelectSet"
 import { Path, getViewbox } from "~/library"
-import {
-  Button,
-  Checkbox,
-  Code,
-  Column,
-  Div,
-  GRAY,
-  Margin,
-  Row,
-  S,
-  SVGContent,
-  Section,
-  TextArea,
-} from "./Index.style"
+import { Button, Checkbox, Number, TextArea } from "../../common/styleInput"
 import {
   MARGIN,
   SVG_HEIGHT,
@@ -26,7 +13,16 @@ import {
   pathSamplesMap,
 } from "./setting"
 import { commandsMap } from "~/constants/command"
-import { xRulers, yRulers, zeroRulers } from "~/feature/common/setting"
+import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
+import {
+  Code,
+  Column,
+  Div,
+  DivShadow,
+  Row,
+  S,
+  Section,
+} from "../../common/styleDiv"
 
 export const Playground = () => {
   //Ratio倍率
@@ -108,16 +104,16 @@ export const Playground = () => {
         <Div>ratio</Div>
         <SelectSet options={options} onChange={handleChangeSelect} width={60} />
         <Div>Margin</Div>
-        <Margin onChange={handleMargin} value={margin} placeholder="margin" />
+        <Number onChange={handleMargin} value={margin} placeholder="margin" />
       </Row>
 
       {/* サイズと Viewbox  */}
-      <Row border={"#ddd"} padding={10}>
-        <Code>
+      <DivShadow padding={10}>
+        <Code fontSize={18}>
           Width: "<S>{SVG_WIDTH}</S>" Height: "<S>{SVG_HEIGHT}</S>" viewBox: "
           <S>{viewbox}</S>"
         </Code>
-      </Row>
+      </DivShadow>
 
       {/* サンプル & Path 入力 */}
       <Column border={"#ddd"}>
@@ -129,7 +125,7 @@ export const Playground = () => {
           />
           <label>
             <Checkbox checked={hasBg} onChange={handleChangeCheck} />
-            <GRAY>背景(fill)</GRAY>
+            背景(fill)
           </label>
         </Row>
 
@@ -148,7 +144,7 @@ export const Playground = () => {
       </Column>
 
       {/* SVG描画 */}
-      <SVGContent>
+      <DivShadow>
         <SVGRuled
           height={SVG_HEIGHT}
           width={SVG_WIDTH}
@@ -158,9 +154,13 @@ export const Playground = () => {
           zeroRulers={zeroRulers}
           margin={margin}
         >
-          <Path path={freePathSet} fill={hasBg ? "Ivory" : "none"} />
+          <Path
+            path={freePathSet}
+            fill={hasBg ? "Ivory" : "none"}
+            stroke={"var(--main-color)"}
+          />
         </SVGRuled>
-      </SVGContent>
+      </DivShadow>
     </Section>
   )
 }

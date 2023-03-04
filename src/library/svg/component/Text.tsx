@@ -5,13 +5,11 @@
 type Text = {
   x: number
   y: number
-  text: string
 } & React.SVGProps<SVGTextElement>
 
 export const Text: React.FC<Text> = ({
   x,
   y,
-  text,
   className = "",
   fontSize = 12,
   fill = "#555",
@@ -21,9 +19,10 @@ export const Text: React.FC<Text> = ({
   fontWeight = "normal",
   fontFamily = "sans-serif",
   filter,
+  children,
   ...args
 }: Text) => {
-  if (!x || !y || !text) return <></>
+  if (!x || !y) return <></>
 
   return (
     <text
@@ -40,7 +39,7 @@ export const Text: React.FC<Text> = ({
       style={fontSize ? { fontSize: `${fontSize}px` } : {}}
       filter={filter && `url(#${filter})`}
     >
-      {text}
+      {children}
     </text>
   )
 }

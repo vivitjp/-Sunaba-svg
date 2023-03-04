@@ -15,6 +15,7 @@ export type SVG = {
   viewboxHeight?: number
   children: React.ReactNode
   viewbox?: string
+  marginTLOnly?: boolean
 } & React.SVGProps<SVGSVGElement>
 
 export const SVG: React.FC<SVG> = ({
@@ -25,10 +26,11 @@ export const SVG: React.FC<SVG> = ({
   children,
   viewbox,
   preserveAspectRatio = "xMinYMin meet",
+  marginTLOnly = false,
   ...args
 }: SVG) => {
   const viewboxByRatio = useMemo(() => {
-    return getViewbox({ width, height, margin, ratio })
+    return getViewbox({ width, height, margin, ratio, marginTLOnly })
   }, [width, height, margin, ratio])
 
   return (

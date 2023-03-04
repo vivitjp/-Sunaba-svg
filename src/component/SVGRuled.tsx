@@ -90,11 +90,12 @@ export const SVGRuled: FC<SVGRuled> = ({
                 <Text
                   x={x}
                   y={-(xRulers?.fontSize ?? 12) * ratio}
-                  text={`${x / ratio}`}
                   textAnchor={"middle"}
                   fill={xRulers?.fontColor}
                   fontSize={(xRulers?.fontSize ?? 12) * ratio}
-                />
+                >
+                  {x / ratio}
+                </Text>
               )}
             </React.Fragment>
           ))}
@@ -124,11 +125,12 @@ export const SVGRuled: FC<SVGRuled> = ({
                 <Text
                   x={-10}
                   y={y + 5}
-                  text={`${y / ratio}`}
                   fill={yRulers?.fontColor}
                   fontSize={(yRulers?.fontSize ?? 12) * ratio}
                   textAnchor={"end"}
-                />
+                >
+                  {y / ratio}
+                </Text>
               )}
             </React.Fragment>
           ))}

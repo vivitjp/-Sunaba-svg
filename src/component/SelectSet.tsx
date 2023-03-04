@@ -1,4 +1,3 @@
-import { ReactComponentElement } from "react"
 import styled from "styled-components"
 
 export type Options = {
@@ -10,13 +9,24 @@ export type SelectSet = {
   options: Options[]
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
   width?: number
+  withBlanc?: boolean
 }
 
-export const SelectSet = ({ options, width, onChange, ...args }: SelectSet) => {
+export const SelectSet = ({
+  options,
+  width,
+  onChange,
+  withBlanc,
+  ...args
+}: SelectSet) => {
+  const revOptions = withBlanc
+    ? [{ title: "", value: "" }, ...options]
+    : [...options]
+
   return (
     <Select {...args} width={width} onChange={onChange}>
       {!!options.length &&
-        options.map((n, index) => (
+        revOptions.map((n, index) => (
           <option key={index} value={n.value}>
             {n.title}
           </option>

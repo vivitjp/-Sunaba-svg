@@ -3,8 +3,9 @@ import { InteractiveLine } from "../pages/onHold/InteractiveLine"
 import { PolylineAnime } from "~/pages/onHold/PolylineAnime"
 import { InteractiveLineUse } from "~/pages/onHold/InteractiveLineUse"
 import { Playground } from "~/pages/Playground"
-import { page01viewbox } from "~/pages/page01viewbox"
-import { page02shapes } from "~/pages/page02shapes"
+import { page01basic } from "~/pages/page01basic"
+import { page02viewbox } from "~/pages/page02viewbox"
+import { page03shapes } from "~/pages/page03shapes"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -21,8 +22,9 @@ export const menuGroup: MenuGroup = {
   Home: [{ name: "Home", path: "/", element: Home }],
 
   Basic: [
-    { name: "01: viewbox", path: "/page01viewbox", element: page01viewbox },
-    { name: "02: shapes", path: "/page02shapes", element: page02shapes },
+    { name: "01: Basic", path: "/page01basic", element: page01basic },
+    { name: "02: Viewbox", path: "/page02viewbox", element: page02viewbox },
+    { name: "03: Shapes", path: "/page03shapes", element: page03shapes },
     // { name: "03: path", path: "/page03path", element: page02shapes },
     // { name: "04: attribute", path: "/page04attribute", element: page02shapes },
     // { name: "05: group", path: "/page05group", element: page02shapes },

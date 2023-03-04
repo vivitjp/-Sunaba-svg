@@ -2,26 +2,26 @@ import { Rulers } from "~/component"
 
 export const xRulers: Rulers = {
   lineType: "dashed",
-  lineColor: "#bbb",
+  lineColor: "#999",
   lineWidth: 1,
   lineInterval: 50,
   isValueDisplayed: true,
   fontSize: 12,
-  fontColor: "Tan",
+  fontColor: "#999",
 }
 
 export const yRulers: Rulers = {
   lineType: "dashed",
-  lineColor: "Tan",
+  lineColor: "#999",
   lineWidth: 1,
   lineInterval: 50,
   isValueDisplayed: true,
   fontSize: 12,
-  fontColor: "Tan",
+  fontColor: "#999",
 }
 
 export const zeroRulers: Rulers = {
   lineType: "solid",
-  lineColor: "orange",
+  lineColor: "#777",
   lineWidth: 1,
 }

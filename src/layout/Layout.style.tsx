@@ -19,7 +19,7 @@ export const Header = styled.section`
   align-items: center;
   width: 100%;
   height: 50px;
-  background-color: #be433b;
+  background-color: var(--main-color);
   font-size: 2rem;
   color: #fff;
 `
@@ -62,12 +62,12 @@ export const GroupTitle = styled.summary`
   color: #777;
   background-color: white;
   border: 1px solid white;
-  border-left: 5px solid #be433b;
-  border-bottom: 1px solid #be433b;
+  border-left: 5px solid var(--main-color);
+  border-bottom: 1px solid var(--main-color);
   cursor: pointer;
   :hover {
-    border-right: 1px solid #be433b;
-    border-top: 1px solid #be433b;
+    border-right: 1px solid var(--main-color);
+    border-top: 1px solid var(--main-color);
   }
 `
 
@@ -89,7 +89,7 @@ export const MenuItem = styled(Link)`
     color: #777;
   }
   :hover {
-    color: #be433b;
+    color: var(--main-color);
   }
 `
 

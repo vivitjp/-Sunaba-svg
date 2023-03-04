@@ -43,10 +43,12 @@ const Section = styled.section`
 `
 const Title = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 0.2rem;
+  padding-left: 1rem;
   height: 50px;
   font-size: 2rem;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 1px solid var(--main-color);
+  color: var(--main-color);
 `

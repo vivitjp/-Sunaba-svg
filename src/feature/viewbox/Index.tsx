@@ -1,10 +1,10 @@
-import { rectangle } from "~/library"
-import { Code, Div, Row, S, Section } from "../common/style"
+import { rectangle, Text } from "~/library"
+import { Code, Div, Row, S, Section } from "../../common/styleDiv"
 import { FC, useCallback, useState } from "react"
 import { SelectSet } from "~/component"
 import { adjustOptions, aspectXOptions, aspectYOptions } from "./setting"
 
-export const Page01 = () => {
+export const Viewbox = () => {
   //Viewbox
   const [viewbox, setViewbox] = useState("0 0 600 300")
 
@@ -24,7 +24,7 @@ export const Page01 = () => {
   return (
     <Section>
       <Row border={"#ddd"} padding={6}>
-        <Code>
+        <Code fontSize={20}>
           SVG width:<S>600px</S> height:<S>300px</S>
         </Code>
       </Row>
@@ -67,7 +67,7 @@ const ViewBox: FC<ViewBoxProps> = ({ viewbox, setViewbox, aspectRatio }) => {
 
   return (
     <Row border={"#ddd"} padding={10}>
-      <div style={{ fontSize: "20px" }}>viewBox:</div>
+      <Div fontSize={20}>viewBox:</Div>
       <input
         type="text"
         onChange={handleChangeText}
@@ -81,7 +81,7 @@ const ViewBox: FC<ViewBoxProps> = ({ viewbox, setViewbox, aspectRatio }) => {
           textAlign: "center",
         }}
       />
-      <div>{aspectRatio}</div>
+      <Div fontSize={20}>{aspectRatio}</Div>
     </Row>
   )
 }
@@ -123,17 +123,17 @@ const AspectRatio: FC<AspectRatioProps> = ({
 
   return (
     <Row border={"#ddd"} padding={10}>
-      <div style={{ fontSize: "20px" }}>
+      <Div fontSize={18}>
         preserveAspectRatio <S>X</S>:
-      </div>
+      </Div>
       <SelectSet
         options={aspectXOptions}
         onChange={handleChangeAspectX}
         width={80}
       />
-      <div style={{ fontSize: "20px" }}>
+      <Div fontSize={18}>
         <S>Y</S>:
-      </div>
+      </Div>
       <SelectSet
         options={aspectYOptions}
         onChange={handleChangeAspectY}
@@ -158,7 +158,7 @@ type SVGProps = {
 
 const DisplaySVG: FC<SVGProps> = ({ viewbox, aspectRatio }) => {
   return (
-    <Div width={600} height={300} border={"LightSeaGreen"}>
+    <Div width={600} height={300} border={"Firebrick"}>
       <svg
         width={600}
         height={300}
@@ -180,14 +180,9 @@ const DisplaySVG: FC<SVGProps> = ({ viewbox, aspectRatio }) => {
             fill="Ivory"
             strokeWidth={1}
           />
-          <text
-            x="150"
-            y="165"
-            style={{ fontSize: "30px" }}
-            text-anchor="middle"
-          >
+          <Text x={150} y={165} fontSize={30} fill="#ccc" textAnchor="middle">
             200x200
-          </text>
+          </Text>
         </g>
       </svg>
     </Div>
