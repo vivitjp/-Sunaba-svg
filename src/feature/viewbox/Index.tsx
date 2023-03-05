@@ -158,7 +158,7 @@ type SVGProps = {
 
 const DisplaySVG: FC<SVGProps> = ({ viewbox, aspectRatio }) => {
   return (
-    <Div width={600} height={300} border={"Firebrick"}>
+    <Div width={600} height={300} border={"Firebrick"} padding={0}>
       <svg
         width={600}
         height={300}
