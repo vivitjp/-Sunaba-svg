@@ -2,7 +2,6 @@
   "name": "index",
   "directory": [
     "./src/component",
-    "./src/context",
     "./src/feature",
     "./src/layout",
     "./src/library"

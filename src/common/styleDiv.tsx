@@ -22,6 +22,7 @@ export const Column = styled.div<CSSProperties & { shadow?: number }>`
   border-radius: 5px;
   box-shadow: ${({ shadow }) =>
     `${shadow ? `2px 2px ${shadow}px #ccc;` : "none"}`};
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
 `
 
 export const Row = styled.div<CSSProperties>`
@@ -34,13 +35,14 @@ export const Row = styled.div<CSSProperties>`
   border: ${({ border }) => `${border ? `1px solid ${border}` : "none"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
   border-radius: 5px;
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
 `
 
 export const Div = styled.div<CSSProperties>`
   width: ${({ width }) => `${width ? `${width}px` : "auto"}`};
   height: ${({ height }) => `${height ? `${height}px` : "auto"}`};
   border: ${({ border }) => `1px solid ${border ? `${border}` : "none"}`};
-  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "16px"}`};
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
   margin: 0;
   overflow: hidden;
@@ -55,6 +57,7 @@ export const DivShadow = styled.div<CSSProperties>`
   justify-content: flex-start;
   align-items: flex-start;
   box-shadow: 2px 2px 10px #bbb;
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
 `
 
 export const DivPre = styled.div<CSSProperties>`
@@ -64,6 +67,7 @@ export const DivPre = styled.div<CSSProperties>`
   margin: 0;
   font-family: monospace;
   overflow: auto;
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
 `
 
 export const Code = styled.pre<CSSProperties & { align?: string }>`
@@ -72,13 +76,13 @@ export const Code = styled.pre<CSSProperties & { align?: string }>`
   min-height: ${({ minHeight }) => `${minHeight ? `${minHeight}px` : "auto"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
   margin: 0;
-  font-size: ${({ fontSize = 12 }) => `${fontSize}px`};
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
   font-family: monospace;
   overflow: auto;
 `
 
-export const S = styled.span`
+export const S = styled.span<CSSProperties>`
   color: var(--main-color);
-  font-size: 1.1rem;
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
   font-family: monospace;
 `

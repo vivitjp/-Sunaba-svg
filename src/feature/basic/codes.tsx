@@ -1,12 +1,12 @@
 import { ReactNode } from "react"
 
-type BasicCodes = {
+type Codes = {
   title: string
   code: string
   jsx: ReactNode
 }
 
-export const basicCodes: BasicCodes[] = [
+export const codes: Codes[] = [
   {
     title: `SVG基本構文`,
     code: `<svg x={0} y={0} width={200} height={120}

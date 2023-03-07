@@ -3,23 +3,33 @@ import { Shape } from "../setting"
 export const Rectangle: Shape = {
   title: "Rectangle",
   shape: {
-    code: `<rect x="100" y="100" width="100" height="100" />`,
+    code: `<rect x="100" y="100" width="300" height="100" />`,
     jsx: (
       <rect
         x="100"
         y="100"
-        width="200"
-        height="200"
+        width="300"
+        height="100"
         fill="none"
         stroke={"var(--main-color)"}
       />
     ),
   },
-  path: {
-    code: `<path d="M100,100 h200 v200 h-200z" />`,
+  absolute: {
+    code: `<path d="M100,100 H400 V100 H200z" />`,
     jsx: (
       <path
-        d="M100,100 h200 v200 h-200z"
+        d="M100,100 H400 V200 H100z"
+        stroke={"var(--main-color)"}
+        fill="none"
+      />
+    ),
+  },
+  relative: {
+    code: `<path d="M100,100 h300 v100 h-300z" />`,
+    jsx: (
+      <path
+        d="M100,100 h300 v100 h-300z"
         stroke={"var(--main-color)"}
         fill="none"
       />

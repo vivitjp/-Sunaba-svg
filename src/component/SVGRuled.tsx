@@ -30,6 +30,7 @@ export const SVGRuled: FC<SVGRuled> = ({
   height,
   ratio = 1,
   children,
+  viewbox,
   ...args
 }: SVGRuled) => {
   const [widthRatio, setWidthRatio] = useState<number>(0)
@@ -63,7 +64,13 @@ export const SVGRuled: FC<SVGRuled> = ({
   }, [yIntervalRatio, heightRatio])
 
   return (
-    <SVG width={width} height={height} ratio={ratio} {...args}>
+    <SVG
+      {...args}
+      width={width}
+      height={height}
+      ratio={ratio}
+      viewBox={viewbox}
+    >
       <g data-testid="AxisRulers">
         {!!xArray.length &&
           xArray.map((x, idx) => (

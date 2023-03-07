@@ -15,8 +15,9 @@ type CodeJsx = {
 
 export type Shape = {
   title: string
-  shape: CodeJsx
-  path: CodeJsx
+  shape?: CodeJsx
+  absolute?: CodeJsx
+  relative?: CodeJsx
 }
 
 export const shapes: Shape[] = [

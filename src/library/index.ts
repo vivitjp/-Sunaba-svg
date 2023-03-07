@@ -20,3 +20,5 @@ export * from './svg/lib/getViewbox';
 export * from './svg/lib/line';
 export * from './svg/lib/points';
 export * from './svg/type/type';
+export * from './syntaxHighlighter/syntaxHighlighter';
+export * from './syntaxHighlighter/keys/SVG';

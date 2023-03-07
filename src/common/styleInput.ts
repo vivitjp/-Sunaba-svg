@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled, { CSSProperties } from "styled-components"
 
-export const Number = styled.input.attrs({ type: "number" })`
+export const Input = styled.input<CSSProperties>`
   padding: 0.2rem;
   width: 100px;
   height: 40px;
@@ -11,7 +11,18 @@ export const Number = styled.input.attrs({ type: "number" })`
   text-align: center;
 `
 
-export const TextArea = styled.textarea`
+export const Number = styled.input.attrs<CSSProperties>({ type: "number" })`
+  padding: 0.2rem;
+  width: 100px;
+  height: 40px;
+  color: grey;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  text-align: center;
+`
+
+export const TextArea = styled.textarea<CSSProperties>`
   width: 500px;
   height: 100%;
   padding: 5px;
@@ -25,7 +36,7 @@ export const TextArea = styled.textarea`
   resize: none;
 `
 
-export const Button = styled.button`
+export const Button = styled.button<CSSProperties>`
   width: 100px;
   height: 40px;
   padding: 10px;
@@ -40,7 +51,7 @@ export const Button = styled.button`
   box-shadow: 0 0 5px #bbb;
 `
 
-export const Checkbox = styled.input.attrs({ type: "checkbox" })`
+export const Checkbox = styled.input.attrs<CSSProperties>({ type: "checkbox" })`
   padding: 0;
   width: 30px;
 `

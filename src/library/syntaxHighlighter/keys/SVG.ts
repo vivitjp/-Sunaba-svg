@@ -5,7 +5,7 @@ export const keysSVG: KeyDef[] = [
   { color: "#777", keys: ["xmlns", "viewBox"] },
   {
     color: "DarkViolet",
-    keys: ["g", "use", "view", "switch", "filter", "mask"],
+    keys: ["g", "use", "view", "switch", "filter", "mask", "defs"],
   },
   {
     color: "RoyalBlue",

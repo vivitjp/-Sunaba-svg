@@ -24,8 +24,8 @@ export const Viewbox = () => {
   return (
     <Section>
       <Row border={"#ddd"} padding={6}>
-        <Code fontSize={20}>
-          SVG width:<S>600px</S> height:<S>300px</S>
+        <Code fontSize={18}>
+          SVG width:<S fontSize={20}>600</S> height:<S fontSize={20}>300</S>
         </Code>
       </Row>
 
@@ -124,7 +124,7 @@ const AspectRatio: FC<AspectRatioProps> = ({
   return (
     <Row border={"#ddd"} padding={10}>
       <Div fontSize={18}>
-        preserveAspectRatio <S>X</S>:
+        preserveAspectRatio <S fontSize={20}>X</S>:
       </Div>
       <SelectSet
         options={aspectXOptions}
@@ -132,7 +132,7 @@ const AspectRatio: FC<AspectRatioProps> = ({
         width={80}
       />
       <Div fontSize={18}>
-        <S>Y</S>:
+        <S fontSize={20}>Y</S>:
       </Div>
       <SelectSet
         options={aspectYOptions}

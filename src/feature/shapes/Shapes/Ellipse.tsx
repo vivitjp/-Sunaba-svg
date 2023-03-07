@@ -3,11 +3,11 @@ import { Shape } from "../setting"
 export const Ellipse: Shape = {
   title: "Ellipse",
   shape: {
-    code: `<ellipse cx="200" cy="200" rx="100" ry="50" />`,
+    code: `<ellipse cx="150" cy="150" rx="100" ry="50" />`,
     jsx: (
       <ellipse
-        cx="200"
-        cy="200"
+        cx="150"
+        cy="150"
         rx="100"
         ry="50"
         fill="none"
@@ -15,11 +15,21 @@ export const Ellipse: Shape = {
       />
     ),
   },
-  path: {
-    code: `<path d="M200,150 a 100,50 0 1,1 0,100 a 100,50 0 1,1 0,-100z" />`,
+  absolute: {
+    code: `<path d="M150,100 A 100,50 0 1,1 150,200 A 100,50 0 1,1 150,100z" />`,
     jsx: (
       <path
-        d="M200,150 a 100,50 0 1,1 0,100 a 100,50 0 1,1 0,-100z"
+        d="M150,100 A 100,50 0 1,1 150,200 A 100,50 0 1,1 150,100z"
+        stroke={"var(--main-color)"}
+        fill="none"
+      />
+    ),
+  },
+  relative: {
+    code: `<path d="M150,100 a 100,50 0 1,1 0,100 a 100,50 0 1,1 0,-100z" />`,
+    jsx: (
+      <path
+        d="M150,100 a 100,50 0 1,1 0,100 a 100,50 0 1,1 0,-100z"
         stroke={"var(--main-color)"}
         fill="none"
       />

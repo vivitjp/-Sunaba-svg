@@ -100,8 +100,8 @@ export const Playground = () => {
   return (
     <Section>
       {/* 倍率設定、マージン */}
-      <Row border={"#ddd"}>
-        <Div>ratio</Div>
+      <Row border={"#ddd"} fontSize={18}>
+        <Div>Ratio</Div>
         <SelectSet options={options} onChange={handleChangeSelect} width={60} />
         <Div>Margin</Div>
         <Number onChange={handleMargin} value={margin} placeholder="margin" />

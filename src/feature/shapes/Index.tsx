@@ -1,4 +1,4 @@
-import { Code, Column, Div, Row, Section } from "../../common/styleDiv"
+import { Code, Column, Div, DivPre, Row, Section } from "../../common/styleDiv"
 import { SVGRuled, SelectSet } from "~/component"
 import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
 import { Shape, shapes, shapesOptions } from "./setting"
@@ -18,13 +18,27 @@ export const Shapes = () => {
     <Section style={{ width: "100%" }}>
       <SelectShapes setSelectedShape={setSelectedShape} />
       <Column padding={1} style={{ gap: "0" }}>
-        <CompoCode title={"Shape"} code={shapeSet?.shape.code} />
-        <CompoCode title={"Path"} code={shapeSet?.path.code} />
+        {shapeSet?.shape && (
+          <CompoCode title={"Shape"} code={shapeSet?.shape.code} />
+        )}
+        {shapeSet?.absolute && (
+          <CompoCode title={"絶対Path"} code={shapeSet?.absolute.code} />
+        )}
+        {shapeSet?.relative && (
+          <CompoCode title={"相対Path"} code={shapeSet?.relative.code} />
+        )}
       </Column>
-      <Row style={{ width: "auto", overflowX: "auto" }} padding={1}>
-        <CompoSVG title={"Shape"} jsx={shapeSet?.shape.jsx} />
-        <CompoSVG title={"Path"} jsx={shapeSet?.path.jsx} />
-      </Row>
+      <Column style={{ width: "auto" }} padding={1}>
+        {shapeSet?.shape && (
+          <CompoSVG title={"Shape"} jsx={shapeSet?.shape.jsx} />
+        )}
+        {shapeSet?.absolute && (
+          <CompoSVG title={"絶対Path"} jsx={shapeSet?.absolute.jsx} />
+        )}
+        {shapeSet?.relative && (
+          <CompoSVG title={"相対Path"} jsx={shapeSet?.relative.jsx} />
+        )}
+      </Column>
     </Section>
   )
 }
@@ -41,7 +55,7 @@ const CompoCode = ({ code = "", title = "" }: CompoCode) => {
   return (
     <Row style={{ width: "100%", gap: "none" }}>
       <Div style={{ width: "60px" }}>{title}</Div>
-      <Code
+      <DivPre
         fontSize={18}
         minHeight={44}
         style={{
@@ -51,7 +65,7 @@ const CompoCode = ({ code = "", title = "" }: CompoCode) => {
         }}
       >
         {code}
-      </Code>
+      </DivPre>
     </Row>
   )
 }
@@ -76,9 +90,10 @@ const CompoSVG = ({ jsx, title }: { title: string; jsx?: ReactNode }) => {
         </Div>
       </Row>
       <SVGRuled
-        width={400}
-        height={400}
+        width={600}
+        height={300}
         ratio={1}
+        viewBox="0 0 900 450"
         xRulers={xRulers}
         yRulers={yRulers}
         zeroRulers={zeroRulers}
