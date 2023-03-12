@@ -1,6 +1,6 @@
 import { Viewbox } from "~/feature"
 
-export const page02viewbox = () => {
+export const PageViewbox = () => {
   return (
     <div>
       <Viewbox />

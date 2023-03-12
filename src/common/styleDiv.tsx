@@ -6,6 +6,8 @@ export const Section = styled.section<CSSProperties>`
   flex-direction: ${({ flexDirection = "column" }) => `${flexDirection}`};
   border: ${({ border }) => `${border ? `1px solid ${border}` : "none"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
+  padding-bottom: ${({ paddingBottom, padding = 5 }) =>
+    `${paddingBottom ? `${paddingBottom}px` : `${padding}px`}`};
   gap: ${({ gap = 10 }) => `${gap}px`};
   overflow: ${({ overflow = "auto" }) => `${overflow}`};
 `
@@ -45,6 +47,7 @@ export const Div = styled.div<CSSProperties>`
   font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
   margin: 0;
+  margin-top: ${({ marginTop = 0 }) => `${marginTop ? `${marginTop}px` : 0}`};
   overflow: hidden;
 `
 

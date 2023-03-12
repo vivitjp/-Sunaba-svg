@@ -22,12 +22,12 @@ export type Shape = {
 
 export const shapes: Shape[] = [
   Line,
-  Rectangle,
-  RectangleRadius,
-  Circle,
-  Ellipse,
   Polyline,
   Polygon,
+  Rectangle,
+  Circle,
+  Ellipse,
+  RectangleRadius,
 ]
 
 export const shapesOptions: Options[] = shapes.map(({ title }) => ({

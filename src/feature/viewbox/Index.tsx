@@ -2,7 +2,7 @@ import { rectangle, Text } from "~/library"
 import { Code, Div, Row, S, Section } from "../../common/styleDiv"
 import { FC, useCallback, useState } from "react"
 import { SelectSet } from "~/component"
-import { adjustOptions, aspectXOptions, aspectYOptions } from "./setting"
+import { adjustOptions, aspectXOptions, aspectYOptions } from "../basic/setting"
 
 export const Viewbox = () => {
   //Viewbox

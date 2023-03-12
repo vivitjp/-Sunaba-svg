@@ -1,6 +1,6 @@
 import { Basic } from "~/feature"
 
-export const page01basic = () => {
+export const PageBasic = () => {
   return (
     <div>
       <Basic />

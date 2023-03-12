@@ -93,7 +93,6 @@ const CompoSVG = ({ jsx, title }: { title: string; jsx?: ReactNode }) => {
         width={600}
         height={300}
         ratio={1}
-        viewBox="0 0 900 450"
         xRulers={xRulers}
         yRulers={yRulers}
         zeroRulers={zeroRulers}

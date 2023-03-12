@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { Column, Div, Section } from "../../common/styleDiv"
 import React from "react"
-import { codes } from "./codes"
+import { basicCodes } from "./codes"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
 
@@ -9,14 +9,16 @@ export const Basic = () => {
   return (
     <Section>
       <Column padding={6} gap={20}>
-        {codes.map(({ code, jsx, title }, idx) => {
+        {basicCodes.map(({ code, jsx, title }, idx) => {
           console.log(code.split("\n").length)
 
           return (
             <Column key={idx}>
               <Title>{title}</Title>
               <CodeBox code={code} />
-              <Div> {jsx} </Div>
+              <Div border="#ccc" padding={0} marginTop={10}>
+                {jsx}
+              </Div>
             </Column>
           )
         })}
@@ -44,7 +46,7 @@ const Title = styled.div`
 const CodeBox = ({ code }: { code: string }) => {
   const result = syntaxHighlight({ keyDef: keysSVG, target: code })
   return (
-    <Column gap={2} shadow={10}>
+    <Column gap={2} shadow={10} padding={10}>
       {result}
     </Column>
   )

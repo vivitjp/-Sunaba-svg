@@ -10,12 +10,11 @@ const Section = styled.section`
   justify-content: center;
   align-items: center; //stretch
   width: 100%;
-  height: 100%;
-  padding: 0.2rem;
+  height: 500px;
   gap: 0.2rem;
 
   font-size: 5rem;
-  color: orange;
+  color: var(--main-color);
 
   transition: all 1s;
   opacity: 0.3;

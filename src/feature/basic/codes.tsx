@@ -6,7 +6,7 @@ type Codes = {
   jsx: ReactNode
 }
 
-export const codes: Codes[] = [
+export const basicCodes: Codes[] = [
   {
     title: `SVG基本構文`,
     code: `<svg x={0} y={0} width={200} height={120}
@@ -23,7 +23,6 @@ export const codes: Codes[] = [
         viewBox="0 0 200 120"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect x={0} y={0} width={200} height={120} fill="none" stroke="grey" />
         <path d="M10,10 h80 v80 h-80z" fill="orange" stroke="red" />
       </svg>
     ),
@@ -36,7 +35,6 @@ export const codes: Codes[] = [
 </svg>`,
     jsx: (
       <svg width={200} height={120}>
-        <rect x={0} y={0} width={200} height={120} fill="none" stroke="grey" />
         <path d="M10,10 h80 v80 h-80z" fill="orange" stroke="red" />
       </svg>
     ),
@@ -47,23 +45,34 @@ export const codes: Codes[] = [
     code: `<svg width={200} height={120}>
   <g id="group-a" fill="orange" stroke="red">
     <path d="M10,10 h80 v80 h-80z" />
-    <path d="M60,60 h80 v80 h-80z" stroke="yellow" />
+    <path d="M60,60 h80 v80 h-80z" fill="blue" />
   </g>
 </svg>`,
     jsx: (
       <svg width={200} height={120}>
-        <rect x={0} y={0} width={200} height={120} fill="none" stroke="grey" />
         <g id="group-a" fill="orange" stroke="red">
           <path d="M10,10 h80 v80 h-80z" />
-          <path d="M80,30 h80 v80 h-80z" stroke="yellow" />
+          <path d="M80,30 h80 v80 h-80z" fill="blue" />
         </g>
       </svg>
     ),
   },
   /* -------------------------------------------------------- */
   {
-    title: ``,
-    code: ``,
-    jsx: <></>,
+    title: `SVG in SVG`,
+    code: `<svg width={200} height={120}>
+  <path d="M10,10 h80 v80 h-80z" fill="orange" stroke="red" />
+  <svg x={70} y={20} width={100} height={100}>
+    <path d="M10,10 h80 v80 h-80z" fill="green" stroke="red" />
+  </svg>
+</svg>`,
+    jsx: (
+      <svg width={200} height={120}>
+        <path d="M10,10 h80 v80 h-80z" fill="orange" stroke="red" />
+        <svg x={70} y={20} width={100} height={100}>
+          <path d="M10,10 h80 v80 h-80z" fill="green" stroke="red" />
+        </svg>
+      </svg>
+    ),
   },
 ]

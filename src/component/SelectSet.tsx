@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { CSSProperties } from "styled-components"
 
 export type Options = {
   title: string
@@ -8,13 +8,11 @@ export type Options = {
 export type SelectSet = {
   options: Options[]
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
-  width?: number
   withBlanc?: boolean
-}
+} & Omit<CSSProperties, "translate">
 
 export const SelectSet = ({
   options,
-  width,
   onChange,
   withBlanc,
   ...args
@@ -24,7 +22,7 @@ export const SelectSet = ({
     : [...options]
 
   return (
-    <Select {...args} width={width} onChange={onChange}>
+    <Select {...args} onChange={onChange}>
       {!!options.length &&
         revOptions.map((n, index) => (
           <option key={index} value={n.value}>
@@ -35,16 +33,14 @@ export const SelectSet = ({
   )
 }
 
-type Select = {
-  width?: number
-}
-const Select = styled.select<Select>`
+const Select = styled.select<CSSProperties>`
   width: ${({ width = 160 }) => `${width}px`};
-  height: 40px;
-  padding: 10px;
+  height: ${({ height = 40 }) => `${height}px`};
+  padding: 0;
+  padding-left: 10px;
   border: 1px solid #aaa;
   background-color: white;
   border-radius: 5px;
-  text-align: center;
   box-shadow: 0 0 5px #eee;
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
 `

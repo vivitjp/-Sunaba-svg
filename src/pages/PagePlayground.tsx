@@ -1,5 +1,5 @@
 import { Playground as PlaygroundCompo } from "~/feature/Playground/Index"
 
-export const Playground = () => {
+export const PagePlayground = () => {
   return <PlaygroundCompo />
 }

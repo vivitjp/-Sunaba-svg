@@ -14,5 +14,5 @@ export const aspectYOptions: Options[] = [
 
 export const adjustOptions: Options[] = [
   { title: "meet", value: "meet" },
-  { title: "cut", value: "cut" },
+  { title: "slice", value: "slice" },
 ]

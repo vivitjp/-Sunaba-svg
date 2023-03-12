@@ -1,6 +1,6 @@
 import { Shapes } from "~/feature"
 
-export const page03shapes = () => {
+export const PageShapes = () => {
   return (
     <div>
       <Shapes />

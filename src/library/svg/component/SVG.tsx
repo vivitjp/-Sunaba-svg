@@ -11,8 +11,6 @@ export type SVG = {
   height: number
   ratio?: number
   margin?: number
-  viewboxWidth?: number
-  viewboxHeight?: number
   children: React.ReactNode
   viewbox?: string
   marginTLOnly?: boolean

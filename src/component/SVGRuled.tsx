@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from "react"
+import React, { FC, useEffect, useMemo, useState } from "react"
 import { Path, SVG, Text, line } from "~/library"
 
 export type Rulers = {
@@ -15,6 +15,7 @@ type SVGRuled = {
   xRulers?: Rulers
   yRulers?: Rulers
   zeroRulers?: Rulers
+  viewbox?: string
 } & SVG
 
 const getListType = (lineType: "solid" | "dashed", ratio: number) => {
@@ -69,7 +70,7 @@ export const SVGRuled: FC<SVGRuled> = ({
       width={width}
       height={height}
       ratio={ratio}
-      viewBox={viewbox}
+      viewbox={viewbox}
     >
       <g data-testid="AxisRulers">
         {!!xArray.length &&
