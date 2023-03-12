@@ -17,9 +17,9 @@ export const PageRoute = () => {
                   key={menu.path}
                   path={menu.path}
                   element={
-                    <Layout>
-                      <Section>
-                        <Title>{menu.name}</Title>
+                    <Layout data-testid="layout">
+                      <Section data-testid="layout-section">
+                        <Title data-testid="layout-title">{menu.name}</Title>
                         <Suspense fallback={<div>Loading...</div>}>
                           <menu.element />
                         </Suspense>
@@ -38,7 +38,7 @@ export const PageRoute = () => {
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 20px;
   width: 100%;
 `
 const Title = styled.div`

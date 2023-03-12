@@ -20,8 +20,8 @@ export const attributes: Attribute[] = [
     sample: "arcs/bevel/miter/miter-clip/round",
   },
   { title: "strokeOpacity", note: "線の透明度", sample: "0.0~1.0" },
-  { title: "fill", note: "塗り潰しの色", sample: "=CSS/currentColor" },
-  { title: "fillOpacity", note: "", sample: "=CSS" },
+  { title: "fill", note: "塗り色", sample: "=CSS/currentColor" },
+  { title: "fillOpacity", note: "塗り色の透明度", sample: "0.0~1.0" },
   { title: "fillRule", note: "重複白抜き", sample: "nonzero/evenodd" },
   { title: "opacity", note: "透明", sample: "0.0~1.0" },
   {

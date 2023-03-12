@@ -1,5 +1,12 @@
 import styled, { CSSProperties } from "styled-components"
 
+export const makeOptions = (items: string[]) => {
+  return items.map((item) => ({
+    title: item,
+    value: item,
+  }))
+}
+
 export type Options = {
   title: string
   value: number | string
@@ -9,12 +16,14 @@ export type SelectSet = {
   options: Options[]
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
   withBlanc?: boolean
+  value: number | string
 } & Omit<CSSProperties, "translate">
 
 export const SelectSet = ({
   options,
   onChange,
   withBlanc,
+  value,
   ...args
 }: SelectSet) => {
   const revOptions = withBlanc
@@ -22,7 +31,7 @@ export const SelectSet = ({
     : [...options]
 
   return (
-    <Select {...args} onChange={onChange}>
+    <Select {...args} onChange={onChange} value={value}>
       {!!options.length &&
         revOptions.map((n, index) => (
           <option key={index} value={n.value}>

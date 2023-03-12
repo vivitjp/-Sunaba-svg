@@ -1,8 +1,9 @@
 import styled from "styled-components"
-import { Column, Div, Row, Section } from "../../common/styleDiv"
-import { attributeCode, attributeCodes } from "./codes"
+import { Column, Div, Row, Section, Range } from "../../common/styleDiv"
+import { attributeCode, attributeCodes, vTypes } from "./codes"
 import { useCallback } from "react"
 import { SelectSet } from "~/component"
+import React from "react"
 
 export const Attribute = () => {
   return (
@@ -21,12 +22,23 @@ const Parameters = ({ useAttr }: { useAttr: attributeCode }) => {
     misc: { title, sample },
     state: [param, setParam],
     jsx,
-    selectOptions,
+    vType,
+    numberRange = [0, 1],
+    rangeSteps = 0.1,
+    selectOptions = [],
   } = useAttr()
 
   const handleChangeText = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.currentTarget.value
+      setParam(value)
+    },
+    []
+  )
+
+  const handleChangeRange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = parseFloat(e.currentTarget.value)
       setParam(value)
     },
     []
@@ -44,13 +56,25 @@ const Parameters = ({ useAttr }: { useAttr: attributeCode }) => {
     <Column gap={6} shadow={10} padding={10}>
       <Title>{title}</Title>
       <Row padding={0}>
-        {!selectOptions && (
+        {vType === vTypes.text && (
           <>
             <Input width={200} onChange={handleChangeText} value={param} />
             <Sample>{sample}</Sample>
           </>
         )}
-        {selectOptions && (
+        {vType === vTypes.range && (
+          <>
+            <Range
+              width={200}
+              onChange={handleChangeRange}
+              value={param as number}
+              range={numberRange}
+              step={rangeSteps}
+            />
+            <Sample>{sample}</Sample>
+          </>
+        )}
+        {vType === vTypes.select && (
           <SelectSet
             width={200}
             fontSize={20}
@@ -69,9 +93,9 @@ const Parameters = ({ useAttr }: { useAttr: attributeCode }) => {
   )
 }
 
-/*
- タイトル
-**/
+//----------------------------------------
+// Styled
+//----------------------------------------
 const Title = styled.div`
   font-size: 20px;
   color: var(--main-color);
@@ -81,17 +105,11 @@ const Title = styled.div`
     color: var(--main-color);
   }
 `
-//----------------------------------------
-// Sample
-//----------------------------------------
 const Sample = styled.div`
   font-size: 1rem;
   font-size: 1.2rem;
   color: grey;
 `
-//----------------------------------------
-// Input
-//----------------------------------------
 const Input = styled.input.attrs({ type: "text" })`
   width: 160px;
   height: 36px;

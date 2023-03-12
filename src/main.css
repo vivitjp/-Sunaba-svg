@@ -30,6 +30,7 @@ dialog::backdrop {
 
 :root {
   --main-color: FireBrick;
+  --main-fill: Salmon;
 }
 
 pre {

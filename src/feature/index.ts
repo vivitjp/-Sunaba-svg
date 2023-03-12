@@ -18,6 +18,8 @@ export * from './shapes/Shapes/Polygon';
 export * from './shapes/Shapes/Polyline';
 export * from './shapes/Shapes/Rectangle';
 export * from './shapes/Shapes/RectangleRadius';
+export * from './text/codes';
+export * from './text/Index';
 export * from './use/codes';
 export * from './use/Index';
 export * from './viewbox/Index';

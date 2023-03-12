@@ -89,3 +89,39 @@ export const S = styled.span<CSSProperties>`
   font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
   font-family: monospace;
 `
+
+const NumberRange = ({
+  step,
+  range: [min, max],
+  value,
+  onChange,
+  ...args
+}: {
+  step: number
+  range: [number, number]
+  value: number
+  onChange: React.ChangeEventHandler<HTMLInputElement>
+}) => {
+  return (
+    <input
+      {...args}
+      onChange={onChange}
+      type="range"
+      step={`${step}`}
+      min={min}
+      max={max}
+      value={value}
+    />
+  )
+}
+
+export const Range = styled(NumberRange)<CSSProperties>`
+  width: ${({ width = 200 }) => `${width ? `${width}px` : "100%"}`};
+  height: 36px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--main-color);
+`

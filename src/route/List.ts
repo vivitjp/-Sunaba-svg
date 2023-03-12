@@ -8,6 +8,7 @@ import { PageViewbox } from "~/pages/viewbox"
 import { PageShapes } from "~/pages/shapes"
 import { PageUse } from "~/pages/use"
 import { PageAttribute } from "~/pages/attribute"
+import { PageText } from "~/pages/text"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -28,9 +29,9 @@ export const menuGroup: MenuGroup = {
     { name: "02: Viewbox", path: "/viewbox", element: PageViewbox },
     { name: "03: Shapes", path: "/shapes", element: PageShapes },
     { name: "04: Attribute", path: "/attribute", element: PageAttribute },
-    //{ name: "0: Text", path: "/use", element: PageText },
+    { name: "05: Text", path: "/text", element: PageText },
     //{ name: "0: Image", path: "/use", element: PageImage },
-    { name: "05: Use", path: "/use", element: PageUse },
+    { name: "06: Use", path: "/use", element: PageUse },
     // { name: "0: effect", path: "/effect", element: PageEffect },
     // { name: "0: transform", path: "/transform", element: PageTransform },
     // { name: "0: animation", path: "/animation", element: PageAnimation },

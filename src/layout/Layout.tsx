@@ -34,7 +34,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 const GroupCompo = ({ group: [title, menus] }: { group: [string, Menu[]] }) => {
   return (
     <Group>
-      <GroupTitle>{title}</GroupTitle>
+      <GroupTitle data-testid="group-title">{title}</GroupTitle>
       <>
         {!!menus.length && (
           <GroupBody>
