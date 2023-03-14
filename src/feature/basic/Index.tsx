@@ -5,7 +5,7 @@ import { basicCodes } from "./codes"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
 
-export const Basic = () => {
+export const FeatureBasic = () => {
   return (
     <Section>
       <Column padding={6} gap={20}>

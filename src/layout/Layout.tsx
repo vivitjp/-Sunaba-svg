@@ -33,7 +33,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
 const GroupCompo = ({ group: [title, menus] }: { group: [string, Menu[]] }) => {
   return (
-    <Group>
+    <Group open>
       <GroupTitle data-testid="group-title">{title}</GroupTitle>
       <>
         {!!menus.length && (

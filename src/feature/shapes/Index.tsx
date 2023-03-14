@@ -5,7 +5,7 @@ import { Shape, shapes, shapesOptions } from "./setting"
 import { FC, ReactNode, useCallback, useEffect, useState } from "react"
 import { Text } from "~/library"
 
-export const Shapes = () => {
+export const FeatureShapes = () => {
   const [selectedShape, setSelectedShape] = useState<string | null>(null)
   const [shapeSet, setShapeSet] = useState<Shape | null>(null)
 

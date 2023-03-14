@@ -1,9 +1,9 @@
-import { Attribute } from "~/feature"
+import { FeatureAttribute } from "~/feature"
 
 export const PageAttribute = () => {
   return (
     <div>
-      <Attribute />
+      <FeatureAttribute />
     </div>
   )
 }

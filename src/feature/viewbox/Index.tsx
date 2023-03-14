@@ -4,7 +4,7 @@ import { FC, useCallback, useState } from "react"
 import { SelectSet } from "~/component"
 import { adjustOptions, aspectXOptions, aspectYOptions } from "../basic/setting"
 
-export const Viewbox = () => {
+export const FeatureViewbox = () => {
   //Viewbox
   const [viewbox, setViewbox] = useState("0 0 600 300")
 

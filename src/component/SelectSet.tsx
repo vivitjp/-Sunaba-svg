@@ -16,14 +16,12 @@ export type SelectSet = {
   options: Options[]
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
   withBlanc?: boolean
-  value: number | string
 } & Omit<CSSProperties, "translate">
 
 export const SelectSet = ({
   options,
   onChange,
   withBlanc,
-  value,
   ...args
 }: SelectSet) => {
   const revOptions = withBlanc
@@ -31,7 +29,7 @@ export const SelectSet = ({
     : [...options]
 
   return (
-    <Select {...args} onChange={onChange} value={value}>
+    <Select {...args} onChange={onChange}>
       {!!options.length &&
         revOptions.map((n, index) => (
           <option key={index} value={n.value}>

@@ -24,7 +24,7 @@ import {
   Section,
 } from "../../common/styleDiv"
 
-export const Playground = () => {
+export const FeaturePlayground = () => {
   //Ratio倍率
   const [ratio, setRatio] = useState<number>(1)
   const [margin, setMargin] = useState<number>(MARGIN)

@@ -7,6 +7,8 @@ export * from './attitubute/Index';
 export * from './basic/codes';
 export * from './basic/Index';
 export * from './basic/setting';
+export * from './effect/Index';
+export * from './image/Index';
 export * from './Playground/Index';
 export * from './Playground/setting';
 export * from './shapes/Index';

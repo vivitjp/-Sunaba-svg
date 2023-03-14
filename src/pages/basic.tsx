@@ -1,5 +1,5 @@
-import { Basic } from "~/feature"
+import { FeatureBasic } from "~/feature"
 
 export const PageBasic = () => {
-  return <Basic />
+  return <FeatureBasic />
 }

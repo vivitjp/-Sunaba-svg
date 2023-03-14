@@ -1,9 +1,9 @@
-import { Viewbox } from "~/feature"
+import { FeatureViewbox } from "~/feature"
 
 export const PageViewbox = () => {
   return (
     <div>
-      <Viewbox />
+      <FeatureViewbox />
     </div>
   )
 }

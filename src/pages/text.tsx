@@ -1,9 +1,9 @@
-import { TextCompo } from "~/feature/text/Index"
+import { FeatureText } from "~/feature/text/Index"
 
 export const PageText = () => {
   return (
     <div>
-      <TextCompo />
+      <FeatureText />
     </div>
   )
 }

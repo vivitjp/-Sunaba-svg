@@ -6,7 +6,7 @@ import { useSelect } from "~/library/hooks/useSelect"
 import { useMemo } from "react"
 import { CSSProperties } from "styled-components"
 
-export const TextCompo = () => {
+export const FeatureText = () => {
   const { JSX: JsxSample, value: sample } = useText({
     title: "東京特許許可局",
     initValue: "東京特許許可局",
@@ -50,6 +50,20 @@ export const TextCompo = () => {
     step: 2,
   })
 
+  // const { JSX: JsxRotate, value: rotate } = useRange({
+  //   title: "回転 transform(rotate)",
+  //   initValue: 0,
+  //   range: [0, 360],
+  //   step: 1,
+  // })
+
+  // const { JSX: JsxTranslate, value: translate } = useRange({
+  //   title: "移動 transform(translate)",
+  //   initValue: 0,
+  //   range: [0, 100],
+  //   step: 1,
+  // })
+
   const CSSProps: CSSProperties = useMemo(() => {
     let style: CSSProperties = {}
     if (fontSize) style = { fontSize: fontSize }
@@ -67,13 +81,15 @@ export const TextCompo = () => {
       {JsxFontWeight}
       {JsxFontFamily}
       {JsxFontSize}
+      {/* {JsxRotate}
+      {JsxTranslate} */}
 
       <Column padding={0} gap={20} border="#eee" width={640}>
-        <SVG width={640} height={100}>
-          <path d="M320,20 v60" stroke={"black"} strokeWidth={1} />
+        <SVG width={640} height={300}>
+          <path d="M320,20 v260" stroke={"black"} strokeWidth={1} />
           <text
             x={320}
-            y={60}
+            y={160}
             fill={fill as string}
             stroke={stroke as string}
             strokeWidth={strokeWidth}
@@ -81,6 +97,7 @@ export const TextCompo = () => {
             fontWeight={fontWeight}
             fontFamily={fontFamily}
             style={CSSProps}
+            //            transform={`rotate(${rotate},320,150) translate(${translate},${translate})`}
           >
             {sample}
           </text>

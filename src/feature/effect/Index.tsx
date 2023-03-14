@@ -5,7 +5,7 @@ import { useCallback } from "react"
 import { SelectSet } from "~/component"
 import React from "react"
 
-export const FeatureAttribute = () => {
+export const FeatureEffect = () => {
   return (
     <Section paddingBottom={100}>
       <Column padding={6} gap={20}>
