@@ -2,14 +2,18 @@ import styled from "styled-components"
 import { Column, Div, Row, Section } from "../../common/styleDiv"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
-import { useShadow } from "./codes/useShadow"
-import { useShadowGroup } from "./codes/useShadowGroup"
-import { useImageBlur } from "./codes/useImageBlur"
+import { useLinearGradation } from "./codes/useLinearGradation"
 import { Title } from "~/library"
+import { useCircleGradation } from "./codes/useCircleGradation"
+import { useLinearGradationWithGamma } from "./codes/useLinearGradationWithGamma"
 
-export const codes = [useShadow, useShadowGroup, useImageBlur]
+export const codes = [
+  useCircleGradation,
+  useLinearGradation,
+  useLinearGradationWithGamma,
+]
 
-export const FeatureEffect = () => {
+export const FeatureGradation = () => {
   return (
     <Section>
       <Column padding={6} gap={20}>

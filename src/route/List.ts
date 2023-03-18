@@ -11,6 +11,8 @@ import { PageAttribute } from "~/pages/Attribute"
 import { PageText } from "~/pages/Text"
 import { PageImage } from "~/pages/Image"
 import { PageEffect } from "~/pages/Effect"
+import { PageAnimation } from "~/pages/Animation"
+import { PageGradation } from "~/pages/Gradation"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -32,18 +34,28 @@ export const menuGroup: MenuGroup = {
     { name: "03: Shapes", path: "/shapes", element: PageShapes },
     { name: "04: Attribute", path: "/attribute", element: PageAttribute },
     { name: "05: Text", path: "/text", element: PageText },
+    //textPath
     { name: "06: Image", path: "/image", element: PageImage },
     { name: "07: Use", path: "/use", element: PageUse },
-    { name: "08: effect", path: "/effect", element: PageEffect },
+    { name: "08: Effect", path: "/effect", element: PageEffect },
+    { name: "09: Gradation", path: "/gradation", element: PageGradation },
     // { name: "0: transform", path: "/transform", element: PageTransform },
-    // { name: "0: animation", path: "/animation", element: PageAnimation },
+    { name: "10: Animation", path: "/animation", element: PageAnimation },
+    //{ name: "0: animateMotion", path: "/animeMotion", element: PageAnimeMotion },
+    //{ name: "0: animateTransform", path: "/animeTransform", element: PageAnimeTransform },
+    // { name: "0: event", path: "/event", element: PageEvent },
+    // <clipPath>
+    // foreignObject
+    // mask
+    // pattern
+    // symbol
   ],
   PlayGround: [
     { name: "Playground", path: "/playground", element: PagePlayground },
   ],
   Keep: [
     { name: "Interactive", path: "/interactive", element: InteractiveLine },
-    { name: "Use", path: "/use", element: InteractiveLineUse },
+    { name: "IntUse", path: "/intUse", element: InteractiveLineUse },
     { name: "Polyline", path: "/polyline", element: PolylineAnime },
   ],
 }

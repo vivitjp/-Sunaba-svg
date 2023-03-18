@@ -9,7 +9,7 @@ type Codes = {
 export const basicCodes: Codes[] = [
   {
     title: `SVG基本構文`,
-    code: `<svg x={0} y={0} width={200} height={120}
+    code: `<svg x="0" y="0" width="200" height="120"
   viewBox="0 0 200 120"
   xmlns="http://www.w3.org/2000/svg">
   <path d="M10,10 h80 v80 h-80z" fill="orange" stroke="red" />
@@ -30,7 +30,7 @@ export const basicCodes: Codes[] = [
   /* -------------------------------------------------------- */
   {
     title: `SVG基本構文(略)`,
-    code: `<svg width={200} height={120}>
+    code: `<svg width="200" height="120">
   <path d="M10,10 h80 v80 h-80z" fill="orange" stroke="red" />
 </svg>`,
     jsx: (
@@ -42,7 +42,7 @@ export const basicCodes: Codes[] = [
   /* -------------------------------------------------------- */
   {
     title: `グループ(g)`,
-    code: `<svg width={200} height={120}>
+    code: `<svg width="200" height="120">
   <g id="group-a" fill="orange" stroke="red">
     <path d="M10,10 h80 v80 h-80z" />
     <path d="M60,60 h80 v80 h-80z" fill="blue" />
@@ -60,9 +60,9 @@ export const basicCodes: Codes[] = [
   /* -------------------------------------------------------- */
   {
     title: `SVG in SVG`,
-    code: `<svg width={200} height={120}>
+    code: `<svg width="200" height="120">
   <path d="M10,10 h80 v80 h-80z" fill="orange" stroke="red" />
-  <svg x={70} y={20} width={100} height={100}>
+  <svg x="70" y="20" width="100" height="100">
     <path d="M10,10 h80 v80 h-80z" fill="green" stroke="red" />
   </svg>
 </svg>`,

@@ -1,22 +1,30 @@
 import { FC } from "react"
 type Props = {
-  attribute: string
+  attributeName: string
+  begin: number
   values: string
-  sec: number
-  count?: string
+  dur: number
+  from?: string | number
+  to?: string | number
+  repeatCount?: string | number
+  repeatDur?: string | number
 }
 export const Animate: FC<Props> = ({
-  attribute,
+  attributeName,
+  begin,
   values,
-  sec,
-  count = "indefinite",
+  dur,
+  repeatCount = "indefinite",
+  repeatDur,
 }: Props) => {
   return (
     <animate
-      attributeName={attribute}
+      attributeName={attributeName}
+      begin={`${begin}s`}
+      dur={`${dur}s`}
       values={values}
-      dur={`${sec}s`}
-      repeatCount={count}
+      repeatCount={repeatCount}
+      repeatDur={repeatDur} //clock values
     />
   )
 }

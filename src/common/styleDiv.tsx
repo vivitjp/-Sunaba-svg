@@ -2,7 +2,7 @@ import styled, { CSSProperties } from "styled-components"
 
 export const Section = styled.section<CSSProperties>`
   display: flex;
-  width: ${({ width }) => `${width ? `${width}px` : "100%"}`};
+  width: ${({ width }) => `${width ? `${width}px` : "750px"}`};
   flex-direction: ${({ flexDirection = "column" }) => `${flexDirection}`};
   border: ${({ border }) => `${border ? `1px solid ${border}` : "none"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
@@ -21,6 +21,8 @@ export const Column = styled.div<CSSProperties & { shadow?: number }>`
   gap: ${({ gap = 10 }) => `${gap}px`};
   border: ${({ border }) => `${border ? `1px solid ${border}` : "none"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
+  padding-left: ${({ paddingLeft, padding = 5 }) =>
+    `${paddingLeft ? `${paddingLeft}px` : `${padding}px`}`};
   border-radius: 5px;
   box-shadow: ${({ shadow }) =>
     `${shadow ? `2px 2px ${shadow}px #ccc;` : "none"}`};
@@ -36,6 +38,8 @@ export const Row = styled.div<CSSProperties>`
   gap: ${({ gap = 10 }) => `${gap}px`};
   border: ${({ border }) => `${border ? `1px solid ${border}` : "none"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
+  padding-left: ${({ paddingLeft, padding = 5 }) =>
+    `${paddingLeft ? `${paddingLeft}px` : `${padding}px`}`};
   border-radius: 5px;
   font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
 `

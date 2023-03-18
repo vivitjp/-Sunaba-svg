@@ -1,6 +1,5 @@
 import React from "react"
 import { useState } from "react"
-import styled from "styled-components"
 import {
   Coordinate,
   FilterShadow,
@@ -91,14 +90,3 @@ export const InteractiveLineUse = () => {
     </>
   )
 }
-
-const Input = styled.input.attrs({ type: "button" })`
-  padding: 0.2rem;
-  width: 160px;
-  height: 40px;
-  color: #999;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 1px 1px 5px #ccc;
-`

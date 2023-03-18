@@ -1,21 +1,14 @@
 import { CSSProperties, useCallback, useState } from "react"
 import styled from "styled-components"
-import { Row } from "~/common/styleDiv"
-import { Title } from "./Title.style"
 
 type Props = {
   title: string
+  subTitle?: string
   initValue: string
   width?: number
-  padding?: number
 }
 
-export const useText = ({
-  initValue,
-  title,
-  width = 300,
-  padding = 0,
-}: Props) => {
+export const useText = ({ initValue, title, subTitle, width = 240 }: Props) => {
   const [value, setValue] = useState<string | number>(initValue)
 
   const handle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,12 +19,9 @@ export const useText = ({
 
   return {
     value,
-    JSX: (
-      <Row padding={padding}>
-        <Title width={300}>{title}</Title>
-        <Input onChange={handle} width={width} value={value} />
-      </Row>
-    ),
+    subTitle,
+    title,
+    JSX: <Input onChange={handle} width={width} value={value} />,
   }
 }
 

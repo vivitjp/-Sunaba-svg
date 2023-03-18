@@ -1,108 +1,171 @@
-import { Column, Section } from "../../common/styleDiv"
-import { SVG } from "~/library"
+import { Column, Div, Row, Section } from "../../common/styleDiv"
+import { SVG, Title } from "~/library"
 import { useText } from "~/library/hooks/useText"
 import { useRange } from "~/library/hooks/useRange"
 import { useSelect } from "~/library/hooks/useSelect"
 import { useMemo } from "react"
-import { CSSProperties } from "styled-components"
+import styled, { CSSProperties } from "styled-components"
 
 export const FeatureText = () => {
-  const { JSX: JsxSample, value: sample } = useText({
+  const Sample = useText({
     title: "東京特許許可局",
     initValue: "東京特許許可局",
   })
-  const { JSX: JsxStroke, value: stroke } = useText({
-    title: "線色(stroke)",
+  const Stroke = useText({
+    title: "線色",
+    subTitle: "stroke",
     initValue: "#777",
   })
-  const { JSX: JsxStrokeWidth, value: strokeWidth } = useRange({
-    title: "線の太さ(strokeWidth)",
+  const StrokeWidth = useRange({
+    title: "線の太さ",
+    subTitle: "strokeWidth",
     initValue: 1,
     range: [1, 10],
     step: 1,
   })
-  const { JSX: JsxFill, value: fill } = useText({
-    title: "塗り色(fill)",
+  const Fill = useText({
+    title: "塗り色",
+    subTitle: "fill",
     initValue: "DarkCyan",
   })
-  const { JSX: JsxAnchor, value: anchor } = useSelect({
-    title: "アンカー(左右: anchor)",
+  const Anchor = useSelect({
+    title: "アンカー(左右)",
+    subTitle: "anchor",
     initValue: "middle",
     values: ["start", "middle", "end"],
   })
+  const dominantBaseline = useSelect({
+    title: "アンカー(上下)",
+    subTitle: "dominantBaseline",
+    initValue: "auto",
+    values: [
+      "ideographic",
+      "auto",
+      "middle",
+      "central",
+      "mathematical",
+      "hanging",
+      //"text-bottom", // = "auto"
+      //"alphabetic", // = "auto"
+      //"text-top", // = "auto"
+    ],
+  })
 
-  const { JSX: JsxFontWeight, value: fontWeight } = useRange({
-    title: "フォントWeight(fontWeight)",
+  const FontWeight = useRange({
+    title: "フォントWeight",
+    subTitle: "fontWeight",
     initValue: 500,
     range: [100, 800],
     step: 100,
   })
-  const { JSX: JsxFontFamily, value: fontFamily } = useSelect({
-    title: "フォントFamily(fontFamily)",
+  const FontFamily = useSelect({
+    title: "フォントFamily",
+    subTitle: "fontFamily",
     initValue: "sans-serif",
     values: ["serif", "sans-serif", "monospace", "cursive"],
   })
 
-  const { JSX: JsxFontSize, value: fontSize } = useRange({
-    title: "フォントSize(fontSize)",
+  const FontSize = useRange({
+    title: "フォントSize",
+    subTitle: "fontSize",
     initValue: 30,
     range: [8, 60],
     step: 2,
   })
 
-  // const { JSX: JsxRotate, value: rotate } = useRange({
-  //   title: "回転 transform(rotate)",
-  //   initValue: 0,
-  //   range: [0, 360],
-  //   step: 1,
-  // })
+  const Rotate = useRange({
+    title: "回転 transform",
+    subTitle: "rotate",
+    initValue: 0,
+    range: [0, 360],
+    step: 1,
+  })
 
-  // const { JSX: JsxTranslate, value: translate } = useRange({
-  //   title: "移動 transform(translate)",
-  //   initValue: 0,
-  //   range: [0, 100],
-  //   step: 1,
-  // })
+  const Translate = useRange({
+    title: "移動 transform",
+    subTitle: "translate",
+    initValue: 0,
+    range: [0, 100],
+    step: 1,
+  })
 
   const CSSProps: CSSProperties = useMemo(() => {
     let style: CSSProperties = {}
-    if (fontSize) style = { fontSize: fontSize }
-    if (fontFamily) style = { ...style, fontFamily: fontFamily }
+    if (FontSize.value) style = { fontSize: FontSize.value }
+    if (FontFamily.value) style = { ...style, fontFamily: FontFamily.value }
     return style
-  }, [fontSize, fontFamily])
+  }, [FontSize.value, FontFamily.value])
+
+  type Attribute = {
+    title: string
+    subTitle?: string
+    value: string | number
+    JSX: JSX.Element
+  }
+
+  const Attributes: Attribute[] = [
+    Sample,
+    Stroke,
+    StrokeWidth,
+    Fill,
+    Anchor,
+    dominantBaseline,
+    FontWeight,
+    FontFamily,
+    FontSize,
+    Rotate,
+    Translate,
+  ]
 
   return (
-    <Section paddingBottom={100}>
-      {JsxSample}
-      {JsxStroke}
-      {JsxStrokeWidth}
-      {JsxAnchor}
-      {JsxFill}
-      {JsxFontWeight}
-      {JsxFontFamily}
-      {JsxFontSize}
-      {/* {JsxRotate}
-      {JsxTranslate} */}
+    <Section>
+      {Attributes.map(({ title, subTitle, JSX }, idx) => (
+        <Row key={idx} gap={0} padding={0}>
+          <DivMainSub>
+            <Title width={250} color={"#555"}>
+              {title}
+            </Title>
+            {subTitle && (
+              <Div fontSize={16} fontFamily={"monospace"} color="#555">
+                {subTitle} :
+              </Div>
+            )}
+          </DivMainSub>
+          <Div width={250} padding={0}>
+            {JSX}
+          </Div>
+        </Row>
+      ))}
 
       <Column padding={0} gap={20} border="#eee" width={640}>
         <SVG width={640} height={300}>
           <path d="M320,20 v260" stroke={"black"} strokeWidth={1} />
+          <path d="M20,150 h620" stroke={"black"} strokeWidth={1} />
           <text
             x={320}
-            y={160}
-            fill={fill as string}
-            stroke={stroke as string}
-            strokeWidth={strokeWidth}
-            textAnchor={anchor}
-            fontWeight={fontWeight}
-            fontFamily={fontFamily}
+            y={150}
+            fill={Fill.value as string}
+            stroke={Stroke.value as string}
+            strokeWidth={StrokeWidth.value}
+            textAnchor={Anchor.value}
+            dominantBaseline={dominantBaseline.value}
+            fontWeight={FontWeight.value}
+            fontFamily={FontFamily.value}
             style={CSSProps}
-            //            transform={`rotate(${rotate},320,150) translate(${translate},${translate})`}
+            transform={`rotate(${Rotate.value},320,150) translate(${Translate.value},${Translate.value})`}
           >
-            {sample}
+            {Sample.value}
           </text>
         </SVG>
       </Column>
     </Section>
   )
 }
+
+const DivMainSub = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  width: 400px;
+`

@@ -98,7 +98,7 @@ export const Playground = styled.div`
   flex-direction: column;
   flex-grow: 2;
   padding: 10px;
-  border: 1px solid #eee;
+  margin-bottom: 100px;
   width: 100%;
   overflow: hidden;
 `

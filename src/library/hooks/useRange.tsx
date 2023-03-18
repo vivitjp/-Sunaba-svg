@@ -1,25 +1,23 @@
 import { useCallback, useState } from "react"
-import { Title } from "./Title.style"
-import { Range, Row } from "../../common/styleDiv"
-import styled from "styled-components"
+import { Div, Range, Row } from "../../common/styleDiv"
 
 type Props = {
   title: string
+  subTitle?: string
   initValue: number
   range: [number, number]
   step: number
   width?: number
-  padding?: number
   valueType?: "integer" | "float"
 }
 
 export const useRange = ({
   initValue,
   title,
+  subTitle,
   range,
   step = 1,
-  width = 200,
-  padding = 0,
+  width = 240,
   valueType = "integer",
 }: Props) => {
   const [value, setValue] = useState<number>(initValue)
@@ -33,23 +31,26 @@ export const useRange = ({
   }, [])
 
   return {
+    title,
+    subTitle,
     value,
     JSX: (
-      <Row padding={padding}>
-        <Title width={300}>{title}</Title>
+      <Row>
         <Range
-          width={width}
+          width={width - 50}
           onChange={handle}
           value={value}
           range={range}
           step={step}
         />
-        <Value>{value}</Value>
+        <Div width={50} fontSize={18}>
+          {value}
+        </Div>
       </Row>
     ),
   }
 }
 
-const Value = styled.div`
-  font-size: 20px;
-`
+// const Value = styled.div`
+//   font-size: 20px;
+// `
