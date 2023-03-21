@@ -1,8 +1,9 @@
 import { useState } from "react"
-import { useRange, useSelect, useText } from "~/library"
+import { useRange, useSelect } from "~/library"
+import { UseReturnType } from "./type"
 
-export function useAnime1() {
-  const title = `変化(values)`
+export function useAnime1(): UseReturnType {
+  const title = `変化(values & keyTimes)`
   const Visible = useState<boolean>(false)
   const [isVisible] = Visible
 
@@ -21,20 +22,24 @@ export function useAnime1() {
     values: ["indefinite", "1", "2"],
   })
 
-  const Values = useText({
-    title: "背景色(複数値区切り ; )",
-    subTitle: "values",
-    initValue: "white;blue;white",
+  const KeyTimes = useRange({
+    title: "変化区切り",
+    subTitle: "keyTimes",
+    initValue: 0.5,
+    range: [0.2, 0.9],
+    step: 0.1,
+    valueType: "float",
   })
 
   const code = `<svg x="0" y="0" width="700" height="140">
-  <path d="M140,20 h100 v100 h-100z" fill="white">
+  <path d="M20,20 h100 v100 h-100z" fill="white">
     <animate
       attributeName="fill"
       begin="0s"
       dur="${Duration.value}s"
       repeatCount="${Repeat.value}"
-      values="${Values.value}"  <---- from，to，by より優先
+      values="white;blue;white"  <---- from, to, by より優先
+      keyTimes="0;${KeyTimes.value};1"
     />
   </path>
 </svg>`
@@ -49,7 +54,8 @@ export function useAnime1() {
               begin="0s"
               dur={`${Duration.value}s`}
               repeatCount={Repeat.value}
-              values={Values.value as string}
+              values="white;blue;white"
+              keyTimes={`0;${KeyTimes.value};1`}
             />
           </path>
         </svg>
@@ -57,5 +63,12 @@ export function useAnime1() {
     </>
   )
 
-  return { Visible, title, code, options: [Duration, Repeat, Values], jsx }
+  return {
+    height: 155,
+    Visible,
+    title,
+    code,
+    options: [Duration, Repeat, KeyTimes],
+    jsx,
+  }
 }

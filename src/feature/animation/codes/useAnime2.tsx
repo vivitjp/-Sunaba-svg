@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { useRange, useSelect } from "~/library"
+import { UseReturnType } from "./type"
 
-export function useAnime2() {
-  const title = `変化(from-to)`
+export function useAnime2(): UseReturnType {
+  const title = `変化(from-to/by)`
   const Visible = useState<boolean>(false)
   const [isVisible] = Visible
 
@@ -14,32 +15,25 @@ export function useAnime2() {
     step: 1,
   })
 
-  const Repeat = useSelect({
-    title: "繰り返し",
-    subTitle: "repeatCount",
-    initValue: "indefinite",
-    values: ["indefinite", "1", "2"],
-  })
-
   const CalcMode = useSelect({
-    title: "変化の関数",
+    title: "Mode",
     subTitle: "calcMode",
     initValue: "linear",
-    values: ["discrete", "linear", "paced", "spline"],
+    values: ["linear", "discrete", "spline", "paced"],
   })
 
   const code = `<svg x="0" y="0" width="700" height="140">
-  <circle cx="70" cy="70" r="60" fill="blue">
+  <circle cx="70" cy="70" r="60" fill="blue"> // 初期値 r="60"
     <animate 
       attributeName="r"
-      begin="1s" <--- 初期値が0sでないと、animateなしのdefault属性表示
+      begin="1s"
       dur="${Duration.value}s"
       repeatCount="indefinite"
       from="0"
-      to="60"
+      to="60" or by="60" // to が優先
       calcMode="${CalcMode.value}"
     />
-  </path>
+  </circle>
 </svg>`
 
   const jsx = (
@@ -49,11 +43,22 @@ export function useAnime2() {
           <circle cx="70" cy="70" r="60" fill="blue">
             <animate
               attributeName="r"
-              begin="1s"
+              begin="0s"
               from="0"
               to="60"
               dur={`${Duration.value}s`}
-              repeatCount={Repeat.value}
+              repeatCount="indefinite"
+              calcMode={CalcMode.value}
+            />
+          </circle>
+          <circle cx="220" cy="70" r="60" fill="blue">
+            <animate
+              attributeName="r"
+              begin="0s"
+              from="0"
+              by="60"
+              dur={`${Duration.value}s`}
+              repeatCount="indefinite"
               calcMode={CalcMode.value}
             />
           </circle>
@@ -63,10 +68,11 @@ export function useAnime2() {
   )
 
   return {
+    height: 155,
     Visible,
     title,
     code,
-    options: [Duration, Repeat, CalcMode],
+    options: [Duration, CalcMode],
     jsx,
   }
 }

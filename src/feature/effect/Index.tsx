@@ -1,13 +1,12 @@
 import styled from "styled-components"
-import { Column, Div, Row, Section } from "../../common/styleDiv"
+import { Column, Div, Row, Section, Title } from "../../common/styleDiv"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
 import { useShadow } from "./codes/useShadow"
 import { useShadowGroup } from "./codes/useShadowGroup"
 import { useImageBlur } from "./codes/useImageBlur"
-import { Title } from "~/library"
 
-export const codes = [useShadow, useShadowGroup, useImageBlur]
+const codes = [useShadow, useShadowGroup, useImageBlur]
 
 export const FeatureEffect = () => {
   return (

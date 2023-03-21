@@ -3,8 +3,11 @@
  */
 
 export * from './animation/Index';
+export * from './animation/codes/type';
 export * from './animation/codes/useAnime1';
 export * from './animation/codes/useAnime2';
+export * from './animation/codes/useAnime3';
+export * from './animation/codes/useAnime4';
 export * from './attitubute/codes';
 export * from './attitubute/Index';
 export * from './basic/codes';

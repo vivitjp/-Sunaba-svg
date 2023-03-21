@@ -110,6 +110,7 @@ export const keysSVG: KeyDef[] = [
       "to",
       "by",
       "calcMode",
+      "keyTimes",
     ],
   },
   {

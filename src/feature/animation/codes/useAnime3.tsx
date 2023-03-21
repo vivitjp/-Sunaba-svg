@@ -1,49 +1,75 @@
 import { useState } from "react"
 import { useRange, useSelect } from "~/library"
+import { UseReturnType } from "./type"
 
-export function useAnime3() {
-  const title = `変化(calcMode)`
+export function useAnime3(): UseReturnType {
+  const title = `変化(to/by)`
   const Visible = useState<boolean>(false)
   const [isVisible] = Visible
 
+  const Duration = useRange({
+    title: "変化インターバル",
+    subTitle: "dur",
+    initValue: 3,
+    range: [1, 5],
+    step: 1,
+  })
+
+  const CalcMode = useSelect({
+    title: "Mode",
+    subTitle: "calcMode",
+    initValue: "linear",
+    values: ["linear", "discrete"],
+  })
+
   const code = `<svg x="0" y="0" width="700" height="140">
-  <line d="M20,20 h" >
+  <circle cx="70" cy="70" r="0" fill="blue"> // 初期値 r="0"
     <animate 
       attributeName="r"
-      dur="5s"
+      begin="0s"
+      dur="${Duration.value}s"
       repeatCount="indefinite"
-      from="0"
-      to="60"
-      calcMode= "{CalcMode.value}" //["discrete", "linear", "paced", "spline"]
+      to="60" or by="60" // to が優先
+      calcMode="${CalcMode.value}"
     />
-  </path>
+  </circle>
 </svg>`
 
   const jsx = (
     <>
       {isVisible && (
         <svg x="0" y="0" width="700" height="140">
-          <line x="20" y="20" width="500" stroke="blue">
+          <circle cx="70" cy="70" r="0" fill="blue">
             <animate
-              attributeName="width"
+              attributeName="r"
               begin="0s"
-              from="0"
-              to="500"
-              dur="5s"
+              to="60"
+              dur={`${Duration.value}s`}
               repeatCount="indefinite"
-              calcMode="linear"
+              calcMode={CalcMode.value}
             />
-          </line>
+          </circle>
+          <circle cx="220" cy="70" r="0" fill="blue">
+            <animate
+              attributeName="r"
+              begin="0s"
+              by="60"
+              dur={`${Duration.value}s`}
+              repeatCount="indefinite"
+              calcMode={CalcMode.value}
+            />
+          </circle>
         </svg>
       )}
     </>
   )
 
   return {
+    height: 155,
     Visible,
     title,
     code,
-    options: [],
+    options: [Duration, CalcMode],
     jsx,
   }
 }

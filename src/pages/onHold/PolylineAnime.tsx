@@ -74,9 +74,10 @@ export const PolylineAnime = () => {
                     <Tooltip>{name}</Tooltip>
                     {selected === id && (
                       <Animate
-                        attribute="stroke-width"
+                        attributeName="stroke-width"
                         values="2;4;2"
-                        sec={4}
+                        dur={4}
+                        begin={0}
                       />
                     )}
                   </Polyline>
@@ -97,33 +98,3 @@ export const PolylineAnime = () => {
     </>
   )
 }
-
-// const Polylines = ({ id, coordinates, name }: Polylines) => {
-//   const handleEnter = (id: string) => {}
-//   const handleLeave = () => {}
-
-//   return (
-//     <Polyline
-//       id={`polyline-${id}`}
-//       coordinates={getPoints(coordinates, RATIO)}
-//       strokeWidth="2"
-//       marker={"idMarkerCircle"}
-//       onMouseEnter={() => handleEnter(id)}
-//       onMouseLeave={() => handleLeave()}
-//     >
-//       <Tooltip>{name}</Tooltip>
-//       {/* <Animate attribute="stroke-width" values="2;4;2" sec={4} /> */}
-//     </Polyline>
-//   )
-// }
-
-const Input = styled.input.attrs({ type: "button" })`
-  padding: 0.2rem;
-  width: 160px;
-  height: 40px;
-  color: #999;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 1px 1px 5px #ccc;
-`

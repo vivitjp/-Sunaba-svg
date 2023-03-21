@@ -1,13 +1,13 @@
 import styled from "styled-components"
-import { Column, Div, Row, Section } from "../../common/styleDiv"
+import { Column, Div, Row, Section, Title } from "../../common/styleDiv"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
-import { Title } from "~/library"
 import { useAnime1 } from "./codes/useAnime1"
 import { useAnime2 } from "./codes/useAnime2"
 import { useAnime3 } from "./codes/useAnime3"
+import { useAnime4 } from "./codes/useAnime4"
 
-export const codes = [useAnime1, useAnime2, useAnime3]
+export const codes = [useAnime1, useAnime2, useAnime3, useAnime4]
 
 export const FeatureAnimation = () => {
   return (
@@ -15,6 +15,7 @@ export const FeatureAnimation = () => {
       <Column padding={6} gap={20}>
         {codes.map((useCode, idx) => {
           const {
+            height,
             Visible: [isVisible, setIsVisible],
             code,
             title,
@@ -55,7 +56,7 @@ export const FeatureAnimation = () => {
                 }}
                 value={isVisible ? "Stop" : "Start"}
               />
-              <Div border="#ccc" width={720} height={155}>
+              <Div border="#ccc" width={720} height={height}>
                 {jsx}
               </Div>
             </Column>

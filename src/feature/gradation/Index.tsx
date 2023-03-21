@@ -1,13 +1,12 @@
 import styled from "styled-components"
-import { Column, Div, Row, Section } from "../../common/styleDiv"
+import { Column, Div, Row, Section, Title } from "../../common/styleDiv"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
 import { useLinearGradation } from "./codes/useLinearGradation"
-import { Title } from "~/library"
 import { useCircleGradation } from "./codes/useCircleGradation"
 import { useLinearGradationWithGamma } from "./codes/useLinearGradationWithGamma"
 
-export const codes = [
+const codes = [
   useCircleGradation,
   useLinearGradation,
   useLinearGradationWithGamma,

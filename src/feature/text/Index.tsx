@@ -1,5 +1,5 @@
-import { Column, Div, Row, Section } from "../../common/styleDiv"
-import { SVG, Title } from "~/library"
+import { Column, Div, Row, Section, Title } from "../../common/styleDiv"
+import { SVG } from "~/library"
 import { useText } from "~/library/hooks/useText"
 import { useRange } from "~/library/hooks/useRange"
 import { useSelect } from "~/library/hooks/useSelect"
@@ -92,7 +92,8 @@ export const FeatureText = () => {
   const CSSProps: CSSProperties = useMemo(() => {
     let style: CSSProperties = {}
     if (FontSize.value) style = { fontSize: FontSize.value }
-    if (FontFamily.value) style = { ...style, fontFamily: FontFamily.value }
+    if (FontFamily.value)
+      style = { ...style, fontFamily: FontFamily.value as string }
     return style
   }, [FontSize.value, FontFamily.value])
 
@@ -150,10 +151,10 @@ export const FeatureText = () => {
             fill={Fill.value as string}
             stroke={Stroke.value as string}
             strokeWidth={StrokeWidth.value}
-            textAnchor={Anchor.value}
+            textAnchor={Anchor.value as string}
             dominantBaseline={dominantBaseline.value}
             fontWeight={FontWeight.value}
-            fontFamily={FontFamily.value}
+            fontFamily={FontFamily.value as string}
             style={CSSProps}
             transform={`rotate(${Rotate.value},320,150) translate(${Translate.value},${Translate.value})`}
           >

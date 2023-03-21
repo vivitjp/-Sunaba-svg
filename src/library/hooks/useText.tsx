@@ -1,5 +1,6 @@
 import { CSSProperties, useCallback, useState } from "react"
 import styled from "styled-components"
+import { CustomInputReturnType } from "./type"
 
 type Props = {
   title: string
@@ -8,7 +9,12 @@ type Props = {
   width?: number
 }
 
-export const useText = ({ initValue, title, subTitle, width = 240 }: Props) => {
+export const useText = ({
+  initValue,
+  title,
+  subTitle,
+  width = 240,
+}: Props): CustomInputReturnType => {
   const [value, setValue] = useState<string | number>(initValue)
 
   const handle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
