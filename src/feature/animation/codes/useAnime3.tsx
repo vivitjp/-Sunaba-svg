@@ -26,7 +26,6 @@ export function useAnime3(): UseReturnType {
   <circle cx="70" cy="70" r="0" fill="blue"> // 初期値 r="0"
     <animate 
       attributeName="r"
-      begin="0s"
       dur="${Duration.value}s"
       repeatCount="indefinite"
       to="60" or by="60" // to が優先
@@ -42,7 +41,6 @@ export function useAnime3(): UseReturnType {
           <circle cx="70" cy="70" r="0" fill="blue">
             <animate
               attributeName="r"
-              begin="0s"
               to="60"
               dur={`${Duration.value}s`}
               repeatCount="indefinite"
@@ -52,7 +50,6 @@ export function useAnime3(): UseReturnType {
           <circle cx="220" cy="70" r="0" fill="blue">
             <animate
               attributeName="r"
-              begin="0s"
               by="60"
               dur={`${Duration.value}s`}
               repeatCount="indefinite"

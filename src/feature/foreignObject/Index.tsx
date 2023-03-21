@@ -1,12 +1,10 @@
 import { Column, Section } from "../../common/styleDiv"
-import { useShadow } from "./codes/useShadow"
-import { useShadowGroup } from "./codes/useShadowGroup"
-import { useImageBlur } from "./codes/useImageBlur"
+import { useForeignObject1 } from "./codes/useForeignObject1"
 import { FeaturePresenter } from "../presenter/FeaturePresenter"
 
-const codes = [useShadow, useShadowGroup, useImageBlur]
+const codes = [useForeignObject1]
 
-export const FeatureEffect = () => {
+export const FeatureForeignObject = () => {
   return (
     <Section>
       <Column padding={6} gap={20}>

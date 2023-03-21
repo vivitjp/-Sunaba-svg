@@ -111,6 +111,7 @@ export const keysSVG: KeyDef[] = [
       "by",
       "calcMode",
       "keyTimes",
+      "keySplines",
     ],
   },
   {

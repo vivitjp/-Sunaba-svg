@@ -84,10 +84,6 @@ export const MenuItem = styled(Link)`
   text-decoration: none;
   font-size: 0.8rem;
   color: #777;
-  :before {
-    content: "■ ";
-    color: #777;
-  }
   :hover {
     color: var(--main-color);
   }

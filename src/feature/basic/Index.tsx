@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Column, Div, Section } from "../../common/styleDiv"
+import { Column, Div, Row, Section } from "../../common/styleDiv"
 import { basicCodes } from "./codes"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
@@ -9,14 +9,12 @@ export const FeatureBasic = () => {
     <Section>
       <Column padding={6} gap={20}>
         {basicCodes.map(({ code, jsx, title }, idx) => {
-          console.log(code.split("\n").length)
-
           return (
             <Column key={idx}>
               <Title>{title}</Title>
-              <Div padding={10}>
+              <Row padding={10} width={"100%"}>
                 <CodeBox code={code} />
-              </Div>
+              </Row>
               <Div border="#ccc" marginTop={10}>
                 {jsx}
               </Div>

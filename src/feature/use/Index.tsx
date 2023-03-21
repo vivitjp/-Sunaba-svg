@@ -13,8 +13,6 @@ export const FeatureUse = () => {
     <Section>
       <Column padding={6} gap={20}>
         {useCodes.map(({ code, jsx, title }, idx) => {
-          console.log(code.split("\n").length)
-
           return (
             <Column key={idx}>
               <Title>{title}</Title>

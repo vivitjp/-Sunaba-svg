@@ -35,7 +35,6 @@ export function useAnime1(): UseReturnType {
   <path d="M20,20 h100 v100 h-100z" fill="white">
     <animate
       attributeName="fill"
-      begin="0s"
       dur="${Duration.value}s"
       repeatCount="${Repeat.value}"
       values="white;blue;white"  <---- from, to, by より優先
@@ -51,7 +50,6 @@ export function useAnime1(): UseReturnType {
           <path d="M20,20 h100 v100 h-100z" fill="white">
             <animate
               attributeName="fill"
-              begin="0s"
               dur={`${Duration.value}s`}
               repeatCount={Repeat.value}
               values="white;blue;white"

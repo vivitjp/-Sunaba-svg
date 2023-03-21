@@ -1,12 +1,11 @@
 import { Column, Section } from "../../common/styleDiv"
-import { useShadow } from "./codes/useShadow"
-import { useShadowGroup } from "./codes/useShadowGroup"
-import { useImageBlur } from "./codes/useImageBlur"
 import { FeaturePresenter } from "../presenter/FeaturePresenter"
+import { useClipPath1 } from "./codes/useClipPath1"
+import { useClipPath2 } from "./codes/useClipPath2"
 
-const codes = [useShadow, useShadowGroup, useImageBlur]
+const codes = [useClipPath1, useClipPath2]
 
-export const FeatureEffect = () => {
+export const FeatureClipPath = () => {
   return (
     <Section>
       <Column padding={6} gap={20}>
