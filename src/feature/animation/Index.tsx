@@ -5,8 +5,9 @@ import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
 import { Title } from "~/library"
 import { useAnime1 } from "./codes/useAnime1"
 import { useAnime2 } from "./codes/useAnime2"
+import { useAnime3 } from "./codes/useAnime3"
 
-export const codes = [useAnime1, useAnime2]
+export const codes = [useAnime1, useAnime2, useAnime3]
 
 export const FeatureAnimation = () => {
   return (
@@ -23,9 +24,9 @@ export const FeatureAnimation = () => {
           return (
             <Column key={idx} gap={20}>
               <MainTitle>{title}</MainTitle>
-              <Column padding={0}>
+              <Column data-testid="column">
                 {options.map((option, idx) => (
-                  <Row padding={0} paddingLeft={20} key={idx}>
+                  <Row paddingLeft={20} key={idx}>
                     <DivMainSub>
                       <Title width={250} color={"#555"}>
                         {option.title}
@@ -35,7 +36,7 @@ export const FeatureAnimation = () => {
                           fontSize={16}
                           fontFamily={"monospace"}
                           color="#555"
-                          padding={0}
+                          data-testid="options"
                         >
                           {option.subTitle} :
                         </Div>
@@ -45,14 +46,16 @@ export const FeatureAnimation = () => {
                   </Row>
                 ))}
               </Column>
-              <CodeBox code={code} />
+              <Row padding={10} width={"100%"}>
+                <CodeBox code={code} />
+              </Row>
               <Input
                 onClick={() => {
                   setIsVisible((prev) => !prev)
                 }}
                 value={isVisible ? "Stop" : "Start"}
               />
-              <Div border="#ccc" width="720" height={155}>
+              <Div border="#ccc" width={720} height={155}>
                 {jsx}
               </Div>
             </Column>

@@ -120,24 +120,27 @@ export const FeatureText = () => {
   return (
     <Section>
       {Attributes.map(({ title, subTitle, JSX }, idx) => (
-        <Row key={idx} gap={0} padding={0}>
+        <Row key={idx} gap={0}>
           <DivMainSub>
             <Title width={250} color={"#555"}>
               {title}
             </Title>
             {subTitle && (
-              <Div fontSize={16} fontFamily={"monospace"} color="#555">
+              <Div
+                fontSize={16}
+                paddingRight={10}
+                fontFamily={"monospace"}
+                color="#555"
+              >
                 {subTitle} :
               </Div>
             )}
           </DivMainSub>
-          <Div width={250} padding={0}>
-            {JSX}
-          </Div>
+          <Div width={250}>{JSX}</Div>
         </Row>
       ))}
 
-      <Column padding={0} gap={20} border="#eee" width={640}>
+      <Column gap={20} border="#eee" width={640}>
         <SVG width={640} height={300}>
           <path d="M320,20 v260" stroke={"black"} strokeWidth={1} />
           <path d="M20,150 h620" stroke={"black"} strokeWidth={1} />

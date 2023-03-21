@@ -100,7 +100,7 @@ export const FeaturePlayground = () => {
   return (
     <Section>
       {/* 倍率設定、マージン */}
-      <Row border={"#ddd"} fontSize={18}>
+      <Row border={"#ddd"} fontSize={18} padding={10}>
         <Div>Ratio</Div>
         <SelectSet options={options} onChange={handleChangeSelect} width={60} />
         <Div>Margin</Div>
@@ -108,15 +108,17 @@ export const FeaturePlayground = () => {
       </Row>
 
       {/* サイズと Viewbox  */}
-      <DivShadow padding={10}>
-        <Code fontSize={18}>
-          Width: "<S>{SVG_WIDTH}</S>" Height: "<S>{SVG_HEIGHT}</S>" viewBox: "
-          <S>{viewbox}</S>"
-        </Code>
-      </DivShadow>
+      <Div padding={10}>
+        <DivShadow>
+          <Code fontSize={18}>
+            Width: "<S>{SVG_WIDTH}</S>" Height: "<S>{SVG_HEIGHT}</S>" viewBox: "
+            <S>{viewbox}</S>"
+          </Code>
+        </DivShadow>
+      </Div>
 
       {/* サンプル & Path 入力 */}
-      <Column border={"#ddd"}>
+      <Column border={"#ddd"} padding={10}>
         <Row>
           <SelectSet
             options={pathOptions}
@@ -144,23 +146,25 @@ export const FeaturePlayground = () => {
       </Column>
 
       {/* SVG描画 */}
-      <DivShadow>
-        <SVGRuled
-          height={SVG_HEIGHT}
-          width={SVG_WIDTH}
-          ratio={ratio}
-          xRulers={xRulers}
-          yRulers={yRulers}
-          zeroRulers={zeroRulers}
-          margin={margin}
-        >
-          <Path
-            path={freePathSet}
-            fill={hasBg ? "Ivory" : "none"}
-            stroke={"var(--main-color)"}
-          />
-        </SVGRuled>
-      </DivShadow>
+      <Div padding={10}>
+        <DivShadow>
+          <SVGRuled
+            height={SVG_HEIGHT}
+            width={SVG_WIDTH}
+            ratio={ratio}
+            xRulers={xRulers}
+            yRulers={yRulers}
+            zeroRulers={zeroRulers}
+            margin={margin}
+          >
+            <Path
+              path={freePathSet}
+              fill={hasBg ? "Ivory" : "none"}
+              stroke={"var(--main-color)"}
+            />
+          </SVGRuled>
+        </DivShadow>
+      </Div>
     </Section>
   )
 }

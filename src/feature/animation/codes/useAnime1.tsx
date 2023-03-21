@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useRange, useSelect, useText } from "~/library"
 
 export function useAnime1() {
-  const title = `Animation: インターバル`
+  const title = `変化(values)`
   const Visible = useState<boolean>(false)
   const [isVisible] = Visible
 
@@ -34,7 +34,7 @@ export function useAnime1() {
       begin="0s"
       dur="${Duration.value}s"
       repeatCount="${Repeat.value}"
-      values="${Values.value}"
+      values="${Values.value}"  <---- from，to，by より優先
     />
   </path>
 </svg>`
@@ -47,9 +47,9 @@ export function useAnime1() {
             <animate
               attributeName="fill"
               begin="0s"
-              values={Values.value as string}
               dur={`${Duration.value}s`}
               repeatCount={Repeat.value}
+              values={Values.value as string}
             />
           </path>
         </svg>

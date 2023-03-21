@@ -25,7 +25,7 @@ export const FeatureGradation = () => {
               <Column gap={0} paddingLeft={20}>
                 {options.map((option, id) => {
                   return (
-                    <Row padding={0} key={id}>
+                    <Row padding={6} key={id}>
                       <DivMainSub>
                         <Title width={250} color={"#555"}>
                           {option.title}
@@ -45,7 +45,9 @@ export const FeatureGradation = () => {
                   )
                 })}
               </Column>
-              <CodeBox code={code} />
+              <Div padding={20} width={"100%"}>
+                <CodeBox code={code} />
+              </Div>
               <Div border={"#ccc"} width={720}>
                 {jsx}
               </Div>

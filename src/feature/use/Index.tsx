@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { Column, Div, Section } from "../../common/styleDiv"
-import React from "react"
 import { useCodes } from "./codes"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
@@ -19,7 +18,9 @@ export const FeatureUse = () => {
           return (
             <Column key={idx}>
               <Title>{title}</Title>
-              <CodeBox code={code} />
+              <Div padding={10} width={"100%"}>
+                <CodeBox code={code} />
+              </Div>
               <Div>
                 <SVGRuled
                   width={700}

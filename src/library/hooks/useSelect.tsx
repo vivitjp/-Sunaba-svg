@@ -28,6 +28,13 @@ export const useSelect = ({
     title,
     subTitle,
     value,
-    JSX: <SelectSet width={width} onChange={handle} options={options} />,
+    JSX: (
+      <SelectSet
+        width={width}
+        onChange={handle}
+        options={options}
+        defaultValue={initValue}
+      />
+    ),
   }
 }

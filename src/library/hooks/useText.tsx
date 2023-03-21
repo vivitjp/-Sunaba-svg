@@ -32,7 +32,7 @@ const Input = styled.input.attrs({ type: "text" })<CSSProperties>`
   width: ${({ width = 160 }) => `${width}px`};
   height: 36px;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
   border-radius: 5px;
   font-size: 1.2rem;
   text-align: center;

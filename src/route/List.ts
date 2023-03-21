@@ -39,11 +39,11 @@ export const menuGroup: MenuGroup = {
     { name: "07: Use", path: "/use", element: PageUse },
     { name: "08: Effect", path: "/effect", element: PageEffect },
     { name: "09: Gradation", path: "/gradation", element: PageGradation },
-    // { name: "0: transform", path: "/transform", element: PageTransform },
+    //{ name: "0: transform", path: "/transform", element: PageTransform },
     { name: "10: Animation", path: "/animation", element: PageAnimation },
     //{ name: "0: animateMotion", path: "/animeMotion", element: PageAnimeMotion },
     //{ name: "0: animateTransform", path: "/animeTransform", element: PageAnimeTransform },
-    // { name: "0: event", path: "/event", element: PageEvent },
+    //{ name: "0: event", path: "/event", element: PageEvent },
     // <clipPath>
     // foreignObject
     // mask

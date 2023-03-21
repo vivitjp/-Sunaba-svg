@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { Column, Div, Section } from "../../common/styleDiv"
-import React from "react"
 import { basicCodes } from "./codes"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
@@ -15,8 +14,10 @@ export const FeatureBasic = () => {
           return (
             <Column key={idx}>
               <Title>{title}</Title>
-              <CodeBox code={code} />
-              <Div border="#ccc" padding={0} marginTop={10}>
+              <Div padding={10}>
+                <CodeBox code={code} />
+              </Div>
+              <Div border="#ccc" marginTop={10}>
                 {jsx}
               </Div>
             </Column>

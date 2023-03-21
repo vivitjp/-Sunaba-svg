@@ -86,7 +86,7 @@ const Parameters = ({ useAttr }: { useAttr: attributeCode }) => {
           />
         )}
       </Row>
-      <Div border="#eee" padding={0} marginTop={10}>
+      <Div border="#eee" marginTop={10}>
         {jsx}
       </Div>
     </Column>

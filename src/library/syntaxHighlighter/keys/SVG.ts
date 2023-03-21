@@ -108,6 +108,8 @@ export const keysSVG: KeyDef[] = [
       "type",
       "from",
       "to",
+      "by",
+      "calcMode",
     ],
   },
   {
@@ -129,6 +131,10 @@ export const keysSVG: KeyDef[] = [
       "meet",
       "slice",
       "gamma",
+      "discrete",
+      "linear",
+      "paced",
+      "spline",
     ],
   },
 ]

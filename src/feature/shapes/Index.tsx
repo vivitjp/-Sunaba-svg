@@ -1,4 +1,4 @@
-import { Code, Column, Div, DivPre, Row, Section } from "../../common/styleDiv"
+import { Column, Div, DivPre, Row, Section } from "../../common/styleDiv"
 import { SVGRuled, SelectSet } from "~/component"
 import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
 import { Shape, shapes, shapesOptions } from "./setting"
@@ -6,7 +6,9 @@ import { FC, ReactNode, useCallback, useEffect, useState } from "react"
 import { Text } from "~/library"
 
 export const FeatureShapes = () => {
-  const [selectedShape, setSelectedShape] = useState<string | null>(null)
+  const [selectedShape, setSelectedShape] = useState<string | null>(
+    shapes[0].title
+  )
   const [shapeSet, setShapeSet] = useState<Shape | null>(null)
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export const FeatureShapes = () => {
   return (
     <Section style={{ width: "100%" }}>
       <SelectShapes setSelectedShape={setSelectedShape} />
-      <Column padding={1} style={{ gap: "0" }}>
+      <Column style={{ gap: "5" }}>
         {shapeSet?.shape && (
           <CompoCode title={"Shape"} code={shapeSet?.shape.code} />
         )}
@@ -28,7 +30,7 @@ export const FeatureShapes = () => {
           <CompoCode title={"相対Path"} code={shapeSet?.relative.code} />
         )}
       </Column>
-      <Column style={{ width: "auto" }} padding={1}>
+      <Column style={{ width: "auto" }}>
         {shapeSet?.shape && (
           <CompoSVG title={"Shape"} jsx={shapeSet?.shape.jsx} />
         )}
@@ -106,7 +108,7 @@ const CompoSVG = ({ jsx, title }: { title: string; jsx?: ReactNode }) => {
 }
 
 //----------------------------------------
-// preserveAspectRatio
+// SelectShapes
 //----------------------------------------
 type SelectShapesProps = {
   setSelectedShape: React.Dispatch<React.SetStateAction<string | null>>
@@ -125,7 +127,6 @@ const SelectShapes: FC<SelectShapesProps> = ({ setSelectedShape }) => {
       options={shapesOptions}
       onChange={handleChangeShapes}
       width={200}
-      withBlanc={true}
     />
   )
 }

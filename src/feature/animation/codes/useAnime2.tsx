@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useRange, useSelect } from "~/library"
 
 export function useAnime2() {
-  const title = `Animation: 変動`
+  const title = `変化(from-to)`
   const Visible = useState<boolean>(false)
   const [isVisible] = Visible
 
@@ -21,14 +21,23 @@ export function useAnime2() {
     values: ["indefinite", "1", "2"],
   })
 
+  const CalcMode = useSelect({
+    title: "変化の関数",
+    subTitle: "calcMode",
+    initValue: "linear",
+    values: ["discrete", "linear", "paced", "spline"],
+  })
+
   const code = `<svg x="0" y="0" width="700" height="140">
   <circle cx="70" cy="70" r="60" fill="blue">
     <animate 
       attributeName="r"
-      from="0"
-      to="60"
+      begin="1s" <--- 初期値が0sでないと、animateなしのdefault属性表示
       dur="${Duration.value}s"
       repeatCount="indefinite"
+      from="0"
+      to="60"
+      calcMode="${CalcMode.value}"
     />
   </path>
 </svg>`
@@ -39,12 +48,13 @@ export function useAnime2() {
         <svg x="0" y="0" width="700" height="140">
           <circle cx="70" cy="70" r="60" fill="blue">
             <animate
-              attributeType="XML"
               attributeName="r"
+              begin="1s"
               from="0"
               to="60"
               dur={`${Duration.value}s`}
               repeatCount={Repeat.value}
+              calcMode={CalcMode.value}
             />
           </circle>
         </svg>
@@ -56,7 +66,7 @@ export function useAnime2() {
     Visible,
     title,
     code,
-    options: [Duration, Repeat],
+    options: [Duration, Repeat, CalcMode],
     jsx,
   }
 }

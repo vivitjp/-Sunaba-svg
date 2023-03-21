@@ -30,14 +30,15 @@ export function useLinearGradationWithGamma() {
         <feFuncB type="gamma" exponent="${Exponent.value}" />
       </feComponentTransfer>
     </filter>
-    <linearGradient id="linearGradId">
+    <linearGradient id="linearGradGamma">
       <stop offset="0" stopColor="${ColorLeft.value}" />
+      <stop offset="0.5" stopColor="white" />
       <stop offset="1" stopColor="${ColorRight.value}" />
     </linearGradient>
   </defs>
   <path
     d="M10,10 h120 v120 h-120z"
-    fill="url(#linearGradId)"
+    fill="url(#linearGradGamma)"
     filter="url(#expoId)"
   />
 </svg>`
@@ -52,14 +53,14 @@ export function useLinearGradationWithGamma() {
             <feFuncB type="gamma" exponent={Exponent.value} />
           </feComponentTransfer>
         </filter>
-        <linearGradient id="linearGradId">
+        <linearGradient id="linearGradGamma">
           <stop offset="0" stopColor={ColorLeft.value as string} />
           <stop offset="1" stopColor={ColorRight.value as string} />
         </linearGradient>
       </defs>
       <path
         d="M10,10 h120 v120 h-120z"
-        fill="url(#linearGradId)"
+        fill="url(#linearGradGamma)"
         filter="url(#expoId)"
       />
     </svg>
