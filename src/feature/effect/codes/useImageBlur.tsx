@@ -26,7 +26,7 @@ export function useImageBlur() {
     <svg width={500} height={280} viewBox="0 0 500 280">
       <defs>
         <filter id="blur1">
-          <feGaussianBlur stdDeviation={Deviation.value} />
+          <feGaussianBlur stdDeviation={Deviation.value as number} />
         </filter>
       </defs>
       <image

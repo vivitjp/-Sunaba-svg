@@ -39,8 +39,8 @@ export function useShadowGroup() {
       <defs>
         <filter id="filter2">
           <feDropShadow
-            stdDeviation={Deviation.value}
-            floodColor={Fill.value}
+            stdDeviation={Deviation.value as number}
+            floodColor={Fill.value as string}
           />
         </filter>
       </defs>

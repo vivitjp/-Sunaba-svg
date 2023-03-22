@@ -50,7 +50,7 @@ export function useClipPath2() {
 
       <defs>
         <clipPath id="myClip2">
-          <rect x={10} y={ClipY.value} width={580} height={60} />
+          <rect x={10} y={ClipY.value as number} width={580} height={60} />
         </clipPath>
         <g id="square2" fill="Tomato" stroke="white" strokeWidth={3}>
           <circle cx={160} cy={120} r={60} />
@@ -60,7 +60,7 @@ export function useClipPath2() {
       <use clipPath="url(#myClip2)" href="#square2" />
       <rect
         x={30}
-        y={ClipY.value}
+        y={ClipY.value as number}
         width={580}
         height={60}
         fill="none"

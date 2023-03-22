@@ -112,6 +112,7 @@ export const keysSVG: KeyDef[] = [
       "calcMode",
       "keyTimes",
       "keySplines",
+      "requiredExtensions",
     ],
   },
   {
@@ -137,6 +138,11 @@ export const keysSVG: KeyDef[] = [
       "linear",
       "paced",
       "spline",
+      "inline",
+      "none",
+      "visible",
+      "hidden",
+      "block",
     ],
   },
 ]

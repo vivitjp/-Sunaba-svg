@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 import { Div, Range, Row } from "../../common/styleDiv"
-import { CustomInputReturnType } from "./type"
+import { OptionsType } from "./type"
 
 type Props = {
   title: string
@@ -20,7 +20,7 @@ export const useRange = ({
   step = 1,
   width = 240,
   valueType = "integer",
-}: Props): CustomInputReturnType => {
+}: Props): OptionsType => {
   const [value, setValue] = useState<number>(initValue)
 
   const handle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

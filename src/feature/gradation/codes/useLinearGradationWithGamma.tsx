@@ -48,9 +48,9 @@ export function useLinearGradationWithGamma() {
       <defs>
         <filter id="expoId" x="0" y="0" width="100%" height="100%">
           <feComponentTransfer>
-            <feFuncR type="gamma" exponent={Exponent.value} />
-            <feFuncG type="gamma" exponent={Exponent.value} />
-            <feFuncB type="gamma" exponent={Exponent.value} />
+            <feFuncR type="gamma" exponent={Exponent.value as number} />
+            <feFuncG type="gamma" exponent={Exponent.value as number} />
+            <feFuncB type="gamma" exponent={Exponent.value as number} />
           </feComponentTransfer>
         </filter>
         <linearGradient id="linearGradGamma">

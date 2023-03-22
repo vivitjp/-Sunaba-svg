@@ -41,7 +41,7 @@ export function useLinearGradation() {
       <defs>
         <linearGradient id="linearGradId">
           <stop offset="0" stopColor={ColorLeft.value as string} />
-          <stop offset={CenterValue.value} stopColor="white" />
+          <stop offset={CenterValue.value as number} stopColor="white" />
           <stop offset="1" stopColor={ColorRight.value as string} />
         </linearGradient>
       </defs>

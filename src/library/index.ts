@@ -3,6 +3,7 @@
  */
 
 export * from './hooks/type';
+export * from './hooks/useCheck';
 export * from './hooks/useRange';
 export * from './hooks/useSelect';
 export * from './hooks/useText';

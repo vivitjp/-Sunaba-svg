@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 import { SelectSet } from "~/component"
-import { CustomInputReturnType } from "./type"
+import { OptionsType } from "./type"
 
 type KV = {
   K: string
@@ -25,7 +25,7 @@ export const useSelect = ({
   initValue,
   values,
   width = 240,
-}: Props): CustomInputReturnType => {
+}: Props): OptionsType => {
   const [value, setValue] = useState<string>(initValue)
 
   const handle = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {

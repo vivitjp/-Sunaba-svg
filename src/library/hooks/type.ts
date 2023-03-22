@@ -1,6 +1,6 @@
-export type CustomInputReturnType = {
+export type OptionsType = {
   title: string
   subTitle: string | undefined
-  value: number | string
+  value: number | string | boolean
   JSX: JSX.Element
 }

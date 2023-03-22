@@ -8,18 +8,23 @@ export function useForeignObject1() {
     title: "埋め込み幅",
     subTitle: "width",
     initValue: 200,
-    range: [100, 300],
+    range: [100, 600],
     step: 10,
   })
 
-  const code = ``
+  const code = `<svg x={0} y={0} width={700} height={200}>
+  <foreignObject x="10" y="10" width="${ObjectWidth.value}" height="200"
+    requiredExtensions="http://www.w3.org/1999/xhtml" >
+    <div>${sampleText.substring(0, 20)}...</div>
+  </foreignObject>
+</svg>`
 
   const jsx = (
     <svg x={0} y={0} width={700} height={200}>
       <foreignObject
         x="10"
         y="10"
-        width={ObjectWidth.value}
+        width={ObjectWidth.value as number}
         height="200"
         requiredExtensions="http://www.w3.org/1999/xhtml"
       >

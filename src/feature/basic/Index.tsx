@@ -1,52 +1,21 @@
-import styled from "styled-components"
-import { Column, Div, Row, Section } from "../../common/styleDiv"
-import { basicCodes } from "./codes"
-import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
-import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
+import { Column, Section } from "../../common/styleDiv"
+import { useBasic1 } from "./codes/useBasic1"
+import { useBasic3 } from "./codes/useBasic3"
+import { useBasic2 } from "./codes/useBasic2"
+import { useBasic4 } from "./codes/useBasic4"
+import { useBasic5 } from "./codes/useBasic5"
+import { FeaturePresenter } from "../presenter/FeaturePresenter"
+
+const codes = [useBasic1, useBasic2, useBasic3, useBasic4, useBasic5]
 
 export const FeatureBasic = () => {
   return (
     <Section>
       <Column padding={6} gap={20}>
-        {basicCodes.map(({ code, jsx, title }, idx) => {
-          return (
-            <Column key={idx}>
-              <Title>{title}</Title>
-              <Row padding={10} width={"100%"}>
-                <CodeBox code={code} />
-              </Row>
-              <Div border="#ccc" marginTop={10}>
-                {jsx}
-              </Div>
-            </Column>
-          )
+        {codes.map((useCode, idx) => {
+          return <FeaturePresenter key={idx} useCode={useCode} />
         })}
       </Column>
     </Section>
-  )
-}
-
-//----------------------------------------
-// タイトル
-//----------------------------------------
-const Title = styled.div`
-  font-size: 20px;
-  color: var(--main-color);
-  :before {
-    content: "■";
-    margin-right: 5px;
-    color: var(--main-color);
-  }
-`
-
-//----------------------------------------
-// コード
-//----------------------------------------
-const CodeBox = ({ code }: { code: string }) => {
-  const result = syntaxHighlight({ keyDef: keysSVG, target: code })
-  return (
-    <Column gap={2} shadow={10} padding={10}>
-      {result}
-    </Column>
   )
 }

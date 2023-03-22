@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Column, Div, Row, Section, Title } from "../../common/styleDiv"
-import { CustomInputReturnType } from "../../library/hooks/type"
+import { OptionsType } from "../../library/hooks/type"
 import { syntaxHighlight } from "../../library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "../../library/syntaxHighlighter/keys/SVG"
 import { FC } from "react"
@@ -15,16 +15,18 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
   const [isVisible, setIsVisible] = Visible ?? [null, () => {}]
 
   return (
-    <Column gap={20}>
+    <Column gap={16}>
       {/* タイトル */}
       <MainTitle>{title}</MainTitle>
 
       {/* 操作オプション */}
-      <Column gap={0} paddingLeft={20}>
-        {options.map((option, id) => (
-          <Option key={id} option={option} />
-        ))}
-      </Column>
+      {options && (
+        <Column gap={0} paddingLeft={20}>
+          {options.map((option, id) => (
+            <Option key={id} option={option} />
+          ))}
+        </Column>
+      )}
 
       {/* コード */}
       <Row padding={10} width={"100%"}>
@@ -49,17 +51,21 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
   )
 }
 
-const Option = ({ option }: { option: CustomInputReturnType }) => (
-  <Row padding={0}>
+const Option = ({
+  option: { title, JSX, subTitle },
+}: {
+  option: OptionsType
+}) => (
+  <Row padding={3}>
     <DivMainSub>
       <Title width={250} color={"#555"}>
-        {option.title}
+        {title}
       </Title>
       <Div fontSize={16} fontFamily={"monospace"} color="#555">
-        {option.title} :
+        {subTitle ? `${subTitle} :` : ``}
       </Div>
     </DivMainSub>
-    <Div width={250}>{option.JSX}</Div>
+    <Div width={250}>{JSX}</Div>
   </Row>
 )
 

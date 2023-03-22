@@ -13,8 +13,6 @@ export const getViewbox = ({
   ratio = 1,
   marginTLOnly = false,
 }: Props) => {
-  console.log("marginTLOnly", marginTLOnly, margin, ratio)
-
   return (
     `${0 - margin * ratio} ` +
     `${0 - margin * ratio} ` +

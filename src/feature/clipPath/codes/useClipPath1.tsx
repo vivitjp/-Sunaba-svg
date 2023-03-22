@@ -25,7 +25,7 @@ export function useClipPath1() {
     <svg x={0} y={0} width={700} height={200}>
       <defs>
         <clipPath id="myClip1">
-          <rect x={0} y={ClipY.value} width={700} height={60} />
+          <rect x={0} y={ClipY.value as number} width={700} height={60} />
         </clipPath>
         <circle
           id="square1"
