@@ -44,7 +44,7 @@ export function useAnime3(): UseReturnType {
               to="60"
               dur={`${Duration.value}s`}
               repeatCount="indefinite"
-              calcMode={CalcMode.value}
+              calcMode={CalcMode.value as string}
             />
           </circle>
           <circle cx="220" cy="70" r="0" fill="blue">
@@ -53,7 +53,7 @@ export function useAnime3(): UseReturnType {
               by="60"
               dur={`${Duration.value}s`}
               repeatCount="indefinite"
-              calcMode={CalcMode.value}
+              calcMode={CalcMode.value as string}
             />
           </circle>
         </svg>

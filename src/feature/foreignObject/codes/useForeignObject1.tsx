@@ -14,7 +14,8 @@ export function useForeignObject1() {
 
   const code = `<svg x={0} y={0} width={700} height={200}>
   <foreignObject x="10" y="10" width="${ObjectWidth.value}" height="200"
-    requiredExtensions="http://www.w3.org/1999/xhtml" >
+    requiredExtensions="http://www.w3.org/1999/xhtml"    <--Optional
+  >
     <div>${sampleText.substring(0, 20)}...</div>
   </foreignObject>
 </svg>`

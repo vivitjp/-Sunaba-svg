@@ -46,7 +46,7 @@ export function useAnime2(): UseReturnType {
               to="60"
               dur={`${Duration.value}s`}
               repeatCount="indefinite"
-              calcMode={CalcMode.value}
+              calcMode={CalcMode.value as string}
             />
           </circle>
           <circle cx="220" cy="70" r="60" fill="blue">
@@ -56,7 +56,7 @@ export function useAnime2(): UseReturnType {
               by="60"
               dur={`${Duration.value}s`}
               repeatCount="indefinite"
-              calcMode={CalcMode.value}
+              calcMode={CalcMode.value as string}
             />
           </circle>
         </svg>

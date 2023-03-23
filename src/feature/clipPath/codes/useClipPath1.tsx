@@ -1,43 +1,45 @@
 import { useRange } from "~/library"
 
 export function useClipPath1() {
-  const title = `ClipPath`
+  const title = `可視範囲の定義(ClipPath)`
 
   const ClipY = useRange({
     title: "クリップ Y軸",
     subTitle: "y",
     initValue: 100,
-    range: [40, 200],
+    range: [20, 120],
     step: 10,
   })
-  const code = `<svg x={0} y={0} width={700} height={280}>
+  const code = `<svg x="0" y="0" width="700" height="280">
   <defs>
-    <clipPath id="myClip1">
-      <rect x={50} y="${ClipY.value}" width={300} height={60} />
+    <clipPath id="clip1">
+      <rect x="20" y="${ClipY.value}" width="680" height="60" />
     </clipPath>
-    <circle id="square1" cx={160} cy={120} r={60}
-      fill="Tomato" stroke="white" strokeWidth={3} />
+    <circle clipPath="url(#clip1)" cx="100" cy="100" r="60" fill="Tomato" />
+    <circle cx="240" cy="100" r="60" fill="blue" />
+    <rect x="20" y="${ClipY.value}" width="680" height="60" />   <-- ClipPath可視化
   </defs>
-  <use clipPath="url(#myClip)" href="#square1" />
 </svg>`
 
   const jsx = (
     <svg x={0} y={0} width={700} height={200}>
       <defs>
-        <clipPath id="myClip1">
-          <rect x={0} y={ClipY.value as number} width={700} height={60} />
+        <clipPath id="clip1">
+          <rect x={20} y={ClipY.value as number} width={200} height={60} />
+          <rect x={240} y={ClipY.value as number} width={200} height={60} />
         </clipPath>
-        <circle
-          id="square1"
-          cx={100}
-          cy={100}
-          r={60}
-          fill="Tomato"
-          stroke="white"
-          strokeWidth={3}
-        />
       </defs>
-      <use clipPath="url(#myClip1)" href="#square1" />
+      <circle clipPath="url(#clip1)" cx={100} cy={100} r={60} fill="Tomato" />
+      <circle cx={240} cy={100} r={60} fill="blue" />
+      <rect
+        x={20}
+        y={ClipY.value as number}
+        width={680}
+        height={60}
+        fill="none"
+        strokeWidth="1"
+        stroke="#ddd"
+      />
     </svg>
   )
 

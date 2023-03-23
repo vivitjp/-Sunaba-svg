@@ -37,8 +37,8 @@ export const MenuNav = styled.nav`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 5px;
-  min-width: 120px;
-  max-width: 120px;
+  min-width: 140px; // <---- Side Menu 幅
+  max-width: 140px; // <---- Side Menu 幅
   padding: 5px;
   padding-bottom: 50px;
   background-color: #f3eed5;

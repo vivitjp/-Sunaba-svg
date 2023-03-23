@@ -46,7 +46,7 @@ export function useAnime4(): UseReturnType {
               attributeName="cx"
               calcMode="spline"
               keyTimes="0;1"
-              keySplines={keySplines.value}
+              keySplines={keySplines.value as string}
               from="30"
               to="680"
               begin="0s"

@@ -46,7 +46,7 @@ export const menuGroup: MenuGroup = {
     //{ name: "0: animateMotion", path: "/animeMotion", element: PageAnimeMotion },
     //{ name: "0: animateTransform", path: "/animeTransform", element: PageAnimeTransform },
     //{ name: "0: event", path: "/event", element: PageEvent },
-    { name: "11: ClipPath", path: "/clipPath", element: PageClipPath },
+    { name: "11: ClipPath/Mask", path: "/clipPath", element: PageClipPath },
     {
       name: "12: ForeignObject",
       path: "/foreignObject",

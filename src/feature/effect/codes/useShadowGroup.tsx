@@ -24,12 +24,12 @@ export function useShadowGroup() {
   </defs>
   <g filter="url(#filter2)" fillRule="nonzero">
     <path d="M20,20 h100 v80 h-100z M100,40 h100 v80 h-100z"
-      fill="orange" filter={"url(#filter2)"}
+      fill="orange" filter="url(#filter2)"
     />
   </g>
   <g filter="url(#filter2)" fillRule="evenodd">
     <path d="M260,20 h100 v80 h-100z M340,40 h100 v80 h-100z"
-      fill="orange" filter={"url(#filter2)"}
+      fill="orange" filter="url(#filter2)"
     />
   </g>
 </svg>`
