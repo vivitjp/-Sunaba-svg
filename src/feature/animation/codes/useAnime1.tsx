@@ -31,7 +31,7 @@ export function useAnime1(): UseReturnType {
     valueType: "float",
   })
 
-  const code = `<svg x="0" y="0" width="700" height="140">
+  const code = `<svg width="700" height="140">
   <path d="M20,20 h100 v100 h-100z" fill="white">
     <animate
       attributeName="fill"
@@ -46,7 +46,7 @@ export function useAnime1(): UseReturnType {
   const jsx = (
     <>
       {isVisible && (
-        <svg x="0" y="0" width="700" height="140">
+        <svg width="700" height="140">
           <path d="M20,20 h100 v100 h-100z" fill="white">
             <animate
               attributeName="fill"

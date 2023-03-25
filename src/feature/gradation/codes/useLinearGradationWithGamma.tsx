@@ -21,7 +21,7 @@ export function useLinearGradationWithGamma() {
     valueType: "float",
   })
 
-  const code = `<svg x={0} y={0} width={700} height={140}>
+  const code = `<svg width={700} height={140}>
   <defs>
     <filter id="expoId" x="0" y="0" width="100%" height="100%">
       <feComponentTransfer>
@@ -44,7 +44,7 @@ export function useLinearGradationWithGamma() {
 </svg>`
 
   const jsx = (
-    <svg x={0} y={0} width={700} height={140}>
+    <svg width={700} height={140}>
       <defs>
         <filter id="expoId" x="0" y="0" width="100%" height="100%">
           <feComponentTransfer>

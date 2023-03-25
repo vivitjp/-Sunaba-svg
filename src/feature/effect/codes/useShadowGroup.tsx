@@ -16,7 +16,7 @@ export function useShadowGroup() {
     initValue: "#555",
   })
 
-  const code = `<svg x="0" y="0" width="700" height="140">
+  const code = `<svg width="700" height="140">
   <defs>
     <filter id="filter2">
       <feDropShadow stdDeviation="${Deviation.value}" floodColor="${Fill.value}" />
@@ -35,7 +35,7 @@ export function useShadowGroup() {
 </svg>`
 
   const jsx = (
-    <svg x={0} y={0} width={700} height={140}>
+    <svg width={700} height={140}>
       <defs>
         <filter id="filter2">
           <feDropShadow

@@ -22,7 +22,7 @@ export function useAnime3(): UseReturnType {
     values: ["linear", "discrete"],
   })
 
-  const code = `<svg x="0" y="0" width="700" height="140">
+  const code = `<svg width="700" height="140">
   <circle cx="70" cy="70" r="0" fill="blue"> // 初期値 r="0"
     <animate 
       attributeName="r"
@@ -37,7 +37,7 @@ export function useAnime3(): UseReturnType {
   const jsx = (
     <>
       {isVisible && (
-        <svg x="0" y="0" width="700" height="140">
+        <svg width="700" height="140">
           <circle cx="70" cy="70" r="0" fill="blue">
             <animate
               attributeName="r"

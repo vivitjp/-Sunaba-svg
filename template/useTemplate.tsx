@@ -27,7 +27,7 @@ export function useBasic3() {
 
   const code = ``
 
-  const jsx = <svg x={0} y={0} width={700} height={140}></svg>
+  const jsx = <svg width={700} height={140}></svg>
 
   return { title, code, options: [,], jsx }
 }

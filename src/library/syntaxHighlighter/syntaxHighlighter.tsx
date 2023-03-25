@@ -8,8 +8,6 @@ type SyntaxHighlight = {
   keyDef: KeyDef[]
 }
 
-const exemption: string[] = ["class", "color", "style"]
-
 export const syntaxHighlight = ({ target, keyDef }: SyntaxHighlight) => {
   const escaped = escapeHtml(target)
 
@@ -33,13 +31,11 @@ export const syntaxHighlight = ({ target, keyDef }: SyntaxHighlight) => {
     //Keywords
     keyDef.forEach(({ color, keys }) => {
       keys.forEach((key) => {
-        if (!exemption.includes(key)) {
-          const re = new RegExp(`\\b${key}\\b`, "g")
-          result = result.replaceAll(
-            re,
-            `<span class="syntax" style="color:${color}">${key}</span>`
-          )
-        }
+        const re = new RegExp(`\\b${key}\\b`, "g")
+        result = result.replaceAll(
+          re,
+          `<span class="syntax" style="color:${color}">${key}</span>`
+        )
       })
     })
 

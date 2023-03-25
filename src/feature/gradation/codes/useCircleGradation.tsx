@@ -21,7 +21,7 @@ export function useCircleGradation() {
     range: [30, 80],
     step: 5,
   })
-  const code = `<svg x={0} y={0} width={700} height={140}>
+  const code = `<svg width={700} height={140}>
   <defs>
     <radialGradient id="circleGradId">
       <stop offset="0%" stopColor="${ColorCenter.value}" />
@@ -33,7 +33,7 @@ export function useCircleGradation() {
 </svg>`
 
   const jsx = (
-    <svg x={0} y={0} width={700} height={140}>
+    <svg width={700} height={140}>
       <defs>
         <radialGradient id="circleGradId">
           <stop offset="0%" stopColor={ColorCenter.value as string} />

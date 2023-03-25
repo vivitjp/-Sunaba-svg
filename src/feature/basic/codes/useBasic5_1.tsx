@@ -15,7 +15,7 @@ export function useBasic5_1() {
     initValue: true,
   })
 
-  const code = `<svg x="0" y="0" width="600" height="120">
+  const code = `<svg width="600" height="120">
   <rect x="20" y="20" width="80" height="80" fill="orange" stroke="red"
     display="${CheckDisplay.value ? "block" : "none"}"
   />
@@ -25,7 +25,7 @@ export function useBasic5_1() {
 </svg>`
 
   const jsx = (
-    <svg x={0} y={0} width={600} height={120}>
+    <svg width={600} height={120}>
       <rect
         x={20}
         y={20}

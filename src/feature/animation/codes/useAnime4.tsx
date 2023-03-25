@@ -21,7 +21,7 @@ export function useAnime4(): UseReturnType {
     ],
   })
 
-  const code = `<svg x="0" y="0" width="700" height="220">
+  const code = `<svg width="700" height="220">
   <circle cx="30" cy="30" r="10" fill="red">
     <animate
       attributeName="cx"
@@ -40,7 +40,7 @@ export function useAnime4(): UseReturnType {
   const jsx = (
     <>
       {isVisible && (
-        <svg x="0" y="0" width="700" height="220">
+        <svg width="700" height="220">
           <circle cx="30" cy={30} r="10" fill="red">
             <animate
               attributeName="cx"

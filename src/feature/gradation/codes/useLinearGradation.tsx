@@ -21,7 +21,7 @@ export function useLinearGradation() {
     initValue: "blue",
   })
 
-  const code = `<svg x={0} y={0} width={700} height={140}>
+  const code = `<svg width={700} height={140}>
   <defs>
     <linearGradient id="linearGradId">
       <stop offset="0" stopColor="${ColorLeft.value}" />
@@ -37,7 +37,7 @@ export function useLinearGradation() {
 </svg>`
 
   const jsx = (
-    <svg x={0} y={0} width={700} height={140}>
+    <svg width={700} height={140}>
       <defs>
         <linearGradient id="linearGradId">
           <stop offset="0" stopColor={ColorLeft.value as string} />

@@ -13,7 +13,7 @@ import { PageImage } from "~/pages/Image"
 import { PageEffect } from "~/pages/Effect"
 import { PageAnimation } from "~/pages/Animation"
 import { PageGradation } from "~/pages/Gradation"
-import { PageClipPath } from "~/pages/ClipPath"
+import { PageClipPathMask } from "~/pages/ClipPathMask"
 import { PageForeignObject } from "~/pages/ForeignObject"
 
 type MenuGroup = { [key: string]: Menu[] }
@@ -46,7 +46,7 @@ export const menuGroup: MenuGroup = {
     //{ name: "0: animateMotion", path: "/animeMotion", element: PageAnimeMotion },
     //{ name: "0: animateTransform", path: "/animeTransform", element: PageAnimeTransform },
     //{ name: "0: event", path: "/event", element: PageEvent },
-    { name: "11: ClipPath/Mask", path: "/clipPath", element: PageClipPath },
+    { name: "11: ClipPath/Mask", path: "/clipPath", element: PageClipPathMask },
     {
       name: "12: ForeignObject",
       path: "/foreignObject",

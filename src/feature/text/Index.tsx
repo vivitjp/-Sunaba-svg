@@ -154,7 +154,6 @@ export const FeatureText = () => {
             textAnchor={Anchor.value as string}
             dominantBaseline={dominantBaseline.value as string}
             fontWeight={FontWeight.value as number}
-            fontFamily={FontFamily.value as string}
             style={CSSProps}
             transform={`rotate(${Rotate.value},320,150) translate(${Translate.value},${Translate.value})`}
           >
