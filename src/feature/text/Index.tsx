@@ -91,9 +91,8 @@ export const FeatureText = () => {
 
   const CSSProps: CSSProperties = useMemo(() => {
     let style: CSSProperties = {}
-    if (FontSize.value) style = { fontSize: FontSize.value as number }
-    if (FontFamily.value)
-      style = { ...style, fontFamily: FontFamily.value as string }
+    if (FontSize.value) style = { fontSize: FontSize.value }
+    if (FontFamily.value) style = { ...style, fontFamily: FontFamily.value }
     return style
   }, [FontSize.value, FontFamily.value])
 
@@ -148,12 +147,12 @@ export const FeatureText = () => {
           <text
             x={320}
             y={150}
-            fill={Fill.value as string}
-            stroke={Stroke.value as string}
-            strokeWidth={StrokeWidth.value as number}
-            textAnchor={Anchor.value as string}
-            dominantBaseline={dominantBaseline.value as string}
-            fontWeight={FontWeight.value as number}
+            fill={Fill.value}
+            stroke={Stroke.value}
+            strokeWidth={StrokeWidth.value}
+            textAnchor={Anchor.value}
+            dominantBaseline={dominantBaseline.value}
+            fontWeight={FontWeight.value}
             style={CSSProps}
             transform={`rotate(${Rotate.value},320,150) translate(${Translate.value},${Translate.value})`}
           >

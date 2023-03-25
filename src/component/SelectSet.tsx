@@ -1,40 +1,40 @@
 import styled, { CSSProperties } from "styled-components"
 
-export const makeOptions = (items: string[]) => {
+export const makeOptions = <T,>(items: T[]) => {
   return items.map((item) => ({
-    title: item,
+    title: item as string,
     value: item,
   }))
 }
 
-export type Options = {
+export type Options<T> = {
   title: string
-  value: number | string
+  value: T
 }
 
-export type SelectSet = {
-  options: Options[]
+export type SelectSet<T> = {
+  options: Options<T>[]
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
   withBlanc?: boolean
-  defaultValue?: number | string
+  defaultValue?: T
 } & Omit<CSSProperties, "translate">
 
-export const SelectSet = ({
+export const SelectSet = <T,>({
   options,
   onChange,
   withBlanc,
   defaultValue = options[0].value,
   ...args
-}: SelectSet) => {
+}: SelectSet<T>) => {
   const revOptions = withBlanc
-    ? [{ title: "", value: "" }, ...options]
+    ? [{ title: "", value: "" as T }, ...options]
     : [...options]
 
   return (
-    <Select {...args} onChange={onChange} defaultValue={defaultValue}>
+    <Select {...args} onChange={onChange} defaultValue={defaultValue as string}>
       {!!options.length &&
         revOptions.map((n, index) => (
-          <option key={index} value={n.value}>
+          <option key={index} value={n.value as string}>
             {n.title}
           </option>
         ))}

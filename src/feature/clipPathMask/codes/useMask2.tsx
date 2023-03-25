@@ -22,7 +22,7 @@ export function useMask2() {
   <mask id="uniqueId" x="0" y="0" width="700" height="200">
     <text
       x="350"
-      y="${ClipY.value as number}"
+      y="${ClipY.value}"
       fill={"white"}
       textAnchor={"middle"}
       dominantBaseline={"central"}
@@ -46,7 +46,7 @@ export function useMask2() {
       <mask id={id} x="0" y="0" width="700" height="200">
         <text
           x={350}
-          y={ClipY.value as number}
+          y={ClipY.value}
           fill={"white"}
           textAnchor={"middle"}
           dominantBaseline={"central"}

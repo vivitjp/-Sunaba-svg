@@ -20,7 +20,7 @@ export const useRange = ({
   step = 1,
   width = 240,
   valueType = "integer",
-}: Props): OptionsType => {
+}: Props): OptionsType<number> => {
   const [value, setValue] = useState<number>(initValue)
 
   const handle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

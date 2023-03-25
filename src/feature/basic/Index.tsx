@@ -8,6 +8,7 @@ import { useBasic4 } from "./codes/useBasic4"
 import { useBasic5_1 } from "./codes/useBasic5_1"
 import { useBasic5_2 } from "./codes/useBasic5_2"
 import { useBasic6 } from "./codes/useBasic6"
+import { useBasic7 } from "./codes/useBasic7"
 
 const codes = [
   useBasic1,
@@ -18,6 +19,7 @@ const codes = [
   useBasic5_1,
   useBasic5_2,
   useBasic6,
+  useBasic7,
 ]
 
 export const FeatureBasic = () => {

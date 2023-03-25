@@ -15,6 +15,7 @@ import { PageAnimation } from "~/pages/Animation"
 import { PageGradation } from "~/pages/Gradation"
 import { PageClipPathMask } from "~/pages/ClipPathMask"
 import { PageForeignObject } from "~/pages/ForeignObject"
+import { PageEvent } from "~/pages/Event"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -45,14 +46,13 @@ export const menuGroup: MenuGroup = {
     { name: "10: Animation", path: "/animation", element: PageAnimation },
     //{ name: "0: animateMotion", path: "/animeMotion", element: PageAnimeMotion },
     //{ name: "0: animateTransform", path: "/animeTransform", element: PageAnimeTransform },
-    //{ name: "0: event", path: "/event", element: PageEvent },
     { name: "11: ClipPath/Mask", path: "/clipPath", element: PageClipPathMask },
     {
       name: "12: ForeignObject",
       path: "/foreignObject",
       element: PageForeignObject,
     },
-    // mask
+    { name: "15: event", path: "/event", element: PageEvent },
     // pattern
     // symbol
   ],

@@ -16,8 +16,8 @@ export function useClipPath2() {
   <defs>
     <rect id="cp1" x="0" y="0" width="150" height="60" />
     <clipPath id="uniqueId">
-      <use href="#cp1" x="20" y="${ClipY.value as number}" />
-      <use href="#cp1" x="190" y="${ClipY.value as number}" />
+      <use href="#cp1" x="20" y="${ClipY.value}" />
+      <use href="#cp1" x="190" y="${ClipY.value}" />
     </clipPath>
   </defs>
   <g clipPath="url(#uniqueId)" fill="Tomato">
@@ -25,8 +25,8 @@ export function useClipPath2() {
     <circle cx="340" cy="120" r="60" />
   </g>
   <g fill="none" strokeWidth="1" stroke="#ddd">   <-- ClipPath可視化
-    <use href="#cp1" x="20" y="${ClipY.value as number}" />
-    <use href="#cp1" x="190" y="${ClipY.value as number}" />
+    <use href="#cp1" x="20" y="${ClipY.value}" />
+    <use href="#cp1" x="190" y="${ClipY.value}" />
   </g>
 </svg>`
 
@@ -35,8 +35,8 @@ export function useClipPath2() {
       <defs>
         <rect id="cp1" x={0} y={0} width={150} height={60} />
         <clipPath id={clipId}>
-          <use href="#cp1" x={20} y={ClipY.value as number} />
-          <use href="#cp1" x={190} y={ClipY.value as number} />
+          <use href="#cp1" x={20} y={ClipY.value} />
+          <use href="#cp1" x={190} y={ClipY.value} />
         </clipPath>
       </defs>
       <g clipPath={`url(#${clipId})`} fill="Tomato">
@@ -44,8 +44,8 @@ export function useClipPath2() {
         <circle cx={340} cy={120} r={60} />
       </g>
       <g fill="none" strokeWidth="1" stroke="#ddd">
-        <use href="#cp1" x={20} y={ClipY.value as number} />
-        <use href="#cp1" x={190} y={ClipY.value as number} />
+        <use href="#cp1" x={20} y={ClipY.value} />
+        <use href="#cp1" x={190} y={ClipY.value} />
       </g>
     </svg>
   )

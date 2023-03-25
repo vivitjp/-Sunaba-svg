@@ -57,7 +57,7 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
 const Option = ({
   option: { title, JSX, subTitle },
 }: {
-  option: OptionsType
+  option: OptionsType<any>
 }) => (
   <Row padding={3}>
     <TitleWrapper>

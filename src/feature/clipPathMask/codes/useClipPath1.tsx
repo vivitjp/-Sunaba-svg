@@ -28,8 +28,8 @@ export function useClipPath1() {
     <svg width={700} height={200}>
       <defs>
         <clipPath id={clipId}>
-          <rect x={20} y={ClipY.value as number} width={200} height={60} />
-          <rect x={240} y={ClipY.value as number} width={200} height={60} />
+          <rect x={20} y={ClipY.value} width={200} height={60} />
+          <rect x={240} y={ClipY.value} width={200} height={60} />
         </clipPath>
       </defs>
       <circle
@@ -42,7 +42,7 @@ export function useClipPath1() {
       <circle cx={240} cy={100} r={60} fill="blue" />
       <rect
         x={20}
-        y={ClipY.value as number}
+        y={ClipY.value}
         width={680}
         height={60}
         fill="none"

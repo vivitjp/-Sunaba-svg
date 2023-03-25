@@ -128,6 +128,7 @@ export const keysSVG: KeyDef[] = [
       "fontWeight",
       "fontSize",
       "fontFamily",
+      "CSSProperties",
     ],
   },
   {

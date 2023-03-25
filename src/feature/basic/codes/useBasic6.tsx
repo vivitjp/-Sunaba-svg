@@ -20,7 +20,7 @@ export function useBasic6() {
     <svg width={600} height={120}>
       <rect x={20} y={20} width={80} height={80} fill="orange" stroke="red" />
       <rect
-        x={CoordX.value as number}
+        x={CoordX.value}
         y={20}
         width={80}
         height={80}

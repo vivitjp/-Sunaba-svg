@@ -51,7 +51,7 @@ export function useAnime1(): UseReturnType {
             <animate
               attributeName="fill"
               dur={`${Duration.value}s`}
-              repeatCount={Repeat.value as number}
+              repeatCount={Repeat.value}
               values="white;blue;white"
               keyTimes={`0;${KeyTimes.value};1`}
             />

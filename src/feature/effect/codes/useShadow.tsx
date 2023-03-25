@@ -30,8 +30,8 @@ export function useShadow() {
       <defs>
         <filter id="filter1">
           <feDropShadow
-            stdDeviation={Deviation.value as number}
-            floodColor={Fill.value as string}
+            stdDeviation={Deviation.value}
+            floodColor={Fill.value}
           />
         </filter>
       </defs>

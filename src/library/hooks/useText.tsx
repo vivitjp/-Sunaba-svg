@@ -2,32 +2,32 @@ import { CSSProperties, useCallback, useState } from "react"
 import styled from "styled-components"
 import { OptionsType } from "./type"
 
-type Props = {
+type Props<T> = {
   title: string
   subTitle?: string
-  initValue: string
+  initValue: T
   width?: number
 }
 
-export const useText = ({
+export const useText = <T,>({
   initValue,
   title,
   subTitle,
   width = 240,
-}: Props): OptionsType => {
-  const [value, setValue] = useState<string | number>(initValue)
+}: Props<T>): OptionsType<T> => {
+  const [value, setValue] = useState<T>(initValue)
 
   const handle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value
     const newValue = typeof value === "string" ? value : parseInt(value)
-    setValue(newValue)
+    setValue(newValue as T)
   }, [])
 
   return {
     value,
     subTitle,
     title,
-    JSX: <Input onChange={handle} width={width} value={value} />,
+    JSX: <Input onChange={handle} width={width} value={value as string} />,
   }
 }
 

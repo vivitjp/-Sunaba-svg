@@ -10,12 +10,12 @@ export function useLinearGradation() {
     step: 0.1,
     valueType: "float",
   })
-  const ColorLeft = useText({
+  const ColorLeft = useText<string>({
     title: "背景色:左",
     subTitle: "stopColor",
     initValue: "red",
   })
-  const ColorRight = useText({
+  const ColorRight = useText<string>({
     title: "背景色:右",
     subTitle: "stopColor",
     initValue: "blue",
@@ -40,9 +40,9 @@ export function useLinearGradation() {
     <svg width={700} height={140}>
       <defs>
         <linearGradient id="linearGradId">
-          <stop offset="0" stopColor={ColorLeft.value as string} />
-          <stop offset={CenterValue.value as number} stopColor="white" />
-          <stop offset="1" stopColor={ColorRight.value as string} />
+          <stop offset="0" stopColor={ColorLeft.value} />
+          <stop offset={CenterValue.value} stopColor="white" />
+          <stop offset="1" stopColor={ColorRight.value} />
         </linearGradient>
       </defs>
       <path

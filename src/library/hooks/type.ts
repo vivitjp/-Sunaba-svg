@@ -1,6 +1,6 @@
-export type OptionsType = {
+export type OptionsType<T> = {
   title: string
   subTitle: string | undefined
-  value: number | string | boolean
+  value: T
   JSX: JSX.Element
 }

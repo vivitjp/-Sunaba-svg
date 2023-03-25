@@ -25,7 +25,7 @@ export function useForeignObject1() {
       <foreignObject
         x="10"
         y="10"
-        width={ObjectWidth.value as number}
+        width={ObjectWidth.value}
         height="200"
         requiredExtensions="http://www.w3.org/1999/xhtml"
       >

@@ -14,7 +14,7 @@ export const useCheck = ({
   title,
   subTitle,
   width = 20,
-}: Props): OptionsType => {
+}: Props): OptionsType<boolean> => {
   const id = useId()
 
   const [value, setValue] = useState<boolean>(initValue)
