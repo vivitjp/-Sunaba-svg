@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Column, Div, Row, Section, Title } from "../../common/styleDiv"
+import { Column, Div, Row, Title } from "../../common/styleDiv"
 import { OptionsType } from "../../library/hooks/type"
 import { syntaxHighlight } from "../../library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "../../library/syntaxHighlighter/keys/SVG"
@@ -11,13 +11,16 @@ type UseCode = {
 }
 
 export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
-  const { code, title, options, jsx, height, Visible } = useCode()
+  const { code, title, subTitle, options, jsx, height, Visible } = useCode()
   const [isVisible, setIsVisible] = Visible ?? [null, () => {}]
 
   return (
     <Column gap={16}>
       {/* タイトル */}
-      <MainTitle>{title}</MainTitle>
+      {title && <MainTitle>{title}</MainTitle>}
+
+      {/* サブタイトル */}
+      {subTitle && <SubTitle>{subTitle}</SubTitle>}
 
       {/* 操作オプション */}
       {options && (
@@ -44,7 +47,7 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
       )}
 
       {/* JSX */}
-      <Div border={"#ccc"} width={720} height={height}>
+      <Div border={"#ccc"} width={720} height={height} marginLeft={10}>
         {jsx}
       </Div>
     </Column>
@@ -57,14 +60,14 @@ const Option = ({
   option: OptionsType
 }) => (
   <Row padding={3}>
-    <DivMainSub>
-      <Title width={250} color={"#555"}>
+    <TitleWrapper>
+      <Title width={250} color={"#666"}>
         {title}
       </Title>
-      <Div fontSize={16} fontFamily={"monospace"} color="#555">
+      <Div fontSize={16} fontFamily={"monospace"} color="#666">
         {subTitle ? `${subTitle} :` : ``}
       </Div>
-    </DivMainSub>
+    </TitleWrapper>
     <Div width={250}>{JSX}</Div>
   </Row>
 )
@@ -72,8 +75,17 @@ const Option = ({
 //----------------------------------------
 // タイトル
 //----------------------------------------
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  width: 400px;
+`
+
 const MainTitle = styled.div`
   font-size: 20px;
+  font-weight: 300;
   color: var(--main-color);
   :before {
     content: "■";
@@ -81,13 +93,12 @@ const MainTitle = styled.div`
     color: var(--main-color);
   }
 `
-
-const DivMainSub = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  margin: 0;
-  width: 400px;
+const SubTitle = styled.div`
+  font-size: 16px;
+  color: #666;
+  padding: 0 30px;
+  width: 100%;
+  white-space: pre;
 `
 
 //----------------------------------------

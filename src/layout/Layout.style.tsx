@@ -15,12 +15,14 @@ export const Section = styled.section`
 
 export const Header = styled.section`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   height: 50px;
+  padding-left: 20px;
   background-color: var(--main-color);
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 300;
   color: #fff;
 `
 
@@ -69,6 +71,7 @@ export const GroupTitle = styled.summary`
     border-right: 1px solid var(--main-color);
     border-top: 1px solid var(--main-color);
   }
+  font-weight: 600;
 `
 
 export const GroupBody = styled.div`

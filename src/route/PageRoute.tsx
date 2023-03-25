@@ -49,6 +49,7 @@ const Title = styled.div`
   padding-left: 1rem;
   height: 50px;
   font-size: 2rem;
+  font-weight: 300;
   border-bottom: 1px solid var(--main-color);
   color: var(--main-color);
 `

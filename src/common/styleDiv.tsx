@@ -31,6 +31,16 @@ export const Base = styled.div<CSSProperties & { shadow?: number }>`
     `${typeof margin === "number" ? `${margin}px` : `${margin}`}`};
   margin-top: ${({ marginTop = 0 }) =>
     `${typeof marginTop === "number" ? `${marginTop}px` : `${marginTop}`}`};
+  margin-bottom: ${({ marginBottom = 0 }) =>
+    `${
+      typeof marginBottom === "number" ? `${marginBottom}px` : `${marginBottom}`
+    }`};
+  margin-left: ${({ marginLeft = 0 }) =>
+    `${typeof marginLeft === "number" ? `${marginLeft}px` : `${marginLeft}`}`};
+  margin-right: ${({ marginRight = 0 }) =>
+    `${
+      typeof marginRight === "number" ? `${marginRight}px` : `${marginRight}`
+    }`};
 
   font-size: ${({ fontSize = "inherit" }) =>
     `${typeof fontSize === "number" ? `${fontSize}px` : `${fontSize}`}`};

@@ -18,11 +18,11 @@ import {
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Section data-testid="layout">
-      <Header>Sunabar SVG</Header>
+      <Header>Sunabar React & SVG</Header>
       <Body data-testid="body">
         <MenuNav data-testid="menu">
           {Object.entries(menuGroup).map((group) => (
-            <GroupCompo key={group[0]} group={group} />
+            <MenuGroup key={group[0]} group={group} />
           ))}
         </MenuNav>
         <Playground data-testid="playground">{children}</Playground>
@@ -31,7 +31,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-const GroupCompo = ({ group: [title, menus] }: { group: [string, Menu[]] }) => {
+const MenuGroup = ({ group: [title, menus] }: { group: [string, Menu[]] }) => {
   return (
     <Group open>
       <GroupTitle data-testid="group-title">{title}</GroupTitle>

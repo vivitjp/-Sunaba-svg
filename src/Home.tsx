@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Home = () => {
-  return <Section>Sunabar SVG</Section>
+  return <Section>Sunabar React & SVG</Section>
 }
 
 const Section = styled.section`
