@@ -16,6 +16,7 @@ import { PageGradation } from "~/pages/Gradation"
 import { PageClipPathMask } from "~/pages/ClipPathMask"
 import { PageForeignObject } from "~/pages/ForeignObject"
 import { PageEvent } from "~/pages/Event"
+import { PageBezier } from "~/pages/Bezier"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -32,27 +33,27 @@ export const menuGroup: MenuGroup = {
   Home: [{ name: "Home", path: "/", element: Home }],
 
   Basic: [
-    { name: "01: Basic", path: "/basic", element: PageBasic },
-    { name: "02: Viewbox", path: "/viewbox", element: PageViewbox },
-    { name: "03: Shapes", path: "/shapes", element: PageShapes },
-    { name: "04: Attribute", path: "/attribute", element: PageAttribute },
-    { name: "05: Text", path: "/text", element: PageText },
-    //textPath
-    { name: "06: Image", path: "/image", element: PageImage },
-    { name: "07: Use", path: "/use", element: PageUse },
-    { name: "08: Effect", path: "/effect", element: PageEffect },
-    { name: "09: Gradation", path: "/gradation", element: PageGradation },
-    //{ name: "0: transform", path: "/transform", element: PageTransform },
-    { name: "10: Animation", path: "/animation", element: PageAnimation },
-    //{ name: "0: animateMotion", path: "/animeMotion", element: PageAnimeMotion },
-    //{ name: "0: animateTransform", path: "/animeTransform", element: PageAnimeTransform },
-    { name: "11: ClipPath/Mask", path: "/clipPath", element: PageClipPathMask },
+    { name: "Basic", path: "/basic", element: PageBasic },
+    { name: "Viewbox", path: "/viewbox", element: PageViewbox },
+    { name: "Shapes", path: "/shapes", element: PageShapes },
+    { name: "Bezier", path: "/bezier", element: PageBezier },
+    { name: "Attribute", path: "/attribute", element: PageAttribute },
+    { name: "Text", path: "/text", element: PageText },
+    { name: "Image", path: "/image", element: PageImage },
+    { name: "Use", path: "/use", element: PageUse },
+    { name: "Effect", path: "/effect", element: PageEffect },
+    { name: "Gradation", path: "/gradation", element: PageGradation },
+    //{ name: "transform", path: "/transform", element: PageTransform },
+    { name: "Animation", path: "/animation", element: PageAnimation },
+    //{ name: "animateMotion", path: "/animeMotion", element: PageAnimeMotion },
+    //{ name: "animateTransform", path: "/animeTransform", element: PageAnimeTransform },
+    { name: "ClipPath/Mask", path: "/clipPath", element: PageClipPathMask },
     {
-      name: "12: ForeignObject",
+      name: "ForeignObject",
       path: "/foreignObject",
       element: PageForeignObject,
     },
-    { name: "15: event", path: "/event", element: PageEvent },
+    { name: "event", path: "/event", element: PageEvent },
     // pattern
     // symbol
   ],

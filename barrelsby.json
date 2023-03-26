@@ -1,6 +1,7 @@
 {
   "name": "index",
   "directory": [
+    "./src/common",
     "./src/component",
     "./src/feature",
     "./src/layout",

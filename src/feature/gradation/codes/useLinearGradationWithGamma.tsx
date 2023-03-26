@@ -18,7 +18,6 @@ export function useLinearGradationWithGamma() {
     initValue: 1,
     range: [0, 2],
     step: 0.1,
-    valueType: "float",
   })
 
   const code = `<svg width={700} height={140}>

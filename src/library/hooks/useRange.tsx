@@ -3,13 +3,12 @@ import { Div, Range, Row } from "../../common/styleDiv"
 import { OptionsType } from "./type"
 
 type Props = {
-  title: string
+  title?: string
   subTitle?: string
   initValue: number
   range: [number, number]
   step: number
   width?: number
-  valueType?: "integer" | "float"
 }
 
 export const useRange = ({
@@ -19,16 +18,11 @@ export const useRange = ({
   range,
   step = 1,
   width = 240,
-  valueType = "integer",
 }: Props): OptionsType<number> => {
   const [value, setValue] = useState<number>(initValue)
 
   const handle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue =
-      valueType === "integer"
-        ? parseInt(e.currentTarget.value)
-        : parseFloat(e.currentTarget.value)
-    setValue(newValue)
+    setValue(parseFloat(e.currentTarget.value))
   }, [])
 
   return {
@@ -51,7 +45,3 @@ export const useRange = ({
     ),
   }
 }
-
-// const Value = styled.div`
-//   font-size: 20px;
-// `

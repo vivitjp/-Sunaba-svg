@@ -8,7 +8,6 @@ export function useLinearGradation() {
     initValue: 0.5,
     range: [0.3, 0.7],
     step: 0.1,
-    valueType: "float",
   })
   const ColorLeft = useText<string>({
     title: "背景色:左",

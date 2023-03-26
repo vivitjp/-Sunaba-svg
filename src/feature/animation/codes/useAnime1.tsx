@@ -28,7 +28,6 @@ export function useAnime1(): UseReturnType {
     initValue: 0.5,
     range: [0.2, 0.9],
     step: 0.1,
-    valueType: "float",
   })
 
   const code = `<svg width="700" height="140">

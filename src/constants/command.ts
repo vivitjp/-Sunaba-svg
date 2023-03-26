@@ -21,7 +21,7 @@ export const commands: Command[] = [
     sign: "A",
     title: "円弧",
     formula:
-      "a{水平半径px},{水直半径px} {傾き} {1:長方向,1:短方向},{1:時計回/0:反時計回} {終点X座標},{終点Y座標}",
+      "a{水平半径px},{水直半径px} {傾き} {1:長方向/0:短方向},{1:時計回/0:反時計回} {終点X座標},{終点Y座標}",
   },
   { sign: "Q", title: "曲線(2次ベジェ曲線)", formula: "省略" },
   { sign: "T", title: "曲線(2次ベジェ曲線)", formula: "省略" },

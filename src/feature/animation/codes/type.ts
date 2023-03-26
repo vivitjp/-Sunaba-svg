@@ -6,7 +6,7 @@ export type UseReturnType = {
   Visible?: [boolean, Dispatch<SetStateAction<boolean>>]
   title?: string
   subTitle?: string
-  code: string
-  options?: OptionsType[]
+  code?: string
+  options?: OptionsType<string | number | boolean>[]
   jsx: ReactNode
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Column, Div, Row, Title } from "../../common/styleDiv"
+import { Base, Column, Div, Row, Title } from "../../common/styleDiv"
 import { OptionsType } from "../../library/hooks/type"
 import { syntaxHighlight } from "../../library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "../../library/syntaxHighlighter/keys/SVG"
@@ -32,9 +32,11 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
       )}
 
       {/* コード */}
-      <Row padding={10} width={"100%"}>
-        <CodeBox code={code} />
-      </Row>
+      {code && (
+        <Row padding={10} width={"100%"}>
+          <CodeBox code={code} />
+        </Row>
+      )}
 
       {/* 表示ボタン */}
       {Visible && (
@@ -61,12 +63,17 @@ const Option = ({
 }) => (
   <Row padding={3}>
     <TitleWrapper>
-      <Title width={250} color={"#666"}>
-        {title}
-      </Title>
-      <Div fontSize={16} fontFamily={"monospace"} color="#666">
-        {subTitle ? `${subTitle} :` : ``}
-      </Div>
+      {title && (
+        <Title width={250} color={"#666"}>
+          {title}
+        </Title>
+      )}
+      {!title && <div />}
+      {subTitle && (
+        <OptionSubTitle fontSize={16} fontFamily={"monospace"} color="#666">
+          {subTitle}
+        </OptionSubTitle>
+      )}
     </TitleWrapper>
     <Div width={250}>{JSX}</Div>
   </Row>
@@ -99,6 +106,14 @@ const SubTitle = styled.div`
   padding: 0 30px;
   width: 100%;
   white-space: pre;
+`
+
+const OptionSubTitle = styled(Base)`
+  :after {
+    content: ":";
+    margin: 0 3px;
+    color: #666;
+  }
 `
 
 //----------------------------------------

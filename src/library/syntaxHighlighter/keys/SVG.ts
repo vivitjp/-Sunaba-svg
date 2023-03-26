@@ -47,6 +47,9 @@ export const keysSVG: KeyDef[] = [
       "href",
       "xlink",
       "url",
+      "onClick",
+      "onMouseEnter",
+      "onMouseLeave",
     ],
   },
   {
@@ -171,6 +174,9 @@ export const keysSVG: KeyDef[] = [
       "sans-serif",
       "monospace",
       "cursive",
+      "true",
+      "false",
+      "CrispEdges",
     ],
   },
 ]
