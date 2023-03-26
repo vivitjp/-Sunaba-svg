@@ -1,12 +1,12 @@
-import { useRange, useText } from "~/library"
+import { useRange } from "~/library"
 import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
 import { SVGRuled } from "~/component"
 
-export function useBezier2() {
-  const title = `2次ベジェ曲線(Q,T)`
+export function useBezier2A() {
+  const title = `2次ベジェ曲線(Q)`
 
   const X1 = useRange({
-    title: "第１線 座標",
+    title: "第1線相対座標",
     subTitle: "x1",
     initValue: 200,
     range: [0, 400],
@@ -21,7 +21,7 @@ export function useBezier2() {
   })
 
   const X2 = useRange({
-    title: "第２線 座標",
+    title: "第2線相対座標(第1線始点起点)",
     subTitle: "x2",
     initValue: 200,
     range: [0, 300],
@@ -37,7 +37,9 @@ export function useBezier2() {
 
   const [startX, startY] = [50, 50]
 
-  const code = ``
+  const code = `<svg width={600} height={300}>
+  <path d="M${startX},${startY} q${X1.value},${Y1.value} ${X2.value},${Y2.value}" stroke="red" fill="none" />
+</svg>`
 
   const jsx = (
     <SVGRuled
@@ -52,15 +54,15 @@ export function useBezier2() {
     >
       <defs>
         <marker
-          id="markerId"
-          markerUnits="strokeWidth"
-          markerWidth="20"
-          markerHeight="20"
+          id="markerId1A"
+          // markerUnits="strokeWidth"
+          markerWidth="10"
+          markerHeight="10"
           viewBox="0 0 20 20"
-          refX="0"
-          refY="0"
+          refX="10"
+          refY="10"
         >
-          <circle x="10" y="10" r="10" fill="blue" stroke="none" />
+          <circle cx="10" cy="10" r="10" fill="blue" />
         </marker>
       </defs>
       <text
@@ -79,17 +81,10 @@ export function useBezier2() {
         },${Y2.value - Y1.value}`}
         stroke="#555"
         fill="none"
-        markerStart="url(#markerId)"
-        markerMid="url(#markerId)"
-        markerEnd="url(#markerId)"
+        markerStart="url(#markerId1A)"
+        markerMid="url(#markerId1A)"
+        markerEnd="url(#markerId1A)"
       />
-      {/* <path
-        d={`M${startX + X1.value},${startY + Y1.value} l${
-          X2.value - X1.value
-        },${Y2.value - Y1.value}`}
-        stroke="#555"
-        fill="none"
-      /> */}
     </SVGRuled>
   )
 

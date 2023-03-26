@@ -59,6 +59,7 @@ export const useSvgText = () => {
     range: [100, 800],
     step: 100,
   })
+
   const FontFamily = useSelect({
     title: "フォントFamily",
     subTitle: "fontFamily",
