@@ -6,30 +6,30 @@ export function useBezier2A() {
   const title = `2次ベジェ曲線(Q)`
 
   const X1 = useRange({
-    title: "第1線相対座標",
-    subTitle: "x1",
+    title: "Q 第1線相対座標",
+    subTitle: "qx1",
     initValue: 0,
     range: [0, 200],
     step: 10,
   })
 
   const Y1 = useRange({
-    subTitle: "y1",
+    subTitle: "qy1",
     initValue: -200,
     range: [-300, -100],
     step: 10,
   })
 
   const X2 = useRange({
-    title: "第2線相対座標",
-    subTitle: "x2",
+    title: "Q 第2線相対座標",
+    subTitle: "qx2",
     initValue: 200,
     range: [100, 300],
     step: 10,
   })
 
   const Y2 = useRange({
-    subTitle: "y2",
+    subTitle: "qy2",
     initValue: -200,
     range: [-300, -100],
     step: 10,
@@ -51,6 +51,7 @@ export function useBezier2A() {
       zeroRulers={zeroRulers}
       margin={30}
       marginTLOnly={true}
+      preserveAspectRatio="xMinYMin slice"
     >
       <defs>
         <marker
