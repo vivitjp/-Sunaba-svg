@@ -1,6 +1,6 @@
 import { useCheck } from "~/library"
 
-export function useBasic5_1() {
+export function useBasic5Display1() {
   const title = `表示切り替え`
 
   const CheckDisplay = useCheck({

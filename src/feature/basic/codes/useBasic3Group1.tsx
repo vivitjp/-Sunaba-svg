@@ -1,4 +1,4 @@
-export function useBasic3_1() {
+export function useBasic3Group1() {
   const title = `グループ(g)`
 
   const code = `<svg width="600" height="120">

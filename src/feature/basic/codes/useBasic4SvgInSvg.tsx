@@ -1,4 +1,4 @@
-export function useBasic4() {
+export function useBasic4SvgInSvg() {
   const title = `SVG in SVG`
 
   const code = `<svg width="600" height="120">

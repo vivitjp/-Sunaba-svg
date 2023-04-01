@@ -17,6 +17,7 @@ import { PageClipPathMask } from "~/pages/ClipPathMask"
 import { PageForeignObject } from "~/pages/ForeignObject"
 import { PageEvent } from "~/pages/Event"
 import { PageBezier } from "~/pages/Bezier"
+import { PageTrigonometric } from "~/pages/Trigonometric"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -41,6 +42,11 @@ export const menuGroup: MenuGroup = {
     { name: "Text", path: "/text", element: PageText },
     { name: "Image", path: "/image", element: PageImage },
     { name: "Use", path: "/use", element: PageUse },
+    {
+      name: "Trigonometric",
+      path: "/trigonometric",
+      element: PageTrigonometric,
+    },
     { name: "Effect", path: "/effect", element: PageEffect },
     { name: "Gradation", path: "/gradation", element: PageGradation },
     //{ name: "transform", path: "/transform", element: PageTransform },

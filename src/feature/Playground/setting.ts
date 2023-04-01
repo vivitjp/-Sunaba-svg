@@ -4,7 +4,7 @@ export const SVG_WIDTH = 600,
   SVG_HEIGHT = 500,
   MARGIN = 40
 
-export const options: Options[] = [
+export const options: Options<number>[] = [
   { title: "1", value: 1 },
   { title: "2", value: 2 },
   { title: "3", value: 3 },
@@ -63,8 +63,10 @@ export const pathSamplesMap = new Map<string, PathSample>(
   pathSamples.map((prop) => [prop.id, prop])
 )
 
-export const pathOptions: Options[] = pathSamples.map(({ title, id }) => ({
-  title,
-  value: id,
-}))
+export const pathOptions: Options<string>[] = pathSamples.map(
+  ({ title, id }) => ({
+    title,
+    value: id,
+  })
+)
 pathOptions.unshift({ title: "サンプル選択", value: "" })

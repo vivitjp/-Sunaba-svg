@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 import { useCheck } from "~/library"
 
-export function useBasic5_2() {
+export function useBasic5Display2() {
   const CheckDisplay = useCheck({
     title: "Hooksによる切り替え",
     subTitle: "useState/useMemo",

@@ -179,4 +179,8 @@ export const keysSVG: KeyDef[] = [
       "CrispEdges",
     ],
   },
+  {
+    color: "MediumOrchid",
+    keys: ["Math", "atan2", "tan"],
+  },
 ]

@@ -1,6 +1,6 @@
 import { useCheck, useRange } from "~/library"
 
-export function useBasic8() {
+export function useBasic8CrispEdges() {
   const title = `図形描画の品質`
 
   const CrispEdges = useCheck({

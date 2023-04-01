@@ -56,6 +56,12 @@ export const Base = styled.div<CSSProperties & { shadow?: number }>`
 
 export const Div = styled(Base)``
 
+export const DivFlexBottom = styled(Base)`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+`
+
 export const Section = styled(Base)`
   display: flex;
   width: ${({ width = "750px" }) =>

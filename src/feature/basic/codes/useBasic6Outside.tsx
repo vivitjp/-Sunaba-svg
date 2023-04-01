@@ -1,6 +1,6 @@
 import { useRange } from "~/library"
 
-export function useBasic6() {
+export function useBasic6Outside() {
   const title = `表示範囲`
 
   const CoordX = useRange({

@@ -1,27 +1,27 @@
 import { Column, Section } from "../../common/styleDiv"
 import { FeaturePresenter } from "../presenter/FeaturePresenter"
-import { useBasic1 } from "./codes/useBasic1"
-import { useBasic2 } from "./codes/useBasic2"
-import { useBasic3_1 } from "./codes/useBasic3_1"
-import { useBasic3_2 } from "./codes/useBasic3_2"
-import { useBasic4 } from "./codes/useBasic4"
-import { useBasic5_1 } from "./codes/useBasic5_1"
-import { useBasic5_2 } from "./codes/useBasic5_2"
-import { useBasic6 } from "./codes/useBasic6"
-import { useBasic7 } from "./codes/useBasic7"
-import { useBasic8 } from "./codes/useBasic8"
+import { useBasic1SVG } from "./codes/useBasic1SVG"
+import { useBasic2Omit } from "./codes/useBasic2Omit"
+import { useBasic3Group1 } from "./codes/useBasic3Group1"
+import { useBasic3Group2 } from "./codes/useBasic3Group2"
+import { useBasic4SvgInSvg } from "./codes/useBasic4SvgInSvg"
+import { useBasic5Display1 } from "./codes/useBasic5Display1"
+import { useBasic5Display2 } from "./codes/useBasic5Display2"
+import { useBasic6Outside } from "./codes/useBasic6Outside"
+import { useBasic7DisplayOrder } from "./codes/useBasic7DisplayOrder"
+import { useBasic8CrispEdges } from "./codes/useBasic8CrispEdges"
 
 const codes = [
-  useBasic1,
-  useBasic2,
-  useBasic3_1,
-  useBasic3_2,
-  useBasic4,
-  useBasic5_1,
-  useBasic5_2,
-  useBasic6,
-  useBasic7,
-  useBasic8,
+  useBasic1SVG,
+  useBasic2Omit,
+  useBasic3Group1,
+  useBasic3Group2,
+  useBasic4SvgInSvg,
+  useBasic5Display1,
+  useBasic5Display2,
+  useBasic6Outside,
+  useBasic7DisplayOrder,
+  useBasic8CrispEdges,
 ]
 
 export const FeatureBasic = () => {

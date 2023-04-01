@@ -31,7 +31,7 @@ export const useSvgText = () => {
   })
   const Anchor = useSelect({
     title: "アンカー(左右)",
-    subTitle: "anchor",
+    subTitle: "textAnchor",
     initValue: "middle",
     values: ["start", "middle", "end"],
   })

@@ -1,4 +1,4 @@
-export function useBasic3_2() {
+export function useBasic3Group2() {
   const subTitle = `x, y, width, heightなどの属性は非継承\n`
 
   const code = `<svg width="600" height="120">

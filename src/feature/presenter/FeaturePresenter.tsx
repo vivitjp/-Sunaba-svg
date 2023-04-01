@@ -1,9 +1,16 @@
 import styled from "styled-components"
-import { Base, Column, Div, Row, Title } from "../../common/styleDiv"
+import {
+  Base,
+  Column,
+  Div,
+  DivFlexBottom,
+  Row,
+  Title,
+} from "../../common/styleDiv"
 import { OptionsType } from "../../library/hooks/type"
 import { syntaxHighlight } from "../../library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "../../library/syntaxHighlighter/keys/SVG"
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 import { UseReturnType } from "../animation/codes/type"
 
 type UseCode = {
@@ -49,10 +56,32 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
       )}
 
       {/* JSX */}
-      <Div border={"#ccc"} width={720} height={height} marginLeft={10}>
-        {jsx}
-      </Div>
+      <DivFlexBottom
+        border={"#ccc"}
+        width={720}
+        height={height}
+        marginLeft={10}
+      >
+        <EventWrapper>{jsx}</EventWrapper>
+      </DivFlexBottom>
     </Column>
+  )
+}
+
+const EventWrapper = ({ children }: { children: ReactNode }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const value = e.pageX
+    console.log(value)
+  }
+
+  return (
+    <div
+      onClick={handleClick}
+      data-id="EventWrapper"
+      style={{ width: "800px", overflowX: "scroll" }}
+    >
+      <div style={{ width: "1200px" }}>{children}</div>
+    </div>
   )
 }
 

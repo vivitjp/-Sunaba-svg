@@ -1,6 +1,6 @@
 import { useCheck } from "~/library"
 
-export function useBasic7() {
+export function useBasic7DisplayOrder() {
   const title = `要素の表示順(Layerの概念)`
   const subTitle = ``
 

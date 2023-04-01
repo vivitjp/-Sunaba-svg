@@ -7,6 +7,7 @@ export * from './hooks/useCheck';
 export * from './hooks/useRange';
 export * from './hooks/useSelect';
 export * from './hooks/useText';
+export * from './libs/roundFloat';
 export * from './svg/component/Group';
 export * from './svg/component/Path';
 export * from './svg/component/Polyline';
