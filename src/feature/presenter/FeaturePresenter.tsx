@@ -62,28 +62,29 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
         height={height}
         marginLeft={10}
       >
-        <EventWrapper>{jsx}</EventWrapper>
+        {jsx}
+        {/* <EventWrapper>{jsx}</EventWrapper> */}
       </DivFlexBottom>
     </Column>
   )
 }
 
-const EventWrapper = ({ children }: { children: ReactNode }) => {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const value = e.pageX
-    console.log(value)
-  }
+// const EventWrapper = ({ children }: { children: ReactNode }) => {
+//   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+//     const value = e.pageX
+//     console.log(value)
+//   }
 
-  return (
-    <div
-      onClick={handleClick}
-      data-id="EventWrapper"
-      style={{ width: "800px", overflowX: "scroll" }}
-    >
-      <div style={{ width: "1200px" }}>{children}</div>
-    </div>
-  )
-}
+//   return (
+//     <div
+//       onClick={handleClick}
+//       data-id="EventWrapper"
+//       style={{ width: "800px", overflowX: "scroll" }}
+//     >
+//       <div style={{ width: "1200px" }}>{children}</div>
+//     </div>
+//   )
+// }
 
 const Option = ({
   option: { title, JSX, subTitle },

@@ -19,13 +19,13 @@ export function useMask2() {
   })
 
   const code = `<svg width={700} height={200}>
-  <mask id="uniqueId" x="0" y="0" width="700" height="200">
+  <mask id="uniqueId">
     <text
       x="350"
       y="${ClipY.value}"
-      fill={"white"}
-      textAnchor={"middle"}
-      dominantBaseline={"central"}
+      fill="white"
+      textAnchor="middle"
+      dominantBaseline="central"
       fontWeight={700}
       style={{ fontSize: 80, fontFamily: "monospace" }}
     >
@@ -43,13 +43,13 @@ export function useMask2() {
 
   const jsx = (
     <svg width={700} height={200}>
-      <mask id={id} x="0" y="0" width="700" height="200">
+      <mask id={id}>
         <text
           x={350}
           y={ClipY.value}
-          fill={"white"}
-          textAnchor={"middle"}
-          dominantBaseline={"central"}
+          fill="white" //whiteで100%通過
+          textAnchor="middle"
+          dominantBaseline="central"
           fontWeight={700}
           style={{ fontSize: 80, fontFamily: "monospace" }}
         >

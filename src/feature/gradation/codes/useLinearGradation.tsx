@@ -1,6 +1,8 @@
+import { useId } from "react"
 import { useRange, useText } from "~/library"
 
 export function useLinearGradation() {
+  const filterId = useId()
   const title = `Gradation(Linear)`
   const CenterValue = useRange({
     title: "中央値",
@@ -22,7 +24,7 @@ export function useLinearGradation() {
 
   const code = `<svg width={700} height={140}>
   <defs>
-    <linearGradient id="linearGradId">
+    <linearGradient id="filterId">
       <stop offset="0" stopColor="${ColorLeft.value}" />
       <stop offset="${CenterValue.value}" stopColor="white" />
       <stop offset="1" stopColor="${ColorRight.value}" />
@@ -30,25 +32,20 @@ export function useLinearGradation() {
   </defs>
   <path
     d="M10,10 h120 v120 h-120z"
-    fill="url(#linearGradId)"
-    filter="url(#expoId)"
+    fill="url(#filterId)"
   />
 </svg>`
 
   const jsx = (
     <svg width={700} height={140}>
       <defs>
-        <linearGradient id="linearGradId">
+        <linearGradient id={filterId}>
           <stop offset="0" stopColor={ColorLeft.value} />
           <stop offset={CenterValue.value} stopColor="white" />
           <stop offset="1" stopColor={ColorRight.value} />
         </linearGradient>
       </defs>
-      <path
-        d="M10,10 h120 v120 h-120z"
-        fill="url(#linearGradId)"
-        filter="url(#expoId)"
-      />
+      <path d="M10,10 h120 v120 h-120z" fill={`url(#${filterId})`} />
     </svg>
   )
 

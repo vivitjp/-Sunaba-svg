@@ -22,7 +22,7 @@ export function useShadow() {
       <feDropShadow stdDeviation="${Deviation.value}" floodColor="${Fill.value}" />
     </filter>
   </defs>
-  <path d="M20,20 h100 v100 h-100z" fill="orange" filter="url(#filter1)" />
+  <path filter="url(#filter1)" d="M20,20 h100 v100 h-100z" fill="orange" />
 </svg>`
 
   const jsx = (
@@ -35,7 +35,7 @@ export function useShadow() {
           />
         </filter>
       </defs>
-      <path d="M20,20 h100 v100 h-100z" fill="orange" filter="url(#filter1)" />
+      <path filter="url(#filter1)" d="M20,20 h100 v100 h-100z" fill="orange" />
     </svg>
   )
 

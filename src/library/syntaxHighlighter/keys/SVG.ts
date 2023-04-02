@@ -132,6 +132,7 @@ export const keysSVG: KeyDef[] = [
       "fontSize",
       "fontFamily",
       "CSSProperties",
+      "maskType",
     ],
   },
   {
@@ -177,6 +178,8 @@ export const keysSVG: KeyDef[] = [
       "true",
       "false",
       "CrispEdges",
+      "luminance",
+      "alpha",
     ],
   },
   {

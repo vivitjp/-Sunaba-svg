@@ -3,7 +3,7 @@ import { Shape } from "../setting"
 export const Polygon: Shape = {
   title: "Polygon",
   shape: {
-    code: `<Polygon points="100,100 150,200 250,200 300,100" />`,
+    code: `<polygon points="100,100 150,200 250,200 300,100" />`,
     jsx: (
       <polygon
         points="100,100 150,200 250,200 300,100"

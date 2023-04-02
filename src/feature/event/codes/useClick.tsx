@@ -2,10 +2,7 @@ import { useState } from "react"
 
 export function useClick() {
   const title = `イベント(event)`
-
-  const handleClick = (e: React.MouseEvent<SVGCircleElement>) => {
-    setCoordinates([e.clientX, e.clientY])
-  }
+  const subTitle = '注意: fill="none" には onClick が反応しない'
 
   type Hover = {
     fill: string
@@ -29,43 +26,45 @@ export function useClick() {
     setHover(flag ? hoverEntered : hoverDefault)
   }
 
-  const [coordinates, setCoordinates] = useState<[number, number]>([0, 0])
+  const [xyInside, setXyInside] = useState<[number, number]>([0, 0])
+  const handleClickInside = (e: React.MouseEvent<SVGCircleElement>) => {
+    setXyInside([e.clientX, e.clientY])
+  }
 
-  const code = `<svg width={700} height={200}>
-  <text x={5} y={5} fill="#555" textAnchor="start"> ${coordinates[0]}:${coordinates[1]} </text>
+  const [xyOutside, setXyOutside] = useState<[number, number]>([0, 0])
+  const handleClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
+    setXyOutside([e.clientX, e.clientY])
+  }
 
-  {/* fill="none" には onClick が反応しない */}
-  <path d="M0,0 h700v200h-700z" fill="white" onClick={handleClick} />
-
-  <circle cx={100} cy={100} r={60} fill="${hover.fill}" stroke="${hover.stroke}" strokeWidth="${hover.strokeWidth}"
-    pointerEvents="fill"
-    onMouseEnter={() => handleMouse(true)}
-    onMouseLeave={() => handleMouse(false)}
-  />
-</svg>`
+  const code = `<div onClick={handleClickOutside}> => ${xyOutside[0]}:${xyOutside[1]}
+  <svg width={700} height={200}>
+    <circle cx={100} cy={100} r={60} fill="${hover.fill}" stroke="${hover.stroke}" strokeWidth="${hover.strokeWidth}"
+      pointerEvents="fill" //Mouse反応対象
+      onMouseEnter={() => handleMouse(true)}
+      onMouseLeave={() => handleMouse(false)}
+      onClick={handleClickInside} => ${xyInside[0]}:${xyInside[1]}
+    />
+  </svg>
+</div>`
 
   const jsx = (
-    <svg width={700} height={200}>
-      {/* fill="none" には onClick が反応しない */}
-      <path d="M0,0 h700v200h-700z" fill="white" onClick={handleClick} />
-
-      <circle
-        cx={100}
-        cy={100}
-        r={60}
-        fill={hover.fill}
-        stroke={hover.stroke}
-        strokeWidth={hover.strokeWidth}
-        pointerEvents="fill"
-        onMouseEnter={() => handleMouse(true)}
-        onMouseLeave={() => handleMouse(false)}
-      />
-
-      <text x={5} y={5} fill="#555" textAnchor="start">
-        {`${coordinates[0]}:${coordinates[1]}`}
-      </text>
-    </svg>
+    <div onClick={handleClickOutside}>
+      <svg width={700} height={200}>
+        <circle
+          cx={100}
+          cy={100}
+          r={60}
+          fill={hover.fill}
+          stroke={hover.stroke}
+          strokeWidth={hover.strokeWidth}
+          pointerEvents="fill"
+          onMouseEnter={() => handleMouse(true)}
+          onMouseLeave={() => handleMouse(false)}
+          onClick={handleClickInside}
+        />
+      </svg>
+    </div>
   )
 
-  return { height: 200, title, code, options: [], jsx }
+  return { height: 200, title, subTitle, code, options: [], jsx }
 }

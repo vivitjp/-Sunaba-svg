@@ -1,6 +1,10 @@
+import { useId } from "react"
 import { useRange, useText } from "~/library"
 
 export function useLinearGradationWithGamma() {
+  const expoId = useId()
+  const filterId = useId()
+
   const title = `Gradation(Linear)+Filter(Gamma)`
   const ColorLeft = useText({
     title: "背景色:左",
@@ -22,14 +26,14 @@ export function useLinearGradationWithGamma() {
 
   const code = `<svg width={700} height={140}>
   <defs>
-    <filter id="expoId" x="0" y="0" width="100%" height="100%">
+    <filter id="expoId">
       <feComponentTransfer>
         <feFuncR type="gamma" exponent="${Exponent.value}" />
         <feFuncG type="gamma" exponent="${Exponent.value}" />
         <feFuncB type="gamma" exponent="${Exponent.value}" />
       </feComponentTransfer>
     </filter>
-    <linearGradient id="linearGradGamma">
+    <linearGradient id="filterId">
       <stop offset="0" stopColor="${ColorLeft.value}" />
       <stop offset="0.5" stopColor="white" />
       <stop offset="1" stopColor="${ColorRight.value}" />
@@ -37,30 +41,30 @@ export function useLinearGradationWithGamma() {
   </defs>
   <path
     d="M10,10 h120 v120 h-120z"
-    fill="url(#linearGradGamma)"
     filter="url(#expoId)"
+    fill="url(#filterId)"
   />
 </svg>`
 
   const jsx = (
     <svg width={700} height={140}>
       <defs>
-        <filter id="expoId" x="0" y="0" width="100%" height="100%">
+        <filter id={expoId}>
           <feComponentTransfer>
             <feFuncR type="gamma" exponent={Exponent.value} />
             <feFuncG type="gamma" exponent={Exponent.value} />
             <feFuncB type="gamma" exponent={Exponent.value} />
           </feComponentTransfer>
         </filter>
-        <linearGradient id="linearGradGamma">
+        <linearGradient id={filterId}>
           <stop offset="0" stopColor={ColorLeft.value} />
           <stop offset="1" stopColor={ColorRight.value} />
         </linearGradient>
       </defs>
       <path
         d="M10,10 h120 v120 h-120z"
-        fill="url(#linearGradGamma)"
-        filter="url(#expoId)"
+        filter={`url(#${expoId})`}
+        fill={`url(#${filterId})`}
       />
     </svg>
   )

@@ -1,6 +1,8 @@
+import { useId } from "react"
 import { useRange, useText } from "~/library"
 
 export function useCircleGradation() {
+  const filterId = useId()
   const title = `Gradation(Circle)`
 
   const ColorCenter = useText({
@@ -17,31 +19,31 @@ export function useCircleGradation() {
   const CenterValue = useRange({
     title: "中央値",
     subTitle: "offset",
-    initValue: 50,
-    range: [30, 80],
-    step: 5,
+    initValue: 0.5,
+    range: [0.1, 0.9],
+    step: 0.1,
   })
   const code = `<svg width={700} height={140}>
   <defs>
-    <radialGradient id="circleGradId">
-      <stop offset="0%" stopColor="${ColorCenter.value}" />
-      <stop offset="${CenterValue.value}%" stopColor="DodgerBlue" />
-      <stop offset="100%" stopColor="${ColorEdge.value}" />
+    <radialGradient id="filterId">
+      <stop offset="0" stopColor="${ColorCenter.value}" />
+      <stop offset="${CenterValue.value}" stopColor="DodgerBlue" />
+      <stop offset="1" stopColor="${ColorEdge.value}" />
     </radialGradient>
   </defs>
-  <circle cx="70" cy="70" r="60" fill="url(#circleGradId)" />
+  <circle cx="70" cy="70" r="60" fill="url(#filterId)" />
 </svg>`
 
   const jsx = (
     <svg width={700} height={140}>
       <defs>
-        <radialGradient id="circleGradId">
-          <stop offset="0%" stopColor={ColorCenter.value as string} />
-          <stop offset={`${CenterValue.value}%`} stopColor="DodgerBlue" />
-          <stop offset="100%" stopColor={ColorEdge.value as string} />
+        <radialGradient id={filterId}>
+          <stop offset={0} stopColor={ColorCenter.value as string} />
+          <stop offset={CenterValue.value} stopColor="DodgerBlue" />
+          <stop offset={1} stopColor={ColorEdge.value as string} />
         </radialGradient>
       </defs>
-      <circle cx="70" cy="70" r="60" fill="url(#circleGradId)" />
+      <circle cx="70" cy="70" r="60" fill={`url(#${filterId})`} />
     </svg>
   )
 
