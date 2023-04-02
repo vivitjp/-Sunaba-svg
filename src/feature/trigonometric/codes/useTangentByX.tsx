@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { useRange } from "~/library"
-import { roundFloat2 } from "~/library/libs/roundFloat"
+import { roundFloat } from "~/library/libs/roundFloat"
 
 export function useTangentByX() {
   const title = `三角関数(Tangent)`
@@ -14,11 +14,11 @@ export function useTangentByX() {
   })
 
   const theta = useMemo(
-    () => roundFloat2(Math.atan2(MaxY, MaxX.value), 4),
+    () => roundFloat(Math.atan2(MaxY, MaxX.value), 4),
     [MaxX.value]
   )
   const angle = useMemo(
-    () => roundFloat2((Math.atan2(MaxY, MaxX.value) * 180) / Math.PI, 4),
+    () => roundFloat((Math.atan2(MaxY, MaxX.value) * 180) / Math.PI, 4),
     [theta]
   )
 
@@ -30,7 +30,7 @@ export function useTangentByX() {
   })
 
   const Y1 = useMemo(() => {
-    return roundFloat2(Math.tan(theta) * X.value, 4)
+    return roundFloat(Math.tan(theta) * X.value, 4)
   }, [X.value, MaxX.value])
 
   const code = `

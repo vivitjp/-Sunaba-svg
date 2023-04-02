@@ -76,7 +76,7 @@ function strokeWidth() {
 /* ---------- strokeDasharray ---------- */
 function strokeDasharray() {
   const misc = {
-    title: "strokeDasharray (破線定義) stroke-dashoffset追加予定",
+    title: "strokeDasharray (破線定義)",
     sample: "=実線幅値 空白幅値",
   }
   const state = useState<string | number>("4 1")

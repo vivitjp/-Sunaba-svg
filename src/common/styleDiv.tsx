@@ -119,10 +119,19 @@ export const Code = styled.pre<CSSProperties & { align?: string }>`
   overflow: auto;
 `
 
-export const S = styled.span<CSSProperties>`
+export const Span = styled.span<CSSProperties>`
+  margin: 0;
+  padding: 0;
+  color: ${({ color = "inherit" }) => color};
+  font-size: ${({ fontSize = "inherit" }) => fontSize};
+`
+
+export const SpanRed = styled.span<CSSProperties>`
+  margin: 0;
+  padding: 0;
   color: var(--main-color);
-  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
-  font-family: monospace;
+  font-size: ${({ fontSize = "inherit" }) => fontSize};
+  font-family: ${({ fontFamily = "monospace" }) => fontFamily};
 `
 
 const NumberRange = ({

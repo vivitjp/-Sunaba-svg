@@ -1,5 +1,5 @@
 import { rectangle, Text } from "~/library"
-import { Code, Div, Row, S, Section } from "../../common/styleDiv"
+import { Code, Div, Row, SpanRed, Section } from "../../common/styleDiv"
 import { FC, useCallback, useState } from "react"
 import { SelectSet } from "~/component"
 import { adjustOptions, aspectXOptions, aspectYOptions } from "../basic/setting"
@@ -25,7 +25,8 @@ export const FeatureViewbox = () => {
     <Section>
       <Row border={"#ddd"} padding={6}>
         <Code fontSize={18}>
-          SVG width:<S fontSize={20}>600</S> height:<S fontSize={20}>300</S>
+          SVG width:<SpanRed fontSize={"20px"}>600</SpanRed> height:
+          <SpanRed fontSize={"20px"}>300</SpanRed>
         </Code>
       </Row>
 
@@ -124,7 +125,7 @@ const AspectRatio: FC<AspectRatioProps> = ({
   return (
     <Row border={"#ddd"} padding={10}>
       <Div fontSize={18}>
-        preserveAspectRatio <S fontSize={20}>X</S>:
+        preserveAspectRatio <SpanRed fontSize={"20px"}>X</SpanRed>:
       </Div>
       <SelectSet
         options={aspectXOptions}
@@ -132,7 +133,7 @@ const AspectRatio: FC<AspectRatioProps> = ({
         width={80}
       />
       <Div fontSize={18}>
-        <S fontSize={20}>Y</S>:
+        <SpanRed fontSize={"20px"}>Y</SpanRed>:
       </Div>
       <SelectSet
         options={aspectYOptions}

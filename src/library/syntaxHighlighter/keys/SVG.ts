@@ -3,7 +3,7 @@ import { KeyDef } from "~/library/syntaxHighlighter/syntaxHighlighter"
 //  { color: "CadetBlue", keys: ["class", "color", "style"] },
 
 export const keysSVG: KeyDef[] = [
-  { color: "IndianRed", keys: ["svg"] },
+  { color: "IndianRed", keys: ["svg", "React"] },
   {
     color: "DarkViolet",
     keys: ["g", "use", "view", "switch", "filter", "mask", "defs", "animate"],
@@ -34,6 +34,7 @@ export const keysSVG: KeyDef[] = [
       "feFuncG",
       "feFuncB",
       "stop",
+      "MouseEvent",
     ],
   },
   {

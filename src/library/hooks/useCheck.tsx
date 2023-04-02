@@ -5,6 +5,7 @@ import { OptionsType } from "./type"
 type Props = {
   title: string
   subTitle?: string
+  extraNote?: string
   initValue: boolean
   width?: number
 }
@@ -13,6 +14,7 @@ export const useCheck = ({
   initValue,
   title,
   subTitle,
+  extraNote,
   width = 20,
 }: Props): OptionsType<boolean> => {
   const id = useId()
@@ -27,6 +29,7 @@ export const useCheck = ({
   return {
     value,
     subTitle: "",
+    extraNote,
     title,
     JSX: (
       <Div>

@@ -53,7 +53,7 @@ export const useTextPath = () => {
       <defs>
         <path
           id="target"
-          d="M140,40 a100,100 0,1 1 0,200 a100,100 0,0 1 0,-200z"
+          d="M140,20 a100,100 0,1 1 0,200 a100,100 0,0 1 0,-200z"
           fill="none"
         />
       </defs>

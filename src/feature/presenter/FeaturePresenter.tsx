@@ -5,12 +5,13 @@ import {
   Div,
   DivFlexBottom,
   Row,
+  Span,
   Title,
 } from "../../common/styleDiv"
 import { OptionsType } from "../../library/hooks/type"
 import { syntaxHighlight } from "../../library/syntaxHighlighter/syntaxHighlighter"
 import { keysSVG } from "../../library/syntaxHighlighter/keys/SVG"
-import { FC, ReactNode } from "react"
+import { FC } from "react"
 import { UseReturnType } from "../animation/codes/type"
 
 type UseCode = {
@@ -63,50 +64,44 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
         marginLeft={10}
       >
         {jsx}
-        {/* <EventWrapper>{jsx}</EventWrapper> */}
       </DivFlexBottom>
     </Column>
   )
 }
 
-// const EventWrapper = ({ children }: { children: ReactNode }) => {
-//   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-//     const value = e.pageX
-//     console.log(value)
-//   }
-
-//   return (
-//     <div
-//       onClick={handleClick}
-//       data-id="EventWrapper"
-//       style={{ width: "800px", overflowX: "scroll" }}
-//     >
-//       <div style={{ width: "1200px" }}>{children}</div>
-//     </div>
-//   )
-// }
-
 const Option = ({
-  option: { title, JSX, subTitle },
+  option: { title, JSX, subTitle, extraNote },
 }: {
   option: OptionsType<any>
 }) => (
-  <Row padding={3}>
-    <TitleWrapper>
-      {title && (
-        <Title width={250} color={"#666"}>
-          {title}
-        </Title>
-      )}
-      {!title && <div />}
-      {subTitle && (
-        <OptionSubTitle fontSize={16} fontFamily={"monospace"} color="#666">
-          {subTitle}
-        </OptionSubTitle>
-      )}
-    </TitleWrapper>
-    <Div width={250}>{JSX}</Div>
-  </Row>
+  <Column padding={0} gap={0}>
+    <Row padding={3}>
+      {/* Title */}
+      <TitleWrapper>
+        {title && (
+          <Title width={250} color={"#666"}>
+            {title}
+          </Title>
+        )}
+        {!title && <div />}
+        {subTitle && (
+          <OptionSubTitle fontSize={16} fontFamily={"monospace"} color="#666">
+            {subTitle}
+          </OptionSubTitle>
+        )}
+      </TitleWrapper>
+
+      {/* JSX */}
+      <Div width={250}>{JSX}</Div>
+    </Row>
+
+    {/* ExtraNote */}
+    {extraNote && (
+      <Row padding={"0 30px"}>
+        <Span color="#999">{extraNote}</Span>
+      </Row>
+    )}
+  </Column>
 )
 
 //----------------------------------------

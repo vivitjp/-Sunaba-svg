@@ -1,4 +1,4 @@
-import { Column, Div, Row, S, Section } from "../../common/styleDiv"
+import { Column, Div, Row, SpanRed, Section } from "../../common/styleDiv"
 import { SVG } from "~/library"
 import { FC, useCallback, useState } from "react"
 import { adjustOptions, aspectXOptions, aspectYOptions } from "../basic/setting"
@@ -84,7 +84,7 @@ const AspectRatio: FC<AspectRatioProps> = ({
   return (
     <Row border={"#ddd"} padding={10}>
       <Div fontSize={18}>
-        preserveAspectRatio <S fontSize={20}>X</S>:
+        preserveAspectRatio <SpanRed fontSize={"20px"}>X</SpanRed>:
       </Div>
       <SelectSet
         options={aspectXOptions}
@@ -92,7 +92,7 @@ const AspectRatio: FC<AspectRatioProps> = ({
         width={80}
       />
       <Div fontSize={18}>
-        <S fontSize={20}>Y</S>:
+        <SpanRed fontSize={"20px"}>Y</SpanRed>:
       </Div>
       <SelectSet
         options={aspectYOptions}

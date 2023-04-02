@@ -5,6 +5,7 @@ import { OptionsType } from "./type"
 type Props = {
   title?: string
   subTitle?: string
+  extraNote?: string
   initValue: number
   range: [number, number]
   step: number
@@ -15,6 +16,7 @@ export const useRange = ({
   initValue,
   title,
   subTitle,
+  extraNote,
   range,
   step = 1,
   width = 240,
@@ -28,6 +30,7 @@ export const useRange = ({
   return {
     title,
     subTitle,
+    extraNote,
     value,
     JSX: (
       <Row>

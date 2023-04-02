@@ -10,6 +10,7 @@ type KV<T> = {
 type Props<T> = {
   title: string
   subTitle?: string
+  extraNote?: string
   initValue: T
   values: T[] | KV<T>[]
   width?: number
@@ -23,6 +24,7 @@ export const useSelect = <T,>({
   title,
   subTitle,
   initValue,
+  extraNote,
   values,
   width = 240,
 }: Props<T>): OptionsType<T> => {
@@ -39,6 +41,7 @@ export const useSelect = <T,>({
   return {
     title,
     subTitle,
+    extraNote,
     value,
     JSX: (
       <SelectSet

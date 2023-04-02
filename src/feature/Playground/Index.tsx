@@ -20,7 +20,7 @@ import {
   Div,
   DivShadow,
   Row,
-  S,
+  SpanRed,
   Section,
 } from "../../common/styleDiv"
 
@@ -98,9 +98,9 @@ export const FeaturePlayground = () => {
   )
 
   return (
-    <Section>
+    <Section padding={20}>
       {/* 倍率設定、マージン */}
-      <Row border={"#ddd"} fontSize={18} padding={10}>
+      <Row fontSize={18} padding={10}>
         <Div>Ratio</Div>
         <SelectSet options={options} onChange={handleChangeSelect} width={60} />
         <Div>Margin</Div>
@@ -110,9 +110,10 @@ export const FeaturePlayground = () => {
       {/* サイズと Viewbox  */}
       <Div padding={10}>
         <DivShadow>
-          <Code fontSize={18}>
-            Width: "<S>{SVG_WIDTH}</S>" Height: "<S>{SVG_HEIGHT}</S>" viewBox: "
-            <S>{viewbox}</S>"
+          <Code fontSize={18} padding={10}>
+            Width: "<SpanRed>{SVG_WIDTH}</SpanRed>" Height: "
+            <SpanRed>{SVG_HEIGHT}</SpanRed>" viewBox: "
+            <SpanRed>{viewbox}</SpanRed>"
           </Code>
         </DivShadow>
       </Div>

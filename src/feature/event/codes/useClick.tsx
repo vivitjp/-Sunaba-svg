@@ -36,7 +36,11 @@ export function useClick() {
     setXyOutside([e.clientX, e.clientY])
   }
 
-  const code = `<div onClick={handleClickOutside}> => ${xyOutside[0]}:${xyOutside[1]}
+  const code = `const handleMouse = (flag: boolean) => {}
+const handleClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {}
+const handleClickInside = (e: React.MouseEvent<SVGCircleElement>) => {}
+   
+<div onClick={handleClickOutside}> => ${xyOutside[0]}:${xyOutside[1]}
   <svg width={700} height={200}>
     <circle cx={100} cy={100} r={60} fill="${hover.fill}" stroke="${hover.stroke}" strokeWidth="${hover.strokeWidth}"
       pointerEvents="fill" //Mouse反応対象

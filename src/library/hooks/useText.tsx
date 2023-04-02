@@ -5,6 +5,7 @@ import { OptionsType } from "./type"
 type Props<T> = {
   title: string
   subTitle?: string
+  extraNote?: string
   initValue: T
   width?: number
 }
@@ -13,6 +14,7 @@ export const useText = <T,>({
   initValue,
   title,
   subTitle,
+  extraNote,
   width = 240,
 }: Props<T>): OptionsType<T> => {
   const [value, setValue] = useState<T>(initValue)
@@ -26,6 +28,7 @@ export const useText = <T,>({
   return {
     value,
     subTitle,
+    extraNote,
     title,
     JSX: <Input onChange={handle} width={width} value={value as string} />,
   }

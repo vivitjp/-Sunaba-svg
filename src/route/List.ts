@@ -18,6 +18,7 @@ import { PageForeignObject } from "~/pages/ForeignObject"
 import { PageEvent } from "~/pages/Event"
 import { PageBezier } from "~/pages/Bezier"
 import { PageTrigonometric } from "~/pages/Trigonometric"
+import { PageTransform } from "~/pages/Transform"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -34,22 +35,22 @@ export const menuGroup: MenuGroup = {
   Home: [{ name: "Home", path: "/", element: Home }],
 
   Basic: [
-    { name: "Basic", path: "/basic", element: PageBasic },
+    { name: "基礎", path: "/basic", element: PageBasic },
     { name: "Viewbox", path: "/viewbox", element: PageViewbox },
     { name: "Shapes", path: "/shapes", element: PageShapes },
     { name: "Bezier", path: "/bezier", element: PageBezier },
-    { name: "Attribute", path: "/attribute", element: PageAttribute },
+    { name: "属性", path: "/attribute", element: PageAttribute },
     { name: "Text", path: "/text", element: PageText },
     { name: "Image", path: "/image", element: PageImage },
     { name: "Use", path: "/use", element: PageUse },
     {
-      name: "Trigonometric",
+      name: "三角関数",
       path: "/trigonometric",
       element: PageTrigonometric,
     },
     { name: "Effect", path: "/effect", element: PageEffect },
     { name: "Gradation", path: "/gradation", element: PageGradation },
-    //{ name: "transform", path: "/transform", element: PageTransform },
+    { name: "transform", path: "/transform", element: PageTransform },
     { name: "Animation", path: "/animation", element: PageAnimation },
     //{ name: "animateMotion", path: "/animeMotion", element: PageAnimeMotion },
     //{ name: "animateTransform", path: "/animeTransform", element: PageAnimeTransform },
