@@ -8,7 +8,7 @@ import React from "react"
 export const FeatureAttribute = () => {
   return (
     <Section>
-      <Column padding={6} gap={20}>
+      <Column padding={6} gap={40}>
         {attributeCodes.map((useAttr, idx) => {
           return <Parameters key={idx} useAttr={useAttr} />
         })}

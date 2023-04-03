@@ -10,7 +10,7 @@ const codes = [useBezier2A, useBezier2B, useBezier3A, useBezier3B]
 export const FeatureBezier = () => {
   return (
     <Section>
-      <Column padding={6} gap={20}>
+      <Column padding={6} gap={40}>
         {codes.map((useCode, idx) => (
           <FeaturePresenter key={idx} useCode={useCode} />
         ))}

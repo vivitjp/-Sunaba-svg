@@ -11,7 +11,7 @@ const MARGIN = 30
 export const FeatureUse = () => {
   return (
     <Section>
-      <Column padding={6} gap={20}>
+      <Column padding={6} gap={40}>
         {useCodes.map(({ code, jsx, title }, idx) => {
           return (
             <Column key={idx}>

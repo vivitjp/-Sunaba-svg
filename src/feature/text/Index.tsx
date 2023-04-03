@@ -8,7 +8,7 @@ const codes = [useSvgText, useTextPath]
 export const FeatureText = () => {
   return (
     <Section>
-      <Column padding={6} gap={20}>
+      <Column padding={6} gap={40}>
         {codes.map((useCode, idx) => {
           return <FeaturePresenter key={idx} useCode={useCode} />
         })}

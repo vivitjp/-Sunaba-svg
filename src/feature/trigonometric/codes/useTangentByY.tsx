@@ -2,8 +2,8 @@ import { useMemo } from "react"
 import { useRange } from "~/library"
 import { roundFloat } from "~/library/libs/roundFloat"
 
-export function useTangentByX() {
-  const title = `三角関数(Tangent) X基準`
+export function useTangentByY() {
+  const title = `三角関数(Tangent) Y基準`
 
   const textX = 150
 
@@ -21,26 +21,26 @@ export function useTangentByX() {
   )
   const angle = useMemo(
     () => roundFloat((Math.atan2(MaxY, MaxX.value) * 180) / Math.PI, 4),
-    [theta]
+    [theta, MaxX.value]
   )
 
-  const X = useRange({
-    title: "X値",
-    initValue: 300,
-    range: [100, 600],
+  const Y = useRange({
+    title: "Y値",
+    initValue: 200,
+    range: [100, 280],
     step: 10,
   })
 
-  const Y1 = useMemo(() => {
-    return roundFloat(Math.tan(theta) * X.value, 4)
-  }, [X.value, MaxX.value])
+  const X1 = useMemo(() => {
+    return roundFloat(Y.value / Math.tan(theta), 4) // X取得
+  }, [theta, Y.value])
 
   const code = `θ: ${theta} = Math.atan2(${MaxY}, ${MaxX.value})
-y: ${Y1} = Math.tan(${theta} * ${X.value})
+x: ${X1} = Math.tan(${Y.value} / ${theta})
  
 <svg width={700} height={300}>
   <path
-    d={"M0,${MaxY} l${X.value},-${Y1} l0,${Y1}z"}
+    d={"M0,${MaxY} l${X1},-${Y.value} l0,${Y.value}z"}
     stroke="red"
     fill="#eee"
   />
@@ -57,27 +57,29 @@ y: ${Y1} = Math.tan(${theta} * ${X.value})
           fill="none"
         />
       </g>
+
       <g data-note="生成三角形">
         <path
-          d={`M0,${MaxY} l${X.value},-${Y1} l0,${Y1}z`}
+          d={`M0,${MaxY} l${X1},-${Y.value} l0,${Y.value}z`}
           stroke="red"
           fill="#eee"
         />
-      </g>
-      <g data-note="補助線とXY値">
         <path
-          d={`M0,${MaxY - Y1} l${X.value},0`}
+          d={`M0,${MaxY - Y.value} h${X1}`}
           stroke="#aaa"
           strokeDasharray="4 1"
-          fill="none"
         />
-        <text x={X.value + 10} y={MaxY - 10} style={cssStyle}>
-          {X.value}
+      </g>
+
+      <g data-note="XY値">
+        <text x={X1 + 10} y={MaxY - 10} style={cssStyle}>
+          {X1}
         </text>
-        <text x={10} y={MaxY - Y1 - 10} style={cssStyle}>
-          {Y1}
+        <text x={10} y={MaxY - Y.value} style={cssStyle} textAnchor="start">
+          {Y.value}
         </text>
       </g>
+
       <g data-note="角度とθ">
         <text x={textX} y={30} style={cssStyle} textAnchor="end">
           角度:
@@ -98,7 +100,7 @@ y: ${Y1} = Math.tan(${theta} * ${X.value})
   return {
     title,
     code,
-    options: [MaxX, X],
+    options: [MaxX, Y],
     jsx,
   }
 }
