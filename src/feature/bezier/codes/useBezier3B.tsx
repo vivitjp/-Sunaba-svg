@@ -126,7 +126,7 @@ export function useBezier3B() {
         x="10"
         y="20"
         fontSize="14px"
-      >{`M${startX},${startY} c${CX1.value},${CY1.value} ${CX2.value},${CY2.value} ${CX3.value},${CY3.value}`}</text>
+      >{`M${startX},${startY} c${CX1.value},${CY1.value} ${CX2.value},${CY2.value} ${CX3.value},${CY3.value} s${SX1.value},${SY1.value} ${SX2.value},${SY2.value}`}</text>
       <path
         d={
           `M${startX},${startY} c${CX1.value},${CY1.value} ${CX2.value},${CY2.value} ${CX3.value},${CY3.value}` +
@@ -142,8 +142,12 @@ export function useBezier3B() {
           `L${startX + CX2.value},${startY + CY2.value}` +
           `L${startX + CX3.value},${startY + CY3.value}` +
           `M${MX},${MY}` +
-          `L${MX + SX1.value},${startY + CY3.value + SY1.value}` +
-          `L${MX + SX2.value},${startY + CY3.value + SY2.value}`
+          `L${MX + SX1.value - (CX3.value - CX2.value)},${
+            startY + CY3.value + SY1.value
+          }` +
+          `L${MX + SX2.value - (CX3.value - CX2.value)},${
+            startY + CY3.value + SY2.value
+          }`
         }
         stroke="#555"
         fill="none"

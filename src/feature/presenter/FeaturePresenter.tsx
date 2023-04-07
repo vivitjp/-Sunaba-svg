@@ -39,13 +39,6 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
         </Column>
       )}
 
-      {/* コード */}
-      {code && (
-        <Row padding={10} width={"100%"}>
-          <CodeBox code={code} />
-        </Row>
-      )}
-
       {/* 表示ボタン */}
       {Visible && (
         <Input
@@ -65,6 +58,13 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
       >
         {jsx}
       </DivFlexBottom>
+
+      {/* コード */}
+      {code && (
+        <Row padding={10} width={"100%"}>
+          <CodeBox code={code} />
+        </Row>
+      )}
     </Column>
   )
 }

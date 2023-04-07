@@ -35,6 +35,7 @@ export const keysSVG: KeyDef[] = [
       "feFuncB",
       "stop",
       "MouseEvent",
+      "marker",
     ],
   },
   {
@@ -56,6 +57,10 @@ export const keysSVG: KeyDef[] = [
   {
     color: "darkOrange",
     keys: [
+      "xmlns",
+      "viewBox",
+      "id",
+      //"class",
       "x",
       "y",
       "x1",
@@ -74,10 +79,6 @@ export const keysSVG: KeyDef[] = [
   {
     color: "CadetBlue",
     keys: [
-      "xmlns",
-      "viewBox",
-      "id",
-      //"class",
       "d",
       "preserveAspectRatio",
       "points",
@@ -102,6 +103,7 @@ export const keysSVG: KeyDef[] = [
       "strokeOpacity",
       "strokeWidth",
       "transform",
+      "translate",
       "vectorEffect",
       "visibility",
       "rotate",
@@ -134,6 +136,15 @@ export const keysSVG: KeyDef[] = [
       "fontFamily",
       "CSSProperties",
       "maskType",
+      "markerWidth",
+      "markerHeight",
+      "refX",
+      "refY",
+      "orient",
+      "markerStart",
+      "markerMid",
+      "markerEnd",
+      "startOffset",
     ],
   },
   {

@@ -1,4 +1,4 @@
-import { SVG, useCheck } from "~/library"
+import { useCheck } from "~/library"
 import { useText } from "~/library/hooks/useText"
 import { useRange } from "~/library/hooks/useRange"
 import { useSelect } from "~/library/hooks/useSelect"
@@ -38,7 +38,7 @@ export const useTextPath = () => {
     title: "テキスト開始位置",
     subTitle: "startOffset",
     initValue: 0,
-    range: [0, 100],
+    range: [-100, 100],
     step: 1,
   })
 
@@ -48,27 +48,58 @@ export const useTextPath = () => {
     return style
   }, [FontSize.value])
 
+  const code = `<svg width="640" height="260">
+  <defs>
+    <path id="targetCircle" d="M140,20 a100,100 0,1 1 0,200 a100,100 0,0 1 0,-200z" />
+    <path id="targetWave"   d="M300,150 c50,-50 150,-50 200,0 s150,50 200,0" />
+  </defs>
+
+  <use xlinkHref="#targetCircle" stroke="#aaa" visibility="${
+    TextPath.value ? "visible" : "hidden"
+  }" />
+  <text fill="#777" dominantBaseline="${DominantBaseline.value}" >
+    <textPath  xlinkHref="#targetCircle" startOffset="${
+      StartOffset.value
+    }%" style=${JSON.stringify(CSSProps)} >
+      ${Sample.value.substring(0, 40)}...
+    </textPath>
+  </text>
+
+  <use xlinkHref="#targetWave" stroke="#aaa" visibility="${
+    TextPath.value ? "visible" : "hidden"
+  }" />
+  <text fill="#777" dominantBaseline="${DominantBaseline.value}" >
+    <textPath xlinkHref="#targetWave" startOffset="${
+      StartOffset.value
+    }%" style=${JSON.stringify(CSSProps)} >
+      ${Sample.value.substring(0, 40)}...
+    </textPath>
+  </text>
+</svg>`
+
   const jsx = (
-    <SVG width={640} height={260} preserveAspectRatio="xMinYMin slice">
+    <svg width={640} height={260} preserveAspectRatio="xMinYMin slice">
       <defs>
         <path
-          id="target"
+          id="targetCircle"
           d="M140,20 a100,100 0,1 1 0,200 a100,100 0,0 1 0,-200z"
-          fill="none"
+        />
+        <path
+          id="targetWave"
+          d="M300,150 c50,-50 150,-50 200,0 s150,50 200,0"
         />
       </defs>
+
+      {/* Circle */}
       <use
-        xlinkHref="#target"
+        data-testid="Baseパス(circle)"
+        xlinkHref="#targetCircle"
         stroke="#aaa"
         visibility={TextPath.value ? "visible" : "hidden"}
       />
-      <text
-        fill="#777"
-        fontSize={FontSize.value}
-        dominantBaseline={DominantBaseline.value}
-      >
+      <text fill="#777" dominantBaseline={DominantBaseline.value}>
         <textPath
-          xlinkHref="#target"
+          xlinkHref="#targetCircle"
           startOffset={`${StartOffset.value}%`}
           style={CSSProps}
         >
@@ -76,13 +107,29 @@ export const useTextPath = () => {
         </textPath>
       </text>
 
-      <path id="targetWave" d="M40,40 " fill="blue" />
-    </SVG>
+      {/* Wave */}
+      <use
+        data-testid="Baseパス(Wave)"
+        xlinkHref="#targetWave"
+        stroke="#aaa"
+        visibility={TextPath.value ? "visible" : "hidden"}
+      />
+      <text fill="#777" dominantBaseline={DominantBaseline.value}>
+        <textPath
+          xlinkHref="#targetWave"
+          startOffset={`${StartOffset.value}%`}
+          style={CSSProps}
+        >
+          {Sample.value}
+        </textPath>
+      </text>
+    </svg>
   )
 
   return {
     height: 300,
     title,
+    code,
     options: [Sample, TextPath, DominantBaseline, FontSize, StartOffset],
     jsx,
   }

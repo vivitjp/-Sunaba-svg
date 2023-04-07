@@ -7,9 +7,7 @@ export const useTransform = () => {
   const TranslateX = useRange({
     title: "X軸移動",
     subTitle: "translate(x,y)",
-    extraNote:
-      "XYに同値をまとめて指定も可 translate(x) xsaxas xas xas xasx x asxa sx a xas xasx ax ax xa xas xas xas xa xasx  xas",
-    initValue: 0,
+    initValue: 250,
     range: [-100, 300],
     step: 5,
   })
@@ -17,6 +15,7 @@ export const useTransform = () => {
   const TranslateY = useRange({
     title: "Y軸移動",
     subTitle: "translate(x,y)",
+    extraNote: "XYに同値をまとめて指定も可 translate(x)",
     initValue: 0,
     range: [-50, 50],
     step: 5,
@@ -25,7 +24,6 @@ export const useTransform = () => {
   const ScaleX = useRange({
     title: "X軸サイズ変更(拡大縮小)",
     subTitle: "scale(x,y)",
-    extraNote: "マイナス値で反転",
     initValue: 1,
     range: [-1, 2],
     step: 0.1,
@@ -34,6 +32,7 @@ export const useTransform = () => {
   const ScaleY = useRange({
     title: "Y軸サイズ変更(拡大縮小)",
     subTitle: "scale(x,y)",
+    extraNote: "マイナス値で反転",
     initValue: 1,
     range: [0, 2],
     step: 0.1,

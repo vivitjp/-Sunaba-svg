@@ -1,4 +1,3 @@
-import { SVG } from "~/library"
 import { useText } from "~/library/hooks/useText"
 import { useRange } from "~/library/hooks/useRange"
 import { useSelect } from "~/library/hooks/useSelect"
@@ -98,10 +97,29 @@ export const useSvgText = () => {
     return style
   }, [FontSize.value, FontFamily.value])
 
+  const code = `<svg width="640" height="300">
+  <path d="M320,20 v260" stroke="black" strokeWidth="1" />
+  <path d="M20,150 h620" stroke="black" strokeWidth="1" />
+  <text x="320" y="150"
+    fill="${Fill.value}"
+    stroke="${Stroke.value}"
+    strokeWidth="${StrokeWidth.value}"
+    textAnchor="${Anchor.value}"
+    dominantBaseline="${dominantBaseline.value}"
+    fontWeight="${FontWeight.value}"
+    style=${JSON.stringify(CSSProps)}
+    transform="rotate(${Rotate.value},320,150) translate(${Translate.value},${
+    Translate.value
+  })"
+  >
+    ${Sample.value}
+  </text>
+</svg>`
+
   const jsx = (
-    <SVG width={640} height={300}>
-      <path d="M320,20 v260" stroke={"black"} strokeWidth={1} />
-      <path d="M20,150 h620" stroke={"black"} strokeWidth={1} />
+    <svg width={640} height={300}>
+      <path d="M320,20 v260" stroke="black" strokeWidth={1} />
+      <path d="M20,150 h620" stroke="black" strokeWidth={1} />
       <text
         x={320}
         y={150}
@@ -116,12 +134,13 @@ export const useSvgText = () => {
       >
         {Sample.value}
       </text>
-    </SVG>
+    </svg>
   )
 
   return {
     height: 300,
     title,
+    code,
     options: [
       Sample,
       Stroke,
