@@ -148,6 +148,7 @@ export const useMarker = () => {
           refX={MarkerSize.value}
           refY={MarkerSize.value}
           orient={Orient.value}
+          vectorEffect="non-scaling-stroke" //none
         >
           <rect
             x="0"

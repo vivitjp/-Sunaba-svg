@@ -20,6 +20,7 @@ import { PageBezier } from "~/pages/Bezier"
 import { PageTrigonometric } from "~/pages/Trigonometric"
 import { PageTransform } from "~/pages/Transform"
 import { PageMarker } from "~/pages/PageMarker"
+import { PageDragDrop } from "~/pages/DragDrop"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -53,7 +54,7 @@ export const menuGroup: MenuGroup = {
     },
     { name: "効果", path: "/effect", element: PageEffect },
     { name: "グラデーション", path: "/gradation", element: PageGradation },
-    { name: "transform", path: "/transform", element: PageTransform },
+    { name: "Transform", path: "/transform", element: PageTransform },
     { name: "アニメーション", path: "/animation", element: PageAnimation },
     //{ name: "animateMotion", path: "/animeMotion", element: PageAnimeMotion },
     //{ name: "animateTransform", path: "/animeTransform", element: PageAnimeTransform },
@@ -66,7 +67,7 @@ export const menuGroup: MenuGroup = {
     { name: "イベント", path: "/event", element: PageEvent },
     //{ name: "パターン", path: "/pattern", element: PagePattern },
     //{ name: "シンボル", path: "/symbol", element: PageSymbol },
-    //{ name: "Drag & Drop", path: "/dragAndDrop", element: PageDragAndDrop },
+    { name: "Drag & Drop", path: "/dragDrop", element: PageDragDrop },
   ],
   PlayGround: [
     { name: "Playground", path: "/playground", element: PagePlayground },

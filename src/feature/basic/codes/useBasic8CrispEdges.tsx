@@ -4,7 +4,7 @@ export function useBasic8CrispEdges() {
   const title = `図形描画の品質`
 
   const CrispEdges = useCheck({
-    title: "描画の精密さ",
+    title: "精密さ(アンチエイリアス)Off",
     subTitle: "CrispEdges",
     initValue: false,
   })
