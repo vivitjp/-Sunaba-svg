@@ -16,6 +16,8 @@ type Props = {
   alignBy?: number
 }
 
+const MOVE_OPACITY = "0.3"
+
 export const useSVGDragDrop = ({
   initX = 0,
   initY = 0,
@@ -34,15 +36,14 @@ export const useSVGDragDrop = ({
   const [elWidth, setElWidth] = useState<number>(0)
   const [elHeight, setElHeight] = useState<number>(0)
 
+  //■ Pointer Down
   const handlePointerDown = (e: React.PointerEvent<SVGElement>) => {
     //キャプチャターゲットとして指定(必須)
     e.currentTarget.setPointerCapture(e.pointerId)
 
     //CSS Style変更
     const targetStyle = e.currentTarget.style
-    targetStyle.opacity = "0.5"
-
-    console.log(targetStyle.opacity)
+    targetStyle.opacity = MOVE_OPACITY
 
     const target = e.currentTarget.getBoundingClientRect()
     const x = e.clientX - target.left
@@ -52,6 +53,7 @@ export const useSVGDragDrop = ({
     setElement({ ...element, xOffset: x, yOffset: y, active: true })
   }
 
+  //■ Pointer Move
   const handlePointerMove = (e: React.PointerEvent<SVGElement>) => {
     if (element.active !== true) return
     const target = e.currentTarget.getBoundingClientRect()
@@ -65,6 +67,7 @@ export const useSVGDragDrop = ({
     })
   }
 
+  //■ Pointer Up
   const handlePointerUp = (e: React.PointerEvent<SVGElement>) => {
     //キャプチャターゲット解放
     e.currentTarget.releasePointerCapture
@@ -94,6 +97,7 @@ export const useSVGDragDrop = ({
   }
 }
 
+//■ PointerUp 時にターゲットを可視範囲に戻す
 const rangeWithin = (
   min: number,
   max: number,
@@ -106,13 +110,10 @@ const rangeWithin = (
   return alignBy ? getAlignBy(reValue, alignBy) : reValue
 }
 
+//■ ターゲットを整列(Alignment)グリッドに合わせる
 const getAlignBy = (value: number, alignBy: number) => {
   const rest = value % alignBy
   const newValue = rest < alignBy / 2 ? value - rest : value + (alignBy - rest)
-
-  //value = 113
-  //alignBy = 20
-  //rest = 13
 
   const arranged = !rest ? value : newValue
   return arranged

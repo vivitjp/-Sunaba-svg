@@ -9,8 +9,10 @@ import {
   Title,
 } from "../../common/styleDiv"
 import { OptionsType } from "../../library/hooks/type"
-import { syntaxHighlight } from "../../library/syntaxHighlighter/syntaxHighlighter"
-import { keysSVG } from "../../library/syntaxHighlighter/keys/SVG"
+import {
+  CodeKeyType,
+  syntaxHighlight,
+} from "../../library/syntaxHighlighter/syntaxHighlighter"
 import { FC } from "react"
 import { UseReturnType } from "../animation/codes/type"
 
@@ -144,8 +146,10 @@ const OptionSubTitle = styled(Base)`
 //----------------------------------------
 // コード
 //----------------------------------------
-const CodeBox = ({ code }: { code: string }) => {
-  const result = syntaxHighlight({ keyDef: keysSVG, target: code })
+type CodeBox = { code: string; codeKeyType?: CodeKeyType }
+
+const CodeBox: FC<CodeBox> = ({ code, codeKeyType }) => {
+  const result = syntaxHighlight({ code, codeKeyType })
   return (
     <Column gap={2} shadow={10} padding={10}>
       {result}

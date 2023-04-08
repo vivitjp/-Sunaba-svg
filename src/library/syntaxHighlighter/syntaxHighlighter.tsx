@@ -1,4 +1,11 @@
-import styled from "styled-components"
+import { keysHTML } from "./keys/HTML"
+import { keysSVG } from "./keys/SVG"
+
+const codeKeyType = {
+  SVG: "SVG",
+  HTML: "HTML",
+} as const
+export type CodeKeyType = typeof codeKeyType[keyof typeof codeKeyType]
 
 export type KeyDef = {
   color: string
@@ -6,12 +13,25 @@ export type KeyDef = {
 }
 
 type SyntaxHighlight = {
-  target: string
-  keyDef: KeyDef[]
+  code: string
+  codeKeyType?: CodeKeyType | undefined
 }
 
-export const syntaxHighlight = ({ target, keyDef }: SyntaxHighlight) => {
-  const escaped = escapeHtml(target)
+export const syntaxHighlight = ({
+  code,
+  codeKeyType = "SVG",
+}: SyntaxHighlight) => {
+  let keyDef: KeyDef[] = []
+  switch (codeKeyType) {
+    case "HTML":
+      keyDef = keysHTML
+      break
+    default:
+      keyDef = keysSVG
+      break
+  }
+
+  const escaped = escapeHtml(code)
 
   const rebuilt: JSX.Element[] = []
 

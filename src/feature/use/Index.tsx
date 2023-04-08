@@ -2,7 +2,6 @@ import styled from "styled-components"
 import { Column, Div, Section } from "../../common/styleDiv"
 import { useCodes } from "./codes"
 import { syntaxHighlight } from "~/library/syntaxHighlighter/syntaxHighlighter"
-import { keysSVG } from "~/library/syntaxHighlighter/keys/SVG"
 import { SVGRuled } from "~/component"
 import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
 
@@ -59,7 +58,7 @@ const Title = styled.div`
 // コード
 //----------------------------------------
 const CodeBox = ({ code }: { code: string }) => {
-  const result = syntaxHighlight({ keyDef: keysSVG, target: code })
+  const result = syntaxHighlight({ code })
   return (
     <Column gap={2} shadow={10} padding={10}>
       {result}
