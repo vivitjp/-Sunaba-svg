@@ -9,32 +9,27 @@ interface TargetElement {
 }
 
 type Props = {
-  initX?: number
-  initY?: number
-  svgWidth?: number
-  svgHeight?: number
+  initXY?: [number, number]
+  sizeWH: [number, number]
+  svgWH: [number, number]
   alignBy?: number
 }
 
 const MOVE_OPACITY = "0.3"
 
 export const useSVGDragDrop = ({
-  initX = 0,
-  initY = 0,
-  svgWidth = 0,
-  svgHeight = 0,
+  initXY = [0, 0],
+  sizeWH,
+  svgWH = [0, 0],
   alignBy = 0,
 }: Props) => {
   const [element, setElement] = useState<TargetElement>({
-    x: initX,
-    y: initY,
+    x: initXY[0],
+    y: initXY[1],
     active: false,
     xOffset: 0,
     yOffset: 0,
   })
-
-  const [elWidth, setElWidth] = useState<number>(0)
-  const [elHeight, setElHeight] = useState<number>(0)
 
   //■ Pointer Down
   const handlePointerDown = (e: React.PointerEvent<SVGElement>) => {
@@ -48,8 +43,6 @@ export const useSVGDragDrop = ({
     const target = e.currentTarget.getBoundingClientRect()
     const x = e.clientX - target.left
     const y = e.clientY - target.top
-    setElHeight(target.height)
-    setElWidth(target.width)
     setElement({ ...element, xOffset: x, yOffset: y, active: true })
   }
 
@@ -76,20 +69,29 @@ export const useSVGDragDrop = ({
     const targetStyle = e.currentTarget.style
     targetStyle.opacity = "1"
 
-    //数値調整(SVG表示外チェック、Alignmentチェック)
-    const x = !!svgWidth
-      ? rangeWithin(1, svgWidth, element.x, alignBy, elWidth)
-      : element.x
-    const y = !!svgHeight
-      ? rangeWithin(1, svgHeight, element.y, alignBy, elHeight)
-      : element.y
+    let [x, y] = [element.x, element.y]
+
+    //SVG表示範囲内外調整
+    x = svgWH[0] && rangeWithin(x, 1, svgWH[0], sizeWH[0])
+    y = svgWH[1] && rangeWithin(y, 1, svgWH[1], sizeWH[1])
+
+    //グリッド整列
+    x = alignBy && getAlignBy(x, alignBy)
+    y = alignBy && getAlignBy(y, alignBy)
+
     setElement({ ...element, x: x, y: y, active: false })
   }
 
+  console.log(element.x, sizeWH[0], element.x + Math.round(sizeWH[0] / 2))
   return {
     dragDropProps: {
+      width: sizeWH[0],
+      height: sizeWH[1],
       x: element.x,
       y: element.y,
+      cx: element.x,
+      cy: element.y,
+      r: sizeWH[0],
       onPointerDown: handlePointerDown,
       onPointerUp: handlePointerUp,
       onPointerMove: handlePointerMove,
@@ -97,24 +99,24 @@ export const useSVGDragDrop = ({
   }
 }
 
-//■ PointerUp 時にターゲットを可視範囲に戻す
+//■ ターゲットを PointerUp 時に可視範囲に戻す
 const rangeWithin = (
+  value: number,
   min: number,
   max: number,
-  value: number,
-  alignBy: number,
-  arrange: number
+  targetSize: number
 ) => {
-  const reValue =
-    value < min ? min : value > max - arrange ? max - arrange : value
-  return alignBy ? getAlignBy(reValue, alignBy) : reValue
+  // const reMin = fit === "topLeft" ? min : min - roundFloat(targetSize / 2)
+  // const reMax = fit === "topLeft" ? max : max + roundFloat(targetSize / 2)
+
+  return value < min ? min : value > max - targetSize ? max - targetSize : value
 }
 
-//■ ターゲットを整列(Alignment)グリッドに合わせる
+//■ ターゲットを グリッドに整列(Alignment)
 const getAlignBy = (value: number, alignBy: number) => {
   const rest = value % alignBy
-  const newValue = rest < alignBy / 2 ? value - rest : value + (alignBy - rest)
 
+  const newValue = rest < alignBy / 2 ? value - rest : value + (alignBy - rest)
   const arranged = !rest ? value : newValue
   return arranged
 }

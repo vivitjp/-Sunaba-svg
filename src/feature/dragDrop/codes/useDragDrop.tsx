@@ -7,24 +7,31 @@ export function useDragDrop() {
 
   const AlignmentGap = useRange({
     title: "整列グリッド",
-    initValue: 20,
+    initValue: 40,
     range: [0, 50],
     step: 10,
   })
 
   const { dragDropProps } = useSVGDragDrop({
-    initX: 100,
-    initY: 100,
-    svgWidth: 720,
-    svgHeight: 300,
+    initXY: [80, 80],
+    sizeWH: [60, 60],
+    svgWH: [720, 300],
     alignBy: AlignmentGap.value,
   })
 
-  // const Fill = useText({
-  //   title: "影の色",
-  //   subTitle: "floodColor",
-  //   initValue: "#555",
-  // })
+  const { dragDropProps: squareCenterProps } = useSVGDragDrop({
+    initXY: [320, 120],
+    sizeWH: [60, 60],
+    svgWH: [720, 300],
+    alignBy: AlignmentGap.value,
+  })
+
+  const { dragDropProps: circleCenterProps } = useSVGDragDrop({
+    initXY: [440, 120],
+    sizeWH: [20, 20],
+    svgWH: [720, 300],
+    alignBy: AlignmentGap.value,
+  })
 
   const codeKeyType: CodeKeyType = "JSTS"
   const code = `//Props型,TargetElement型定義省略
@@ -78,13 +85,10 @@ export const useSVGDragDrop = ({
     const targetStyle = e.currentTarget.style
     targetStyle.opacity = "1"
  
-    //数値調整(SVG表示外チェック、Alignmentチェック)
-    const x = !!svgWidth
-      ? rangeWithin(1, svgWidth, element.x, alignBy, elWidth)
-      : element.x
-    const y = !!svgHeight
-      ? rangeWithin(1, svgHeight, element.y, alignBy, elHeight)
-      : element.y
+    let [x, y] = [element.x, element.y]
+    //SVG表示範囲内外調整
+    //グリッド整列
+ 
     setElement({ ...element, x: x, y: y, active: false })
   }
  
@@ -102,13 +106,48 @@ export const useSVGDragDrop = ({
   const jsx = (
     <svg width={720} height={300}>
       <RuledLine width={720} height={300} gap={AlignmentGap.value} />
+
+      {/* 長方形(TopLeft) */}
+      <rect {...dragDropProps} fill="orange" stroke="black" />
+      <text
+        x={dragDropProps.x + 30}
+        y={dragDropProps.y + 12}
+        textAnchor="middle"
+        style={{ fontSize: "12px" }}
+      >
+        {dragDropProps.x}:{dragDropProps.y}
+      </text>
+
+      {/* 長方形(center) */}
       <rect
-        fill="yellow"
-        stroke="blue"
-        width={100}
-        height={100}
-        {...dragDropProps}
+        {...squareCenterProps}
+        x={squareCenterProps.x - Math.round(squareCenterProps.width / 2)}
+        y={squareCenterProps.y - Math.round(squareCenterProps.height / 2)}
+        // x={squareCenterProps.x}
+        // y={squareCenterProps.y}
+        fill="lightblue"
+        stroke="black"
+        strokeWidth="0"
       />
+      <text
+        x={squareCenterProps.x}
+        y={squareCenterProps.y - 12}
+        textAnchor="middle"
+        style={{ fontSize: "12px" }}
+      >
+        {squareCenterProps.x}:{squareCenterProps.y}
+      </text>
+
+      {/* 円(center) */}
+      <circle {...circleCenterProps} fill="lightgreen" stroke="black" />
+      <text
+        x={circleCenterProps.cx}
+        y={circleCenterProps.cy - 12}
+        textAnchor="middle"
+        style={{ fontSize: "12px" }}
+      >
+        {circleCenterProps.cx}:{circleCenterProps.cy}
+      </text>
     </svg>
   )
 

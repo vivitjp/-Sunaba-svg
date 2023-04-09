@@ -14,6 +14,7 @@ export const RuledLine: FC<RuledLine> = ({ width, height, gap }) => {
       {gap > 0 &&
         arrayWidth.map((_, index) => (
           <line
+            key={index}
             x1={0}
             y1={index * gap}
             x2={width}
@@ -25,6 +26,7 @@ export const RuledLine: FC<RuledLine> = ({ width, height, gap }) => {
       {gap > 0 &&
         arrayHeight.map((_, index) => (
           <line
+            key={index}
             x1={index * gap}
             y1={0}
             x2={index * gap}
