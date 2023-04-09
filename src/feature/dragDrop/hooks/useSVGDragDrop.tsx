@@ -10,22 +10,22 @@ interface TargetElement {
 
 type Props = {
   initXY?: [number, number]
-  sizeWH: [number, number]
-  svgWH: [number, number]
+  sizeWidthHeight: [number, number]
+  svgWidthHeight: [number, number]
   alignBy?: number
 }
 
 const MOVE_OPACITY = "0.3"
 
 export const useSVGDragDrop = ({
-  initXY = [0, 0],
-  sizeWH,
-  svgWH = [0, 0],
+  initXY: [initX, initY] = [0, 0],
+  sizeWidthHeight: [sizeWidth, sizeHeight],
+  svgWidthHeight: [svgWidth, svgHeight] = [0, 0],
   alignBy = 0,
 }: Props) => {
   const [element, setElement] = useState<TargetElement>({
-    x: initXY[0],
-    y: initXY[1],
+    x: initX,
+    y: initY,
     active: false,
     xOffset: 0,
     yOffset: 0,
@@ -72,8 +72,8 @@ export const useSVGDragDrop = ({
     let [x, y] = [element.x, element.y]
 
     //SVG表示範囲内外調整
-    x = svgWH[0] && rangeWithin(x, 1, svgWH[0], sizeWH[0])
-    y = svgWH[1] && rangeWithin(y, 1, svgWH[1], sizeWH[1])
+    x = svgWidth && rangeWithin(x, 1, svgWidth, sizeWidth)
+    y = svgHeight && rangeWithin(y, 1, svgHeight, sizeHeight)
 
     //グリッド整列
     x = alignBy && getAlignBy(x, alignBy)
@@ -82,16 +82,15 @@ export const useSVGDragDrop = ({
     setElement({ ...element, x: x, y: y, active: false })
   }
 
-  console.log(element.x, sizeWH[0], element.x + Math.round(sizeWH[0] / 2))
   return {
     dragDropProps: {
-      width: sizeWH[0],
-      height: sizeWH[1],
+      width: sizeWidth,
+      height: sizeHeight,
       x: element.x,
       y: element.y,
       cx: element.x,
       cy: element.y,
-      r: sizeWH[0],
+      r: sizeWidth,
       onPointerDown: handlePointerDown,
       onPointerUp: handlePointerUp,
       onPointerMove: handlePointerMove,

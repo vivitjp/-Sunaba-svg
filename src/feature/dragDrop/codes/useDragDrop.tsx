@@ -14,36 +14,40 @@ export function useDragDrop() {
 
   const { dragDropProps } = useSVGDragDrop({
     initXY: [80, 80],
-    sizeWH: [60, 60],
-    svgWH: [720, 300],
+    sizeWidthHeight: [60, 60],
+    svgWidthHeight: [720, 300],
     alignBy: AlignmentGap.value,
   })
 
   const { dragDropProps: squareCenterProps } = useSVGDragDrop({
     initXY: [320, 120],
-    sizeWH: [60, 60],
-    svgWH: [720, 300],
+    sizeWidthHeight: [60, 60],
+    svgWidthHeight: [720, 300],
     alignBy: AlignmentGap.value,
   })
 
   const { dragDropProps: circleCenterProps } = useSVGDragDrop({
     initXY: [440, 120],
-    sizeWH: [20, 20],
-    svgWH: [720, 300],
+    sizeWidthHeight: [20, 20],
+    svgWidthHeight: [720, 300],
     alignBy: AlignmentGap.value,
   })
 
   const codeKeyType: CodeKeyType = "JSTS"
   const code = `//Props型,TargetElement型定義省略
 export const useSVGDragDrop = ({
-  initX = 0, initY = 0, svgWidth = 0, svgHeight = 0, alignBy = 0,
+  initXY: [initX, initY] = [0, 0],
+  sizeWidthHeight: [sizeWidth, sizeHeight],
+  svgWidthHeight: [svgWidth, svgHeight] = [0, 0],
+  alignBy = 0,
 }: Props) => {
   const [element, setElement] = useState<TargetElement>({
-    x: initX, y: initY, active: false, xOffset: 0, yOffset: 0,
+    x: initX,
+    y: initY,
+    active: false,
+    xOffset: 0,
+    yOffset: 0,
   })
- 
-  const [elWidth, setElWidth] = useState<number>(0)
-  const [elHeight, setElHeight] = useState<number>(0)
  
   //■ Pointer Down
   const handlePointerDown = (e: React.PointerEvent<SVGElement>) => {
@@ -52,13 +56,11 @@ export const useSVGDragDrop = ({
  
     //CSS Style変更
     const targetStyle = e.currentTarget.style
-    targetStyle.opacity = "0.5"
+    targetStyle.opacity = MOVE_OPACITY
  
     const target = e.currentTarget.getBoundingClientRect()
     const x = e.clientX - target.left
     const y = e.clientY - target.top
-    setElHeight(target.height)
-    setElWidth(target.width)
     setElement({ ...element, xOffset: x, yOffset: y, active: true })
   }
  
@@ -86,22 +88,34 @@ export const useSVGDragDrop = ({
     targetStyle.opacity = "1"
  
     let [x, y] = [element.x, element.y]
+ 
     //SVG表示範囲内外調整
+    x = svgWidth && rangeWithin(x, 1, svgWidth, sizeWidth)
+    y = svgHeight && rangeWithin(y, 1, svgHeight, sizeHeight)
+ 
     //グリッド整列
+    x = alignBy && getAlignBy(x, alignBy)
+    y = alignBy && getAlignBy(y, alignBy)
  
     setElement({ ...element, x: x, y: y, active: false })
   }
  
   return {
     dragDropProps: {
+      width: sizeWidth,
+      height: sizeHeight,
       x: element.x,
       y: element.y,
+      cx: element.x,
+      cy: element.y,
+      r: sizeWidth,
       onPointerDown: handlePointerDown,
       onPointerUp: handlePointerUp,
       onPointerMove: handlePointerMove,
     },
   }
-}`
+}
+`
 
   const jsx = (
     <svg width={720} height={300}>
@@ -111,27 +125,25 @@ export const useSVGDragDrop = ({
       <rect {...dragDropProps} fill="orange" stroke="black" />
       <text
         x={dragDropProps.x + 30}
-        y={dragDropProps.y + 12}
+        y={dragDropProps.y + dragDropProps.height + 20}
         textAnchor="middle"
         style={{ fontSize: "12px" }}
       >
         {dragDropProps.x}:{dragDropProps.y}
       </text>
 
-      {/* 長方形(center) */}
+      {/* 長方形(center: x,y をセンターに調整) */}
       <rect
         {...squareCenterProps}
         x={squareCenterProps.x - Math.round(squareCenterProps.width / 2)}
         y={squareCenterProps.y - Math.round(squareCenterProps.height / 2)}
-        // x={squareCenterProps.x}
-        // y={squareCenterProps.y}
         fill="lightblue"
         stroke="black"
         strokeWidth="0"
       />
       <text
         x={squareCenterProps.x}
-        y={squareCenterProps.y - 12}
+        y={squareCenterProps.y + squareCenterProps.height - 12}
         textAnchor="middle"
         style={{ fontSize: "12px" }}
       >
@@ -142,7 +154,7 @@ export const useSVGDragDrop = ({
       <circle {...circleCenterProps} fill="lightgreen" stroke="black" />
       <text
         x={circleCenterProps.cx}
-        y={circleCenterProps.cy - 12}
+        y={circleCenterProps.cy + circleCenterProps.height + 20}
         textAnchor="middle"
         style={{ fontSize: "12px" }}
       >

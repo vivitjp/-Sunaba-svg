@@ -27,7 +27,7 @@ export const keysJSTS: KeyDef[] = [
   },
   {
     color: "CadetBlue",
-    keys: ["currentTarget", "clientX", "clientY"],
+    keys: ["currentTarget", "clientX", "clientY", "pointerId"],
   },
   {
     color: "#555",
