@@ -38,6 +38,11 @@ export const useTransform = () => {
     step: 0.1,
   })
 
+  const code = `<SVG width={800} height={300}>
+  <circle cx={300} cy={150} r={50} fill="tomato"
+    transform="translate(${TranslateX.value},${TranslateY.value}) scale(${ScaleX.value},${ScaleY.value})" />
+</SVG>`
+
   const jsx = (
     <SVG width={800} height={300} preserveAspectRatio="xMinYMin slice">
       <circle
@@ -47,7 +52,7 @@ export const useTransform = () => {
         fill="tomato"
         transform={
           `translate(${TranslateX.value},${TranslateY.value})` +
-          `scale(${ScaleX.value},${ScaleY.value})`
+          `scale(${ScaleX.value},${ScaleY.value}) `
         }
       />
     </SVG>
@@ -56,6 +61,7 @@ export const useTransform = () => {
   return {
     height: 300,
     title,
+    code,
     options: [TranslateX, TranslateY, ScaleX, ScaleY],
     jsx,
   }

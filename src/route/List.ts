@@ -21,6 +21,8 @@ import { PageTrigonometric } from "~/pages/Trigonometric"
 import { PageTransform } from "~/pages/Transform"
 import { PageMarker } from "~/pages/PageMarker"
 import { PageDragDrop } from "~/pages/DragDrop"
+import { PagePattern } from "~/pages/Pattern"
+import { PageSymbol } from "~/pages/Symbol"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -36,17 +38,22 @@ export type Menu = {
 export const menuGroup: MenuGroup = {
   Home: [{ name: "Home", path: "/", element: Home }],
 
+  PlayGround: [
+    { name: "Playground", path: "/playground", element: PagePlayground },
+  ],
   Basic: [
     { name: "基礎", path: "/basic", element: PageBasic },
     { name: "Viewbox", path: "/viewbox", element: PageViewbox },
-    { name: "Shapes", path: "/shapes", element: PageShapes },
+    { name: "形(Shapes)", path: "/shapes", element: PageShapes },
     { name: "ベジェ曲線", path: "/bezier", element: PageBezier },
     { name: "属性", path: "/attribute", element: PageAttribute },
     //{ name: "スタイル", path: "/style", element: PageStyle },
     { name: "マーカー", path: "/marker", element: PageMarker },
+    { name: "Use(再利用)", path: "/use", element: PageUse },
+    { name: "パターン", path: "/pattern", element: PagePattern },
+    { name: "シンボル", path: "/symbol", element: PageSymbol },
     { name: "テキスト", path: "/text", element: PageText },
     { name: "イメージ", path: "/image", element: PageImage },
-    { name: "Use", path: "/use", element: PageUse },
     {
       name: "三角関数",
       path: "/trigonometric",
@@ -65,12 +72,7 @@ export const menuGroup: MenuGroup = {
       element: PageForeignObject,
     },
     { name: "イベント", path: "/event", element: PageEvent },
-    //{ name: "パターン", path: "/pattern", element: PagePattern },
-    //{ name: "シンボル", path: "/symbol", element: PageSymbol },
     { name: "Drag & Drop", path: "/dragDrop", element: PageDragDrop },
-  ],
-  PlayGround: [
-    { name: "Playground", path: "/playground", element: PagePlayground },
   ],
   Keep: [
     { name: "Interactive", path: "/interactive", element: InteractiveLine },

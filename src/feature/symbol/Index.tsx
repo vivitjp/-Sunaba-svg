@@ -1,11 +1,10 @@
 import { Column, Section } from "../../common/styleDiv"
 import { FeaturePresenter } from "../presenter/FeaturePresenter"
-import { useRotate } from "./codes/useRotate"
-import { useTransform } from "./codes/useTranslate"
+import { useSymbol } from "./codes/useSymbol"
 
-const codes = [useTransform, useRotate]
+const codes = [useSymbol]
 
-export const FeatureTransform = () => {
+export const FeatureSymbol = () => {
   return (
     <Section>
       <Column padding={6} gap={40}>

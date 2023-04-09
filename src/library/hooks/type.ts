@@ -4,4 +4,6 @@ export type OptionsType<T> = {
   extraNote?: string
   value: T
   JSX: JSX.Element
+  handleClick?: React.MouseEventHandler<SVGElement>
+  active?: boolean
 }

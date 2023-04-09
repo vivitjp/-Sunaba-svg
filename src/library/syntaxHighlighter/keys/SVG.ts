@@ -36,6 +36,7 @@ export const keysSVG: KeyDef[] = [
       "stop",
       "MouseEvent",
       "marker",
+      "pattern",
     ],
   },
   {
@@ -107,6 +108,7 @@ export const keysSVG: KeyDef[] = [
       "vectorEffect",
       "visibility",
       "rotate",
+      "scale",
       "lengthAdjust",
       "textLength",
       "stdDeviation",
@@ -145,6 +147,8 @@ export const keysSVG: KeyDef[] = [
       "markerMid",
       "markerEnd",
       "startOffset",
+      "patternUnits",
+      "patternContentUnits",
     ],
   },
   {
@@ -192,6 +196,7 @@ export const keysSVG: KeyDef[] = [
       "CrispEdges",
       "luminance",
       "alpha",
+      "objectBoundingBox",
     ],
   },
   {

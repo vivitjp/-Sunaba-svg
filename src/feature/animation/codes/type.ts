@@ -10,6 +10,6 @@ export type UseReturnType = {
   extraNote?: string
   code?: string
   codeKeyType?: CodeKeyType
-  options?: OptionsType<string | number | boolean>[]
+  options?: OptionsType<string | number | boolean | [number, number]>[]
   jsx: ReactNode
 }
