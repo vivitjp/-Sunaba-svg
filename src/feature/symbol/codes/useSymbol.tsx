@@ -34,6 +34,14 @@ export function useSymbol() {
     initValue: true,
   })
 
+  const Color = useSelect<string>({
+    title: "塗り色",
+    subTitle: "fill",
+    extraNote: "Symbolに fill 定義済の場合は無効",
+    initValue: "red",
+    values: ["green", "red", "blue", "orange"],
+  })
+
   const code = ``
 
   const jsx = (
@@ -47,7 +55,7 @@ export function useSymbol() {
           <rect x="0" y="0" width="40" height="40" fill="red" />
           <rect x="50" y="0" width="40" height="40" fill="yellow" />
           <rect x="0" y="50" width="40" height="40" fill="green" />
-          <rect x="50" y="50" width="40" height="40" fill="blue" />
+          <rect x="50" y="50" width="40" height="40" />
         </symbol>
       </defs>
 
@@ -57,6 +65,7 @@ export function useSymbol() {
         y="20"
         width={SizeWidth.value}
         height={CheckWHSync.value ? SizeWidth.value : SizeHeight.value}
+        fill={Color.value}
       />
       <rect
         x="20"
@@ -73,7 +82,7 @@ export function useSymbol() {
     title,
     subTitle,
     code,
-    options: [AspectRatio, SizeWidth, SizeHeight, CheckWHSync],
+    options: [AspectRatio, SizeWidth, SizeHeight, CheckWHSync, Color],
     jsx,
   }
 }

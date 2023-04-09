@@ -149,6 +149,7 @@ export const keysSVG: KeyDef[] = [
       "startOffset",
       "patternUnits",
       "patternContentUnits",
+      "overflow",
     ],
   },
   {

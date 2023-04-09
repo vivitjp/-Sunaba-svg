@@ -1,5 +1,5 @@
 import { useId } from "react"
-import { useRange, useSelect } from "~/library"
+import { useCheck, useRange, useSelect } from "~/library"
 
 export const useMarker = () => {
   const circleId = useId()
@@ -64,10 +64,18 @@ export const useMarker = () => {
     step: 1,
   })
 
+  const Overflow = useSelect<string>({
+    title: "オーバーフロー",
+    subTitle: "overflow",
+    extraNote: "auto=hidden",
+    initValue: "auto",
+    values: ["auto", "visible", "hidden"],
+  })
+
   const MarkerStroke = useSelect({
     title: "マーカー線色",
     subTitle: "stroke",
-    initValue: "none",
+    initValue: "black",
     values: ["none", "black", "blue", "red", "green"],
   })
 
@@ -75,40 +83,38 @@ export const useMarker = () => {
   <defs>
     <marker id="circleId" viewBox="0 0 ${MarkerSize.value * 2} ${
     MarkerSize.value * 2
-  }"
+  }" refX="${MarkerSize.value}" refY="${MarkerSize.value}" 
       markerWidth="${MarkerSize.value}" markerHeight="${
     MarkerSize.value
-  }" refX="${MarkerSize.value}" refY="${MarkerSize.value}" orient="${
-    Orient.value
-  }">
+  }" orient="${Orient.value}" overflow="${Overflow.value}">
       <circle cx="${MarkerSize.value}" cy="${MarkerSize.value}" r="${
     MarkerSize.value
   }" fill="${MarkerColor.value}" />
     </marker>
+ 
     <marker id="squareId" viewBox="0 0 ${MarkerSize.value * 2} ${
     MarkerSize.value * 2
-  }"
+  }" refX="${MarkerSize.value}" refY="${MarkerSize.value}" 
       markerWidth="${MarkerSize.value}" markerHeight="${
     MarkerSize.value
-  }" refX="${MarkerSize.value}" refY="${MarkerSize.value}" orient="${
-    Orient.value
-  }">
+  }" orient="${Orient.value}" overflow="${Overflow.value}">
       <rect x="0" y="0" width="${MarkerSize.value * 2}" height="${
     MarkerSize.value * 2
-  }" fill="${MarkerColor.value}" />
+  }" fill="${MarkerColor.value}"/>
     </marker>
-    <marker id="arrowId" viewBox="0 0 ${MarkerSize.value} ${MarkerSize.value}"
+ 
+    <marker id="arrowId" viewBox="0 0 ${MarkerSize.value} ${
+    MarkerSize.value
+  }" refX="${MarkerSize.value / 2}" refY="${MarkerSize.value / 2}"
       markerWidth="${MarkerSize.value}" markerHeight="${
     MarkerSize.value
-  }" refX="${MarkerSize.value / 2}" refY="${MarkerSize.value / 2}" orient="${
-    Orient.value
-  }">
+  }" orient="${Orient.value}" overflow="${Overflow.value}">
       <path d="M 0,0 L${MarkerSize.value},${MarkerSize.value / 2} L0,${
     MarkerSize.value
   }z" fill="${MarkerColor.value}" />
     </marker>
   </defs>
-
+ 
   <polyline
     points="100,100 150,200 200,100, 250,200 300,100"
     fill="none" stroke="#777" strokeWidth="${StrokeWidth.value}"
@@ -130,6 +136,7 @@ export const useMarker = () => {
           refX={MarkerSize.value}
           refY={MarkerSize.value}
           orient={Orient.value}
+          overflow={Overflow.value}
         >
           <circle
             cx={MarkerSize.value}
@@ -149,6 +156,7 @@ export const useMarker = () => {
           refY={MarkerSize.value}
           orient={Orient.value}
           vectorEffect="non-scaling-stroke" //none
+          overflow={Overflow.value}
         >
           <rect
             x="0"
@@ -192,7 +200,7 @@ export const useMarker = () => {
         markerEnd={`url(#${MarkerType.value})`}
         //markerUnits={MarkerUnit.value}
       />
-      <path
+      {/* <path
         d="M400,100 l50,100 l50,-100 l50,100 l50,-100"
         fill="none"
         stroke="#777"
@@ -202,7 +210,7 @@ export const useMarker = () => {
         markerMid={`url(#${MarkerType.value})`}
         markerEnd={`url(#${MarkerType.value})`}
         //markerUnits={MarkerUnit.value}
-      />
+      /> */}
     </svg>
   )
 
@@ -219,6 +227,7 @@ export const useMarker = () => {
       MarkerColor,
       MarkerStrokeWidth,
       MarkerStroke,
+      Overflow,
     ],
     jsx,
   }
