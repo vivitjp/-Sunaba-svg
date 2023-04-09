@@ -1,9 +1,9 @@
-import { keysHTML } from "./keys/HTML"
+import { keysJSTS } from "./keys/JSTS"
 import { keysSVG } from "./keys/SVG"
 
 const codeKeyType = {
   SVG: "SVG",
-  HTML: "HTML",
+  JSTS: "JSTS",
 } as const
 export type CodeKeyType = typeof codeKeyType[keyof typeof codeKeyType]
 
@@ -23,8 +23,8 @@ export const syntaxHighlight = ({
 }: SyntaxHighlight) => {
   let keyDef: KeyDef[] = []
   switch (codeKeyType) {
-    case "HTML":
-      keyDef = keysHTML
+    case "JSTS":
+      keyDef = keysJSTS
       break
     default:
       keyDef = keysSVG

@@ -1,5 +1,6 @@
-import { useRange } from "~/library"
+import { CodeKeyType, useRange } from "~/library"
 import { useSVGDragDrop } from "../hooks/useSVGDragDrop"
+import { RuledLine } from "~/library/svg/component/Kei"
 
 export function useDragDrop() {
   const title = `Simple Drag and Drop`
@@ -25,7 +26,9 @@ export function useDragDrop() {
   //   initValue: "#555",
   // })
 
-  const code = `export const useSVGDragDrop = ({
+  const codeKeyType: CodeKeyType = "JSTS"
+  const code = `//Props型,TargetElement型定義省略
+export const useSVGDragDrop = ({
   initX = 0, initY = 0, svgWidth = 0, svgHeight = 0, alignBy = 0,
 }: Props) => {
   const [element, setElement] = useState<TargetElement>({
@@ -96,37 +99,9 @@ export function useDragDrop() {
   }
 }`
 
-  const arrayWidth = AlignmentGap.value
-    ? [...Array(Math.round(720 / AlignmentGap.value))].fill(0)
-    : []
-  const arrayHeight = AlignmentGap.value
-    ? [...Array(Math.round(720 / AlignmentGap.value))].fill(0)
-    : []
-
   const jsx = (
     <svg width={720} height={300}>
-      {AlignmentGap.value > 0 &&
-        arrayWidth.map((_, index) => (
-          <line
-            x1={0}
-            y1={index * AlignmentGap.value}
-            x2={720}
-            y2={index * AlignmentGap.value}
-            stroke="#eee"
-            fill="none"
-          />
-        ))}
-      {AlignmentGap.value > 0 &&
-        arrayHeight.map((_, index) => (
-          <line
-            x1={index * AlignmentGap.value}
-            y1={0}
-            x2={index * AlignmentGap.value}
-            y2={500}
-            stroke="#eee"
-            fill="none"
-          />
-        ))}
+      <RuledLine width={720} height={300} gap={AlignmentGap.value} />
       <rect
         fill="yellow"
         stroke="blue"
@@ -137,5 +112,5 @@ export function useDragDrop() {
     </svg>
   )
 
-  return { title, code, options: [AlignmentGap], jsx }
+  return { title, code, codeKeyType, options: [AlignmentGap], jsx }
 }

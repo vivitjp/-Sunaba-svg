@@ -1,4 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction } from "react"
+import { CodeKeyType } from "~/library"
 import { OptionsType } from "~/library/hooks/type"
 
 export type UseReturnType = {
@@ -8,6 +9,7 @@ export type UseReturnType = {
   subTitle?: string
   extraNote?: string
   code?: string
+  codeKeyType?: CodeKeyType
   options?: OptionsType<string | number | boolean>[]
   jsx: ReactNode
 }
