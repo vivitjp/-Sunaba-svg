@@ -38,6 +38,7 @@ export const keysSVG: KeyDef[] = [
       "marker",
       "pattern",
       "animateMotion",
+      "animateTransform",
       "mpath",
       "symbol",
       "title",

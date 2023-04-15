@@ -1,7 +1,4 @@
 import { Home } from "~/Home"
-import { InteractiveLine } from "../pages/onHold/InteractiveLine"
-import { PolylineAnime } from "~/pages/onHold/PolylineAnime"
-import { InteractiveLineUse } from "~/pages/onHold/InteractiveLineUse"
 import { PagePlayground } from "~/pages/Playground"
 import { PageViewbox } from "~/pages/Viewbox"
 import { PageShapes } from "~/pages/Shapes"
@@ -21,9 +18,10 @@ import { PageMarker } from "~/pages/Marker"
 import { PageDragDrop } from "~/pages/DragDrop"
 import { PagePattern } from "~/pages/Pattern"
 import { PageSymbol } from "~/pages/Symbol"
-import { PageAnimationMotion } from "~/pages/AnimateMotion"
+import { PageAnimateMotion } from "~/pages/AnimateMotion"
 import { PageBasic } from "~/pages/Basic"
 import { PageAttribute } from "~/pages/Attribute"
+import { PageAnimateTransform } from "~/pages/AnimateTransform"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -67,9 +65,13 @@ export const menuGroup: MenuGroup = {
     {
       name: "アニメ・モーション",
       path: "/animationMotion",
-      element: PageAnimationMotion,
+      element: PageAnimateMotion,
     },
-    //{ name: "animateTransform", path: "/animeTransform", element: PageAnimeTransform },
+    {
+      name: "アニメ・Transform",
+      path: "/animeTransform",
+      element: PageAnimateTransform,
+    },
     { name: "ClipPath/Mask", path: "/clipPath", element: PageClipPathMask },
     {
       name: "ForeignObject",

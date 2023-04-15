@@ -10,14 +10,14 @@ export function useAnime4(): UseReturnType {
   const keySplines = useSelect({
     title: "時間分割制御(0~1)",
     subTitle: "keySplines",
-    extraNote: "x1 y1 x2 y2 : 値0~1、Spaceで分割 *Safariでは「;」で分割",
-    initValue: "Linear",
+    extraNote: `Bezier Curve(P0 P1 P2 P3:各0.0~1.0) *Safariでは「;」で区分`,
+    initValue: "0 0 1 1",
     values: [
-      { K: "Linear", V: "0.0 0.0 1.0 1.0" },
-      { K: "Ease", V: "0.25 0.1 0.25 1.0" },
-      { K: "Ease-in", V: "0.42 0 1.0 1.0" },
-      { K: "Ease-out", V: "0.0 0.0 0.58 1.0" },
-      { K: "Ease-in-out", V: "0.42 0.0 0.58 1.0" },
+      { K: "Linear", V: "0 0 1 1" },
+      { K: "Ease", V: "0.25 0.1 0.25 1" },
+      { K: "Ease-in", V: "0.42 0 1 1" },
+      { K: "Ease-out", V: "0 0 0.58 1" },
+      { K: "Ease-in-out", V: "0.42 0 0.58 1" },
     ],
   })
 

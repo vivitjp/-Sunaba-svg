@@ -75,6 +75,8 @@
 // to ="100"
 // by ="1"
 
+// keySplines = Bezier Curve(P0 P1 P2 P3:各 0.0~1.0) Safari では「;」で区分
+
 // onbegin
 // onend
 // onrepeat

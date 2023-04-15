@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useCheck, useSelect } from "~/library"
 import { UseReturnType } from "~/component"
 
-export function useAnimeMotionValue(): UseReturnType {
+export function useAnimateMotionValue(): UseReturnType {
   const title = `valuesによる移動`
 
   const visible = useState<boolean>(false)

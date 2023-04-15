@@ -4,7 +4,6 @@ import {
   Column,
   Row,
   Div,
-  DivPre,
   xRulers,
   yRulers,
   zeroRulers,
@@ -79,17 +78,17 @@ const CompoCode = ({
       <Div style={{ width: "120px", fontWeight: weight, color: color }}>
         {title}
       </Div>
-      <DivPre
+      <Row
+        width="calc(100% - 120px)"
         fontSize={16}
         minHeight={44}
-        style={{
-          border: "1px solid #ddd",
-          textAlign: "left",
-          padding: "10px",
-        }}
+        padding={10}
+        color={"#777"}
+        border={"#ddd"}
+        fontFamily={"monospace"}
       >
         {code}
-      </DivPre>
+      </Row>
     </Row>
   )
 }

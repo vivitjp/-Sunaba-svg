@@ -4,6 +4,7 @@ import {
   Column,
   Div,
   DivFlexBottom,
+  DivPre,
   Row,
   Span,
   Title,
@@ -101,7 +102,7 @@ const Option = ({
     {/* ExtraNote */}
     {extraNote && (
       <Row padding={"0 30px"}>
-        <Span color="#999">{extraNote}</Span>
+        <DivPre color="#999">{extraNote}</DivPre>
       </Row>
     )}
   </Column>

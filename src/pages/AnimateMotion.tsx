@@ -1,13 +1,17 @@
 import { Column, Section } from "~/common"
 import {
   FeaturePresenter,
-  useAnimeMotionMpath,
-  useAnimeMotionPath,
-  useAnimeMotionValue,
+  useAnimateMotionMpath,
+  useAnimateMotionPath,
+  useAnimateMotionValue,
 } from "~/feature"
-const codes = [useAnimeMotionPath, useAnimeMotionMpath, useAnimeMotionValue]
+const codes = [
+  useAnimateMotionPath,
+  useAnimateMotionMpath,
+  useAnimateMotionValue,
+]
 
-export const PageAnimationMotion = () => {
+export const PageAnimateMotion = () => {
   return (
     <Section>
       <Column padding={6} gap={40}>

@@ -1,16 +1,16 @@
 import { useState } from "react"
-import { useCheck, useRange, useSelect } from "~/library"
 import { UseReturnType } from "~/component"
+import { useCheck, useRange, useSelect } from "~/library"
 
-export function useAnimeMotionPath(): UseReturnType {
-  const title = `パスによる移動`
+export function useAnimateMotionMpath(): UseReturnType {
+  const title = `モーションパス(mpath)による移動`
 
   const visible = useState<boolean>(false)
   const [isVisible] = visible
 
   const TextPath = useCheck({
     title: "パス表示",
-    extraNote: "path では xlinkHref='#id' 使用不可",
+    extraNote: "animateMotion では xlinkHref='#id' 使用不可",
     initValue: false,
   })
 
@@ -29,12 +29,14 @@ export function useAnimeMotionPath(): UseReturnType {
     values: ["indefinite", "1", "2"],
   })
 
-  const path = "M100,100 c50,-50 150,-50 200,0 s150,50 200,0"
-
   const code = `<svg width="700" height="200">
+  <defs>
+    <path id="pathWave" d="M100,100 c50,-50 150,-50 200,0 s150,50 200,0" />
+  </defs>
   <circle cx="0" cy="0" r="10" fill="green">
-    <animateMotion begin="0s" dur="${Duration.value}s" repeatCount="${Repeat.value}"
-     path="${path}" />
+    <animateMotion begin="0s" dur="${Duration.value}s" repeatCount="${Repeat.value}">
+      <mpath xlinkHref="#pathWave" />
+    </animateMotion>
   </circle>
 </svg>`
 
@@ -43,7 +45,10 @@ export function useAnimeMotionPath(): UseReturnType {
       {isVisible && (
         <svg width="700" height="200">
           <defs>
-            <path id="pathWave" d={path} />
+            <path
+              id="pathWave"
+              d="M100,100 c50,-50 150,-50 200,0 s150,50 200,0"
+            />
           </defs>
           {TextPath.value && (
             <use
@@ -58,9 +63,10 @@ export function useAnimeMotionPath(): UseReturnType {
             <animateMotion
               begin="0s"
               dur={`${Duration.value}s`}
-              path={path}
               repeatCount={Repeat.value}
-            />
+            >
+              <mpath xlinkHref="#pathWave" />
+            </animateMotion>
           </circle>
         </svg>
       )}

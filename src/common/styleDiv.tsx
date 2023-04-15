@@ -89,6 +89,11 @@ export const Row = styled(Base)`
   align-items: center;
   width: ${({ width }) => `${width ? `${width}px` : "100%"}`};
   gap: ${({ gap = 10 }) => `${gap}px`};
+  font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
+  color: ${({ color }) => `${color ?? `inherit`}`};
+  padding: ${({ padding = 5 }) => `${padding}px`};
+  border: ${({ border }) => `1px solid ${border ? `${border}` : "none"}`};
+  font-family: ${({ fontFamily = "inherit" }) => fontFamily};
 `
 
 export const DivShadow = styled(Base)`
@@ -100,13 +105,14 @@ export const DivShadow = styled(Base)`
 `
 
 export const DivPre = styled.div<CSSProperties>`
-  width: ${({ width }) => `${width ? `${width}px` : "100%"}`};
+  width: ${({ width }) => `${width ?? "100%"}`};
   border: ${({ border }) => `1px solid ${border ? `${border}` : "none"}`};
   padding: ${({ padding = 5 }) => `${padding}px`};
   margin: 0;
   font-family: monospace;
-  overflow: auto;
+  white-space: pre;
   font-size: ${({ fontSize }) => `${fontSize ? `${fontSize}px` : "inherit"}`};
+  color: ${({ color }) => `${color ?? `inherit`}`};
 `
 
 export const Code = styled.pre<CSSProperties & { align?: string }>`
