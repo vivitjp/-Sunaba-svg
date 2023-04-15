@@ -87,6 +87,7 @@ export const Row = styled(Base)`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  width: ${({ width }) => `${width ? `${width}px` : "100%"}`};
   gap: ${({ gap = 10 }) => `${gap}px`};
 `
 

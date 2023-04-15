@@ -79,9 +79,9 @@ export const menuGroup: MenuGroup = {
     { name: "イベント", path: "/event", element: PageEvent },
     { name: "Drag & Drop", path: "/dragDrop", element: PageDragDrop },
   ],
-  Keep: [
-    { name: "Interactive", path: "/interactive", element: InteractiveLine },
-    { name: "IntUse", path: "/intUse", element: InteractiveLineUse },
-    { name: "Polyline", path: "/polyline", element: PolylineAnime },
-  ],
+  // Keep: [
+  //   { name: "Interactive", path: "/interactive", element: InteractiveLine },
+  //   { name: "IntUse", path: "/intUse", element: InteractiveLineUse },
+  //   { name: "Polyline", path: "/polyline", element: PolylineAnime },
+  // ],
 }

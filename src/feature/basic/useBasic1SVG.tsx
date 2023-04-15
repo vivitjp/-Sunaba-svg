@@ -12,7 +12,9 @@ export function useBasic1SVG(): UseReturnType {
   xmlns="http://www.w3.org/2000/svg"
   preserveAspectRatio="xMinYMin slice"
 >
-  <rect x="20" y="20" width="80" height="80" fill="orange" stroke="red" />
+  <rect x="20" y="20" width="80" height="80" fill="orange" stroke="red" >
+    <title>Tooltip タイトル</title>
+  </rect>
 </svg>`
 
   const jsx = (
@@ -25,7 +27,9 @@ export function useBasic1SVG(): UseReturnType {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMinYMin slice"
     >
-      <rect x={20} y={20} width={80} height={80} fill="orange" stroke="red" />
+      <rect x={20} y={20} width={80} height={80} fill="orange" stroke="red">
+        <title>Tooltip タイトル</title>
+      </rect>
     </svg>
   )
 

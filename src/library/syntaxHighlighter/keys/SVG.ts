@@ -40,6 +40,7 @@ export const keysSVG: KeyDef[] = [
       "animateMotion",
       "mpath",
       "symbol",
+      "title",
     ],
   },
   {

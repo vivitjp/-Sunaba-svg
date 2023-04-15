@@ -14,7 +14,7 @@ export function useBasic8CrispEdges(): UseReturnType {
     title: "線の太さ",
     subTitle: "strokeWidth",
     initValue: 1,
-    range: [0.1, 2],
+    range: [0.1, 5],
     step: 0.1,
   })
 
@@ -48,5 +48,5 @@ ${["red", "blue", "#999"]
     </svg>
   )
 
-  return { height: 80, title, code, options: [CrispEdges, StrokeWidth], jsx }
+  return { height: 100, title, code, options: [CrispEdges, StrokeWidth], jsx }
 }

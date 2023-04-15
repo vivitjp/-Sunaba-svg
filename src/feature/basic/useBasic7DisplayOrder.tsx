@@ -7,6 +7,7 @@ export function useBasic7DisplayOrder(): UseReturnType {
 
   const ElemOrder = useCheck({
     title: "要素の順番リバース",
+    extraNote: "実装時の正逆順入れ替えは コンポーネント配列を reverse()",
     initValue: false,
   })
 
