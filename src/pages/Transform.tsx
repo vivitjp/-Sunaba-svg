@@ -1,9 +1,17 @@
-import { FeatureTransform } from "~/feature/transform/Index"
+import { Section, Column } from "~/common"
+import { useRotate, FeaturePresenter } from "~/feature"
+import { useTransform } from "~/feature/transform/useTranslate"
+
+const codes = [useTransform, useRotate]
 
 export const PageTransform = () => {
   return (
-    <div>
-      <FeatureTransform />
-    </div>
+    <Section>
+      <Column padding={6} gap={40}>
+        {codes.map((useCode, idx) => {
+          return <FeaturePresenter key={idx} useCode={useCode} />
+        })}
+      </Column>
+    </Section>
   )
 }

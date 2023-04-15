@@ -1,10 +1,9 @@
-import { Column, Section } from "../../common/styleDiv"
-import { FeaturePresenter } from "../presenter/FeaturePresenter"
-import { useMarker } from "./codes/useMarker"
+import { Section, Column } from "~/common"
+import { useMarker, FeaturePresenter } from "~/feature"
 
 const codes = [useMarker]
 
-export const FeatureMarker = () => {
+export const PageMarker = () => {
   return (
     <Section>
       <Column padding={6} gap={40}>

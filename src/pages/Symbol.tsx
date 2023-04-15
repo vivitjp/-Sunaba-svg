@@ -1,9 +1,15 @@
-import { FeatureSymbol } from "~/feature/symbol/Index"
+import { Section, Column } from "~/common"
+import { useSymbol, FeaturePresenter } from "~/feature"
 
+const codes = [useSymbol]
 export const PageSymbol = () => {
   return (
-    <div>
-      <FeatureSymbol />
-    </div>
+    <Section>
+      <Column padding={6} gap={40}>
+        {codes.map((useCode, idx) => {
+          return <FeaturePresenter key={idx} useCode={useCode} />
+        })}
+      </Column>
+    </Section>
   )
 }

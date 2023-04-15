@@ -1,4 +1,4 @@
-import { Shape } from "../setting"
+import { Shape } from "./setting/setting"
 
 export const Line: Shape = {
   title: "Line",

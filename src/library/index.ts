@@ -7,6 +7,7 @@ export * from './hooks/useCheck';
 export * from './hooks/useCoordinate';
 export * from './hooks/useRange';
 export * from './hooks/useSelect';
+export * from './hooks/useSVGDragDrop';
 export * from './hooks/useText';
 export * from './libs/roundFloat';
 export * from './svg/component/Group';

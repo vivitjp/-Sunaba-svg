@@ -1,5 +1,5 @@
 import { CodeKeyType, useRange } from "~/library"
-import { useSVGDragDrop } from "../hooks/useSVGDragDrop"
+import { useSVGDragDrop } from "../../library/hooks/useSVGDragDrop"
 import { RuledLine } from "~/library/svg/component/Kei"
 
 export function useDragDrop() {

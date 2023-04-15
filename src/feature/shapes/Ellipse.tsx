@@ -1,4 +1,4 @@
-import { Shape } from "../setting"
+import { Shape } from "./setting/setting"
 
 export const Ellipse: Shape = {
   title: "Ellipse",

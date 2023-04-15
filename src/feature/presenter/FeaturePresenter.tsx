@@ -14,7 +14,7 @@ import {
   syntaxHighlight,
 } from "../../library/syntaxHighlighter/syntaxHighlighter"
 import { FC } from "react"
-import { UseReturnType } from "../animation/codes/type"
+import { UseReturnType } from "~/component"
 
 type UseCode = {
   useCode: () => UseReturnType

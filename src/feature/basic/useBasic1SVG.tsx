@@ -1,4 +1,4 @@
-import { UseReturnType } from "~/feature/animation/codes/type"
+import { UseReturnType } from "~/component"
 
 export function useBasic1SVG(): UseReturnType {
   const title = `SVG基本構文`
