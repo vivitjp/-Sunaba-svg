@@ -1,8 +1,9 @@
 import { useMemo } from "react"
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 import { roundFloat } from "~/library/libs/roundFloat"
 
-export function useTangentByY() {
+export function useTangentByY(): UseReturnType {
   const title = `三角関数(Tangent) Y基準`
 
   const textX = 150

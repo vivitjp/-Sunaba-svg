@@ -1,8 +1,8 @@
 import { useRange } from "~/library"
 import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
-import { SVGRuled } from "~/component"
+import { SVGRuled, UseReturnType } from "~/component"
 
-export function useBezier2B() {
+export function useBezier2B(): UseReturnType {
   const title = `2次ベジェ曲線(Q & T)`
 
   const X1 = useRange({

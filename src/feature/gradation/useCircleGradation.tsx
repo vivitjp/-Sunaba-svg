@@ -1,7 +1,8 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { useRange, useText } from "~/library"
 
-export function useCircleGradation() {
+export function useCircleGradation(): UseReturnType {
   const filterId = useId()
   const title = `Gradation(Circle)`
 

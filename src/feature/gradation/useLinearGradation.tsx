@@ -1,7 +1,8 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { useRange, useText } from "~/library"
 
-export function useLinearGradation() {
+export function useLinearGradation(): UseReturnType {
   const filterId = useId()
   const title = `Gradation(Linear)`
   const CenterValue = useRange({

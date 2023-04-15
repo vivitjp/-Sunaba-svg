@@ -1,4 +1,6 @@
-export function useBasic4SvgInSvg() {
+import { UseReturnType } from "~/component"
+
+export function useBasic4SvgInSvg(): UseReturnType {
   const title = `SVG in SVG`
 
   const code = `<svg width="600" height="120">

@@ -1,15 +1,17 @@
 import { useId } from "react"
-import { useCheck, useRange, useSelect } from "~/library"
+import { UseReturnType } from "~/component"
+import { useRange, useSelect } from "~/library"
 
-export const useMarker = () => {
+export const useMarker = (): UseReturnType => {
   const circleId = useId()
   const squareId = useId()
   const arrowId = useId()
-  const title = `Marker`
+
+  const title = "Marker"
+  const subTitle = `一般的に <polyline>,<path> で使用される`
 
   const MarkerType = useSelect({
     title: "タイプ",
-    subTitle: "defs <marker>",
     initValue: circleId,
     values: [
       { K: "circle", V: circleId },
@@ -18,17 +20,10 @@ export const useMarker = () => {
     ],
   })
 
-  // const MarkerUnit = useSelect({
-  //   title: "ユニット",
-  //   subTitle: "markerUnits",
-  //   initValue: "strokeWidth",
-  //   values: ["strokeWidth", "userSpaceOnUse"],
-  // })
-
   const Orient = useSelect({
     title: "方向",
     subTitle: "orient",
-    initValue: 0,
+    initValue: "auto",
     values: ["auto", "auto-start-reverse", 0, 45, 90],
   })
 
@@ -118,8 +113,7 @@ export const useMarker = () => {
   <polyline
     points="100,100 150,200 200,100, 250,200 300,100"
     fill="none" stroke="#777" strokeWidth="${StrokeWidth.value}"
-    //marker={url(#MARKER_ID_HERE)} 存在せず
-    markerStart="url(#MARKER_ID_HERE)"
+    markerStart="url(#MARKER_ID_HERE)" //NG! marker={url(#MARKER_ID_HERE)}
     markerMid="url(#MARKER_ID_HERE)"
     markerEnd="url(#MARKER_ID_HERE)"
   />
@@ -217,6 +211,7 @@ export const useMarker = () => {
   return {
     height: 300,
     title,
+    subTitle,
     code,
     options: [
       StrokeWidth,

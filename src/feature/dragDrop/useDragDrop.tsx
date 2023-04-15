@@ -1,8 +1,9 @@
 import { CodeKeyType, useRange } from "~/library"
 import { useSVGDragDrop } from "../../library/hooks/useSVGDragDrop"
 import { RuledLine } from "~/library/svg/component/Kei"
+import { UseReturnType } from "~/component"
 
-export function useDragDrop() {
+export function useDragDrop(): UseReturnType {
   const title = `Simple Drag and Drop`
 
   const AlignmentGap = useRange({

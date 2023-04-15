@@ -4,8 +4,9 @@ import { useRange } from "~/library/hooks/useRange"
 import { useSelect } from "~/library/hooks/useSelect"
 import { useMemo } from "react"
 import { CSSProperties } from "styled-components"
+import { UseReturnType } from "~/component"
 
-export const useTextPath = () => {
+export const useTextPath = (): UseReturnType => {
   const title = `TextPath`
 
   const TextPath = useCheck({

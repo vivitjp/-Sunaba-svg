@@ -1,7 +1,8 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { useRange, useText } from "~/library"
 
-export function useLinearGradationWithGamma() {
+export function useLinearGradationWithGamma(): UseReturnType {
   const expoId = useId()
   const filterId = useId()
 

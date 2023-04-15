@@ -1,6 +1,7 @@
+import { UseReturnType } from "~/component"
 import { useRange, useText } from "~/library"
 
-export function useShadow() {
+export function useShadow(): UseReturnType {
   const title = `Filter: Shadow`
 
   const Deviation = useRange({

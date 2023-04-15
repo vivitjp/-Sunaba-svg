@@ -1,7 +1,8 @@
 import { useMemo } from "react"
+import { UseReturnType } from "~/component"
 import { useCheck } from "~/library"
 
-export function useBasic5Display2() {
+export function useBasic5Display2(): UseReturnType {
   const CheckDisplay = useCheck({
     title: "Hooksによる切り替え",
     subTitle: "useState/useMemo",

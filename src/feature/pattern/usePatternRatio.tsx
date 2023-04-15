@@ -1,7 +1,8 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 
-export function usePatternRatio() {
+export function usePatternRatio(): UseReturnType {
   const patternId = useId()
   const title = `Pattern(objectBoundingBox:比率)`
 

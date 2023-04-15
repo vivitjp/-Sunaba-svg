@@ -1,8 +1,9 @@
 import { useMemo } from "react"
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 import { roundFloat } from "~/library/libs/roundFloat"
 
-export function useTangentByXDivide() {
+export function useTangentByXDivide(): UseReturnType {
   const title = `三角関数(Tangent) X基準(分割)`
 
   const MaxY = 300

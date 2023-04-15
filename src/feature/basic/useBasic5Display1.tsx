@@ -1,6 +1,7 @@
+import { UseReturnType } from "~/component"
 import { useCheck } from "~/library"
 
-export function useBasic5Display1() {
+export function useBasic5Display1(): UseReturnType {
   const title = `表示切り替え`
 
   const CheckDisplay = useCheck({

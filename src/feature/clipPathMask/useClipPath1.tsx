@@ -1,7 +1,8 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 
-export function useClipPath1() {
+export function useClipPath1(): UseReturnType {
   const clipId = useId()
   const title = `可視範囲の定義(ClipPath)`
 

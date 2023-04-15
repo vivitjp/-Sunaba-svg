@@ -1,6 +1,7 @@
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 
-export function useImageBlur() {
+export function useImageBlur(): UseReturnType {
   const title = `Filter: Blur`
 
   const Deviation = useRange({

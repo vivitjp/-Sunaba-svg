@@ -1,9 +1,9 @@
 import { useRange } from "~/library"
 import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
-import { SVGRuled } from "~/component"
+import { SVGRuled, UseReturnType } from "~/component"
 import { useMemo } from "react"
 
-export function useBezier3B() {
+export function useBezier3B(): UseReturnType {
   const title = `3次ベジェ曲線(C & S)`
 
   const CX1 = useRange({

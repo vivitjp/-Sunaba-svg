@@ -1,4 +1,6 @@
-export function useBasic2Omit() {
+import { UseReturnType } from "~/component"
+
+export function useBasic2Omit(): UseReturnType {
   const subTitle = `メジャーなブラウザで viewBox, xmlns が省略可能\n属性値の書き方は "値" or {値}/{"値"}、変数は{変数} \nx,y が省略された場合の初期値は 0,0`
 
   const code = `<svg width="600" height="120">

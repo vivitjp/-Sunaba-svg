@@ -1,8 +1,9 @@
+import { UseReturnType } from "~/component"
 import { SVG } from "~/library"
 import { useCoordinate } from "~/library/hooks/useCoordinate"
 import { useRange } from "~/library/hooks/useRange"
 
-export const useRotate = () => {
+export const useRotate = (): UseReturnType => {
   const title = `Rotate`
 
   const Rotate = useRange({

@@ -1,4 +1,6 @@
-export function useBasic3Group1() {
+import { UseReturnType } from "~/component"
+
+export function useBasic3Group1(): UseReturnType {
   const title = `グループ(g)`
 
   const code = `<svg width="600" height="120">

@@ -1,7 +1,8 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { useCheck, useRange, useSelect } from "~/library"
 
-export function useSymbol() {
+export function useSymbol(): UseReturnType {
   const symbolId = useId()
   const title = `Symbol`
   const subTitle = "viewbox付きのグループ<g>"

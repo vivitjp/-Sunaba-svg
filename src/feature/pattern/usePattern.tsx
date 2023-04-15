@@ -1,7 +1,8 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 
-export function usePattern() {
+export function usePattern(): UseReturnType {
   const patternId = useId()
   const title = `Pattern(userSpaceOnUse:実数)`
 

@@ -1,6 +1,7 @@
 import { useState } from "react"
+import { UseReturnType } from "~/component"
 
-export function useClick() {
+export function useClick(): UseReturnType {
   const title = `イベント(event)`
   const subTitle = '注意: fill="none" には onClick が反応しない'
 

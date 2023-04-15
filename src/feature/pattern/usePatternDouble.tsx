@@ -1,8 +1,9 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { colorDark, colorLight } from "~/constants/colors"
 import { useRange, useSelect } from "~/library"
 
-export function usePatternDouble() {
+export function usePatternDouble(): UseReturnType {
   const patternIdFront = useId()
   const patternIdBack = useId()
   const title = `Pattern重ね`

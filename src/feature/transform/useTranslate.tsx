@@ -1,7 +1,8 @@
+import { UseReturnType } from "~/component"
 import { SVG } from "~/library"
 import { useRange } from "~/library/hooks/useRange"
 
-export const useTransform = () => {
+export const useTransform = (): UseReturnType => {
   const title = `Translate`
 
   const TranslateX = useRange({

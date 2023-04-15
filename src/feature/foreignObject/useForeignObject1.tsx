@@ -1,7 +1,8 @@
 import styled from "styled-components"
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 
-export function useForeignObject1() {
+export function useForeignObject1(): UseReturnType {
   const title = `HTML 埋め込み: ForeignObject`
 
   const ObjectWidth = useRange({

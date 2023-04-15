@@ -1,7 +1,8 @@
 import { CSSProperties, useId } from "react"
+import { UseReturnType } from "~/component"
 import { useRange, useSelect } from "~/library"
 
-export function useMask1() {
+export function useMask1(): UseReturnType {
   const maskId = useId()
 
   const title = `mask`

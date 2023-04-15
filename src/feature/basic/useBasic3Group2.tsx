@@ -1,4 +1,6 @@
-export function useBasic3Group2() {
+import { UseReturnType } from "~/component"
+
+export function useBasic3Group2(): UseReturnType {
   const subTitle = `x, y, width, heightなどの属性は非継承\n`
 
   const code = `<svg width="600" height="120">

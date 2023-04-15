@@ -1,6 +1,7 @@
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 
-export function useBasic6Outside() {
+export function useBasic6Outside(): UseReturnType {
   const title = `表示範囲`
 
   const CoordX = useRange({

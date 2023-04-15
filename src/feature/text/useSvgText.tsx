@@ -3,8 +3,9 @@ import { useRange } from "~/library/hooks/useRange"
 import { useSelect } from "~/library/hooks/useSelect"
 import { useMemo } from "react"
 import { CSSProperties } from "styled-components"
+import { UseReturnType } from "~/component"
 
-export const useSvgText = () => {
+export const useSvgText = (): UseReturnType => {
   const title = `テキスト`
 
   const Sample = useText({

@@ -1,6 +1,7 @@
+import { UseReturnType } from "~/component"
 import { useCheck } from "~/library"
 
-export function useBasic7DisplayOrder() {
+export function useBasic7DisplayOrder(): UseReturnType {
   const title = `要素の表示順(Layerの概念)`
   const subTitle = ``
 

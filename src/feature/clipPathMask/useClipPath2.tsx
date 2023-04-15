@@ -1,7 +1,8 @@
 import { useId } from "react"
+import { UseReturnType } from "~/component"
 import { useRange } from "~/library"
 
-export function useClipPath2() {
+export function useClipPath2(): UseReturnType {
   const clipId = useId()
   const title = `グループと Use の応用`
 

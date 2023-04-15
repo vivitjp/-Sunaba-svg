@@ -1,6 +1,7 @@
+import { UseReturnType } from "~/component"
 import { useRange, useText } from "~/library"
 
-export function useShadowGroup() {
+export function useShadowGroup(): UseReturnType {
   const title = `Filter: Group shadow`
 
   const Deviation = useRange({

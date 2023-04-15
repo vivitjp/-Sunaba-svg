@@ -1,6 +1,7 @@
+import { UseReturnType } from "~/component"
 import { useCheck, useRange } from "~/library"
 
-export function useBasic8CrispEdges() {
+export function useBasic8CrispEdges(): UseReturnType {
   const title = `図形描画の品質`
 
   const CrispEdges = useCheck({

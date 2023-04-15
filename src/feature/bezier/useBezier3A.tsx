@@ -1,8 +1,8 @@
 import { useRange } from "~/library"
 import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
-import { SVGRuled } from "~/component"
+import { SVGRuled, UseReturnType } from "~/component"
 
-export function useBezier3A() {
+export function useBezier3A(): UseReturnType {
   const title = `3次ベジェ曲線(C)`
 
   const X1 = useRange({
