@@ -21,9 +21,9 @@ type UseCode = {
 }
 
 export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
-  const { code, codeKeyType, title, subTitle, options, jsx, height, Visible } =
+  const { code, codeKeyType, title, subTitle, options, jsx, height, visible } =
     useCode()
-  const [isVisible, setIsVisible] = Visible ?? [null, () => {}]
+  const [isVisible, setIsVisible] = visible ?? [null, () => {}]
 
   return (
     <Column gap={16}>
@@ -43,7 +43,7 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
       )}
 
       {/* 表示ボタン */}
-      {Visible && (
+      {visible && (
         <Input
           onClick={() => {
             setIsVisible((prev) => !prev)
@@ -162,8 +162,10 @@ const CodeBox: FC<CodeBox> = ({ code, codeKeyType }) => {
 // 表示ボタン
 //----------------------------------------
 const Input = styled.input.attrs({ type: "button" })`
-  width: 160px;
-  padding: 8px;
+  width: 120px;
+  margin-left: 10px;
+  margin-bottom: -10px;
+  padding: 6px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1.2rem;

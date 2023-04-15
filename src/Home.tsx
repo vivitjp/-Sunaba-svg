@@ -19,7 +19,7 @@ const Section = styled.section`
   transition: all 1s;
   opacity: 0.3;
 
-  &: hover {
+  &:hover {
     opacity: 0;
   }
 `

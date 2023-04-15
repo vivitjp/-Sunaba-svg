@@ -4,8 +4,8 @@ import { UseReturnType } from "./type"
 
 export function useAnime2(): UseReturnType {
   const title = `変化(from-to/by)`
-  const Visible = useState<boolean>(false)
-  const [isVisible] = Visible
+  const visible = useState<boolean>(false)
+  const [isVisible] = visible
 
   const Duration = useRange({
     title: "変化インターバル",
@@ -66,7 +66,7 @@ export function useAnime2(): UseReturnType {
 
   return {
     height: 155,
-    Visible,
+    visible,
     title,
     code,
     options: [Duration, CalcMode],

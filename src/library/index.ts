@@ -4,11 +4,13 @@
 
 export * from './hooks/type';
 export * from './hooks/useCheck';
+export * from './hooks/useCoordinate';
 export * from './hooks/useRange';
 export * from './hooks/useSelect';
 export * from './hooks/useText';
 export * from './libs/roundFloat';
 export * from './svg/component/Group';
+export * from './svg/component/Kei';
 export * from './svg/component/Path';
 export * from './svg/component/Polyline';
 export * from './svg/component/SVG';
@@ -27,4 +29,5 @@ export * from './svg/lib/line';
 export * from './svg/lib/points';
 export * from './svg/type/type';
 export * from './syntaxHighlighter/syntaxHighlighter';
+export * from './syntaxHighlighter/keys/JSTS';
 export * from './syntaxHighlighter/keys/SVG';

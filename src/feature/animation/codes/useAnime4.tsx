@@ -4,8 +4,8 @@ import { useSelect } from "~/library"
 
 export function useAnime4(): UseReturnType {
   const title = `変化スタイル(keySplines)`
-  const Visible = useState<boolean>(false)
-  const [isVisible] = Visible
+  const visible = useState<boolean>(false)
+  const [isVisible] = visible
 
   const keySplines = useSelect({
     title: "keySplines",
@@ -61,7 +61,7 @@ export function useAnime4(): UseReturnType {
 
   return {
     height: 60,
-    Visible,
+    visible,
     title,
     code,
     options: [keySplines],

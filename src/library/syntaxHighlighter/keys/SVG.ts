@@ -37,6 +37,9 @@ export const keysSVG: KeyDef[] = [
       "MouseEvent",
       "marker",
       "pattern",
+      "animateMotion",
+      "mpath",
+      "symbol",
     ],
   },
   {
@@ -150,6 +153,7 @@ export const keysSVG: KeyDef[] = [
       "patternUnits",
       "patternContentUnits",
       "overflow",
+      "keyPoints",
     ],
   },
   {

@@ -23,6 +23,7 @@ import { PageMarker } from "~/pages/PageMarker"
 import { PageDragDrop } from "~/pages/DragDrop"
 import { PagePattern } from "~/pages/Pattern"
 import { PageSymbol } from "~/pages/Symbol"
+import { PageAnimationMotion } from "~/pages/AnimateMotion"
 
 type MenuGroup = { [key: string]: Menu[] }
 
@@ -63,7 +64,11 @@ export const menuGroup: MenuGroup = {
     { name: "グラデーション", path: "/gradation", element: PageGradation },
     { name: "Transform", path: "/transform", element: PageTransform },
     { name: "アニメーション", path: "/animation", element: PageAnimation },
-    //{ name: "animateMotion", path: "/animeMotion", element: PageAnimeMotion },
+    {
+      name: "アニメ・モーション",
+      path: "/animationMotion",
+      element: PageAnimationMotion,
+    },
     //{ name: "animateTransform", path: "/animeTransform", element: PageAnimeTransform },
     { name: "ClipPath/Mask", path: "/clipPath", element: PageClipPathMask },
     {
