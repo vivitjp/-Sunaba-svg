@@ -1,7 +1,7 @@
 import { useRange } from "~/library"
 import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
 import { SVGRuled } from "~/component"
-import { useEffect, useMemo } from "react"
+import { useMemo } from "react"
 
 export function useBezier3B() {
   const title = `3次ベジェ曲線(C & S)`
@@ -93,10 +93,6 @@ export function useBezier3B() {
       startY + CY2.value * -1 + CY3.value,
     ]
   }, [CX2.value, CY2.value, CX3.value, CY3.value])
-
-  useEffect(() => {
-    console.log("MX", MX, "MY", MY)
-  }, [MY, MX])
 
   const jsx = (
     <SVGRuled

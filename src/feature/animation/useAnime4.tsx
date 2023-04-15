@@ -8,8 +8,9 @@ export function useAnime4(): UseReturnType {
   const [isVisible] = visible
 
   const keySplines = useSelect({
-    title: "keySplines",
+    title: "時間分割制御(0~1)",
     subTitle: "keySplines",
+    extraNote: "x1 y1 x2 y2 : 値0~1、Spaceで分割 *Safariでは「;」で分割",
     initValue: "Linear",
     values: [
       { K: "Linear", V: "0.0 0.0 1.0 1.0" },
@@ -17,7 +18,6 @@ export function useAnime4(): UseReturnType {
       { K: "Ease-in", V: "0.42 0 1.0 1.0" },
       { K: "Ease-out", V: "0.0 0.0 0.58 1.0" },
       { K: "Ease-in-out", V: "0.42 0.0 0.58 1.0" },
-      //Safari has issues: "0.42; 0.0; 0.58; 1.0"
     ],
   })
 
@@ -40,8 +40,8 @@ export function useAnime4(): UseReturnType {
   const jsx = (
     <>
       {isVisible && (
-        <svg width="700" height="220">
-          <circle cx="30" cy={30} r="10" fill="red">
+        <svg width="700" height="60">
+          <circle cx="30" cy="30" r="10" fill="red">
             <animate
               attributeName="cx"
               calcMode="spline"

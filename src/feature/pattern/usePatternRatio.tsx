@@ -84,7 +84,7 @@ export function usePatternRatio() {
         width={`${380 + ExtraWidth.value}`}
         height="380"
         stroke="#aaa"
-        stroke-width="1"
+        strokeWidth="1"
       />
     </svg>
   )

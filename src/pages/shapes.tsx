@@ -14,7 +14,7 @@ import { Shape, shapes, shapesOptions } from "~/feature"
 import { Text } from "~/library"
 
 export const PageShapes = () => {
-  const [selectedShape, setSelectedShape] = useState<string | null>(
+  const [selectedShape, setSelectedShape] = useState<string | undefined>(
     shapes[0].title
   )
   const [shapeSet, setShapeSet] = useState<Shape | null>(null)
@@ -29,7 +29,12 @@ export const PageShapes = () => {
       <SelectShapes setSelectedShape={setSelectedShape} />
       <Column style={{ gap: "5" }}>
         {shapeSet?.shape && (
-          <CompoCode title={"Shape"} code={shapeSet?.shape.code} />
+          <CompoCode
+            title={selectedShape}
+            code={shapeSet?.shape.code}
+            weight={600}
+            color={"var(--main-color)"}
+          />
         )}
         {shapeSet?.absolute && (
           <CompoCode title={"絶対Path"} code={shapeSet?.absolute.code} />
@@ -59,14 +64,23 @@ export const PageShapes = () => {
 type CompoCode = {
   title?: string
   code?: string
+  weight?: number
+  color?: string
 }
 
-const CompoCode = ({ code = "", title = "" }: CompoCode) => {
+const CompoCode = ({
+  code = "",
+  title = "",
+  weight = 400,
+  color = "inherit",
+}: CompoCode) => {
   return (
     <Row style={{ width: "100%", gap: "none" }}>
-      <Div style={{ width: "60px" }}>{title}</Div>
+      <Div style={{ width: "120px", fontWeight: weight, color: color }}>
+        {title}
+      </Div>
       <DivPre
-        fontSize={18}
+        fontSize={16}
         minHeight={44}
         style={{
           border: "1px solid #ddd",
@@ -119,7 +133,7 @@ const CompoSVG = ({ jsx, title }: { title: string; jsx?: ReactNode }) => {
 // SelectShapes
 //----------------------------------------
 type SelectShapesProps = {
-  setSelectedShape: React.Dispatch<React.SetStateAction<string | null>>
+  setSelectedShape: React.Dispatch<React.SetStateAction<string | undefined>>
 }
 
 const SelectShapes: FC<SelectShapesProps> = ({ setSelectedShape }) => {
