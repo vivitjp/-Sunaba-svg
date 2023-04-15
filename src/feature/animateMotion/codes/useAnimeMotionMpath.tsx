@@ -1,6 +1,6 @@
 import { useState } from "react"
+import { UseReturnType } from "~/component"
 import { useCheck, useRange, useSelect } from "~/library"
-import { UseReturnType } from "./type"
 
 export function useAnimeMotionMpath(): UseReturnType {
   const title = `モーションパス(mpath)による移動`

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { UseReturnType } from "./type"
+import { UseReturnType } from "~/component"
 import { useSelect } from "~/library"
 
 export function useAnime4(): UseReturnType {

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useRange, useSelect } from "~/library"
-import { UseReturnType } from "./type"
+import { UseReturnType } from "~/component"
 
 export function useAnime3(): UseReturnType {
   const title = `変化(to/by)`

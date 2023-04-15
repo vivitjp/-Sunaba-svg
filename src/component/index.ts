@@ -4,3 +4,4 @@
 
 export * from './SelectSet';
 export * from './SVGRuled';
+export * from './type/type';

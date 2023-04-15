@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useCheck, useSelect } from "~/library"
-import { UseReturnType } from "./type"
+import { UseReturnType } from "~/component"
 
 export function useAnimeMotionValue(): UseReturnType {
   const title = `valuesによる移動`
