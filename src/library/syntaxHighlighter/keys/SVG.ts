@@ -156,6 +156,7 @@ export const keysSVG: KeyDef[] = [
       "patternContentUnits",
       "overflow",
       "keyPoints",
+      "additive",
     ],
   },
   {
@@ -204,6 +205,9 @@ export const keysSVG: KeyDef[] = [
       "luminance",
       "alpha",
       "objectBoundingBox",
+      "sum",
+      "replace",
+      "freeze",
     ],
   },
   {
