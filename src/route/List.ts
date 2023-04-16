@@ -46,7 +46,6 @@ export const menuGroup: MenuGroup = {
     { name: "形(Shapes)", path: "/shapes", element: PageShapes },
     { name: "ベジェ曲線", path: "/bezier", element: PageBezier },
     { name: "属性", path: "/attribute", element: PageAttribute },
-    //{ name: "スタイル", path: "/style", element: PageStyle },
     { name: "マーカー", path: "/marker", element: PageMarker },
     { name: "Use(再利用)", path: "/use", element: PageUse },
     { name: "パターン", path: "/pattern", element: PagePattern },
