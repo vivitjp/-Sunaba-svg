@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { roundFloat } from "../libs/roundFloat"
 
 interface TargetElement {
   x: number //targetのLeftTop x,y
@@ -55,8 +56,8 @@ export const useSVGDragDrop = ({
 
     setElement({
       ...element,
-      x: element.x - (element.xOffset - x),
-      y: element.y - (element.yOffset - y),
+      x: roundFloat(element.x - (element.xOffset - x)),
+      y: roundFloat(element.y - (element.yOffset - y)),
     })
   }
 
@@ -76,8 +77,8 @@ export const useSVGDragDrop = ({
     y = svgHeight && rangeWithin(y, 1, svgHeight, sizeHeight)
 
     //グリッド整列
-    x = alignBy && getAlignBy(x, alignBy)
-    y = alignBy && getAlignBy(y, alignBy)
+    x = alignBy ? getAlignBy(x, alignBy) : x
+    y = alignBy ? getAlignBy(y, alignBy) : y
 
     setElement({ ...element, x: x, y: y, active: false })
   }
@@ -94,6 +95,7 @@ export const useSVGDragDrop = ({
       onPointerDown: handlePointerDown,
       onPointerUp: handlePointerUp,
       onPointerMove: handlePointerMove,
+      style: { cursor: "pointer" },
     },
   }
 }

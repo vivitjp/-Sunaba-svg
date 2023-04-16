@@ -1,13 +1,13 @@
 import { Column, Section } from "~/common"
 import {
   FeaturePresenter,
-  useBezier2A,
-  useBezier2B,
-  useBezier3A,
-  useBezier3B,
+  useBezier2Q,
+  useBezier2QT,
+  useBezier3C,
+  useBezier3CS,
 } from "~/feature"
 
-const codes = [useBezier2A, useBezier2B, useBezier3A, useBezier3B]
+const codes = [useBezier2Q, useBezier2QT, useBezier3C, useBezier3CS]
 
 export const PageBezier = () => {
   return (

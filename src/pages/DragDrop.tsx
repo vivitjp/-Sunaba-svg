@@ -1,7 +1,7 @@
 import { Column, Section } from "~/common"
-import { FeaturePresenter, useDragDrop } from "~/feature"
+import { FeaturePresenter, useDragDrop, useDragDropRect } from "~/feature"
 
-const codes = [useDragDrop]
+const codes = [useDragDropRect, useDragDrop]
 
 export const PageDragDrop = () => {
   return (

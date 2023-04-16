@@ -3,7 +3,7 @@ import { xRulers, yRulers, zeroRulers } from "~/common/SVGContent"
 import { SVGRuled, UseReturnType } from "~/component"
 import { useMemo } from "react"
 
-export function useBezier3B(): UseReturnType {
+export function useBezier3B_OLD(): UseReturnType {
   const title = `3次ベジェ曲線(C & S)`
 
   const CX1 = useRange({

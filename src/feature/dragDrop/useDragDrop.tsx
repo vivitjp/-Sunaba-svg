@@ -4,7 +4,7 @@ import { RuledLine } from "~/library/svg/component/Kei"
 import { UseReturnType } from "~/component"
 
 export function useDragDrop(): UseReturnType {
-  const title = `Simple Drag and Drop`
+  const title = `Drag and Drop Hooks`
 
   const AlignmentGap = useRange({
     title: "整列グリッド",
@@ -95,9 +95,9 @@ export const useSVGDragDrop = ({
     y = svgHeight && rangeWithin(y, 1, svgHeight, sizeHeight)
  
     //グリッド整列
-    x = alignBy && getAlignBy(x, alignBy)
-    y = alignBy && getAlignBy(y, alignBy)
- 
+    x = alignBy ? getAlignBy(x, alignBy) : x
+    y = alignBy ? getAlignBy(y, alignBy) : y
+
     setElement({ ...element, x: x, y: y, active: false })
   }
  
