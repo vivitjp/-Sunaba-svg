@@ -1,6 +1,6 @@
 import { Home } from "~/Home"
 import { PagePlayground } from "~/pages/Playground"
-import { PageViewbox } from "~/pages/ViewboxRev"
+import { PageViewBox } from "~/pages/Viewbox"
 import { PageShapes } from "~/pages/ShapesRev"
 import { PageUse } from "~/pages/UseRev"
 import { PageText } from "~/pages/TextRev"
@@ -42,7 +42,7 @@ export const menuGroup: MenuGroup = {
   ],
   Basic: [
     { name: "基礎", path: "/basic", element: PageBasic },
-    { name: "Viewbox", path: "/viewbox", element: PageViewbox },
+    { name: "Viewbox", path: "/viewbox", element: PageViewBox },
     { name: "形(Shapes)", path: "/shapes", element: PageShapes },
     { name: "ベジェ曲線", path: "/bezier", element: PageBezier },
     { name: "属性", path: "/attribute", element: PageAttribute },

@@ -12,4 +12,5 @@ export type UseReturnType<EX = any> = {
   codeKeyType?: CodeKeyType
   options?: OptionsType<string | number | boolean | [number, number] | EX>[]
   jsx: ReactNode
+  border?: string
 }

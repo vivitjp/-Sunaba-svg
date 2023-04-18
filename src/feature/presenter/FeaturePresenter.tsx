@@ -6,7 +6,6 @@ import {
   DivFlexBottom,
   DivPre,
   Row,
-  Span,
   Title,
 } from "../../common/styleDiv"
 import { OptionsType } from "../../library/hooks/type"
@@ -22,8 +21,17 @@ type UseCode = {
 }
 
 export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
-  const { code, codeKeyType, title, subTitle, options, jsx, height, visible } =
-    useCode()
+  const {
+    code,
+    codeKeyType,
+    title,
+    subTitle,
+    options,
+    jsx,
+    height,
+    visible,
+    border = "#ccc",
+  } = useCode()
   const [isVisible, setIsVisible] = visible ?? [null, () => {}]
 
   return (
@@ -55,7 +63,7 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
 
       {/* JSX */}
       <DivFlexBottom
-        border={"#ccc"}
+        border={border}
         width={720}
         height={height}
         marginLeft={10}

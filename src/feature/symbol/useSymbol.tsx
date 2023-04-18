@@ -43,7 +43,25 @@ export function useSymbol(): UseReturnType {
     values: ["green", "red", "blue", "orange"],
   })
 
-  const code = ``
+  const code = `<svg width={700} height={400}>
+  <defs>
+    <symbol id={id} viewBox="0 0 100 100" preserveAspectRatio="${
+      AspectRatio.value
+    }">
+      <rect x="0"  y="0"  width="40" height="40" fill="red" />
+      <rect x="50" y="0"  width="40" height="40" fill="yellow" />
+      <rect x="0"  y="50" width="40" height="40" fill="green" />
+      <rect x="50" y="50" width="40" height="40" />
+    </symbol>
+  </defs>
+
+  <use xlinkHref={id} x="20" y="20" width="${SizeWidth.value}" height="${
+    CheckWHSync.value ? SizeWidth.value : SizeHeight.value
+  }" fill="${Color.value}" />
+  <rect x="20" y="20" width="${SizeWidth.value}" height="${
+    CheckWHSync.value ? SizeWidth.value : SizeHeight.value
+  }" stroke="#ddd" fill="none" />
+</svg>`
 
   const jsx = (
     <svg width={700} height={400}>
