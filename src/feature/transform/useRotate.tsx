@@ -20,9 +20,8 @@ export const useRotate = (): UseReturnType => {
     initValue: [0, 0],
   })
 
-  const code = `<SVG width={800} height={300} onClick={Coordinate.handleClick}>
-  <circle cx={300} cy={150} r={50} fill="tomato"
-    transform={"rotate(${Rotate.value},${Coordinate.value[0]},${Coordinate.value[1]})"} />
+  const code = `<SVG width="800" height="300" onClick={CLICK_HANDLER}>
+  <circle cx="300" cy="150" r="50" fill="tomato" transform="rotate(${Rotate.value},${Coordinate.value[0]},${Coordinate.value[1]})" />
 </SVG>`
 
   const jsx = (

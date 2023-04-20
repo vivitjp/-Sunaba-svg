@@ -56,11 +56,12 @@ export function useAnimateMotionValue(): UseReturnType {
   </use>
    
   <use xlinkHref="#arrowSymbol" stroke="blue" x="-10" y="-10" width="20" height="20" >
-    <animateMotion begin="0s" dur="6s" repeatCount="indefinite"
+    <animateMotion begin="0s" dur="6s" calcMode="${
+      CalcModeBlue.value
+    }" rotate="${SymbolRotate.value}"
       values="60,60;660,60;660,160;60,160;60,60"
-      calcMode="${CalcModeBlue.value}" rotate="${
-    SymbolRotate.value
-  }" keyTimes="0;1" keyPoints="${CheckRotation.value ? "0;1" : "1;0"}" />
+      keyTimes="0;1" keyPoints="${CheckRotation.value ? "0;1" : "1;0"}"
+      repeatCount="indefinite" />
   </use>
 </svg>`
 

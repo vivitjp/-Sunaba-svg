@@ -40,11 +40,7 @@ export function useTangentByX(): UseReturnType {
 y: ${Y1} = Math.tan(${theta} * ${X.value})
  
 <svg width={700} height={300}>
-  <path
-    d={"M0,${MaxY} l${X.value},-${Y1} l0,${Y1}z"}
-    stroke="red"
-    fill="#eee"
-  />
+  <path d="M0,${MaxY} l${X.value},-${Y1} l0,${Y1}z" stroke="red" fill="#eee" />
 </svg>`
 
   const cssStyle = { fontSize: "20px", fontWeight: 400 }

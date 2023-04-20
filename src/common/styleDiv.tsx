@@ -1,3 +1,4 @@
+import { HTMLInputTypeAttribute } from "react"
 import styled, { CSSProperties } from "styled-components"
 
 export const Base = styled.div<CSSProperties & { shadow?: number }>`
@@ -146,12 +147,14 @@ const NumberRange = ({
   range: [min, max],
   value,
   onChange,
+  disabled,
   ...args
 }: {
   step: number
   range: [number, number]
   value: number
   onChange: React.ChangeEventHandler<HTMLInputElement>
+  disabled: boolean
 }) => {
   return (
     <input
@@ -162,6 +165,7 @@ const NumberRange = ({
       min={min}
       max={max}
       value={value}
+      disabled={disabled}
     />
   )
 }

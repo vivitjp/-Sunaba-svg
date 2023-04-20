@@ -4,7 +4,7 @@ import { useRange } from "~/library"
 import { roundFloat } from "~/library/libs/roundFloat"
 
 export function useTangentByXDivide(): UseReturnType {
-  const title = `三角関数(Tangent) X基準(分割)`
+  const title = `Y基準による線分割`
 
   const MaxY = 300
   const MaxX = useRange({
@@ -19,60 +19,76 @@ export function useTangentByXDivide(): UseReturnType {
     [MaxX.value]
   )
 
-  const YColors = ["red", "blue", "green", "orange", "purple"]
+  const YAxis = [
+    { start: 0, end: 60, color: "red" },
+    { start: 60, end: 120, color: "blue" },
+    { start: 120, end: 180, color: "green" },
+    { start: 180, end: 240, color: "orange" },
+    { start: 240, end: 300, color: "purple" },
+  ]
 
   //Xを100ごとに分割して座標取得
   const XYS = useMemo(() => {
-    return [...Array(5)].map((_, index) => {
-      const [x1, x2] = [100 * index, 100 * (index + 1)]
-      const y1 = roundFloat(Math.tan(theta) * x1, 4)
-      const y2 = roundFloat(Math.tan(theta) * x2, 4)
+    return YAxis.map((Y) => {
+      const x1 = roundFloat(Y.start / Math.tan(theta), 4)
+      const x2 = roundFloat(Y.end / Math.tan(theta), 4)
       return [
-        [x1, y1],
-        [x2, y2],
+        [x1, Y.start],
+        [x2, Y.end],
       ]
     })
   }, [MaxX.value])
 
-  const code = ``
-
-  const cssStyle = { fontSize: "20px", fontWeight: 400 }
+  const code = `<svg width={700} height={300} preserveAspectRatio="xMinYMin slice">
+  <g fillOpacity="0.1">
+    ${YAxis.map(
+      ({ start, end, color }) =>
+        `<rect x="0" y="${MaxY - end}" width="700" height="${
+          end - start
+        }" fill="${color}" />`
+    )
+      .join("\n    ")
+      .replaceAll(",", "")}
+  </g>
+  <g width={700} height={300} preserveAspectRatio="xMinYMin slice">
+    ${XYS.map(
+      ([[x1, y1], [x2, y2]], index) =>
+        `<path d="M${x1},${y1} l${x2},${y2}" stroke="${YAxis[index].color}"`
+    )
+      .join("\n    ")
+      .replaceAll(",", "")}
+  </g>
+</svg>`
 
   const jsx = (
     <svg width={700} height={300} preserveAspectRatio="xMinYMin slice">
-      {/* <g data-note="傾斜線">
-        <path
-          d={`M0,${MaxY} l${MaxX.value},-${MaxY}`}
-          stroke="#aaa"
-          fill="none"
-        />
-      </g> */}
-      <g data-note="生成三角形">
+      <g fillOpacity="0.1">
+        {YAxis.map(({ start, end, color }, index) => (
+          <rect
+            key={index}
+            x={0}
+            y={MaxY - end}
+            width={700}
+            height={end - start}
+            fill={color}
+          />
+        ))}
+      </g>
+      <g
+        strokeWidth={1.3}
+        strokeOpacity={0.8}
+        fill="none"
+        transform="scale(1,-1)"
+        transform-origin="50% 50%"
+      >
         {XYS.map(([[x1, y1], [x2, y2]], index) => (
           <path
             key={index}
             d={`M${x1},${y1} l${x2},${y2}`}
-            stroke={YColors[index] ?? "#555"}
-            fill="none"
-            transform="scale(1,-1)"
-            transform-origin="50% 50%"
+            stroke={YAxis[index].color ?? "#555"}
           />
         ))}
       </g>
-      {/* <g data-note="補助線とXY値">
-        <path
-          d={`M0,${MaxY - Y1} l${X.value},0`}
-          stroke="#aaa"
-          strokeDasharray="4 1"
-          fill="none"
-        />
-        <text x={X.value + 10} y={MaxY - 10} style={cssStyle}>
-          {X.value}
-        </text>
-        <text x={10} y={MaxY - Y1 - 10} style={cssStyle}>
-          {Y1}
-        </text>
-      </g> */}
     </svg>
   )
 

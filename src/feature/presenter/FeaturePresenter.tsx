@@ -23,6 +23,7 @@ type UseCode = {
 export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
   const {
     code,
+    codeFold,
     codeKeyType,
     title,
     subTitle,
@@ -71,11 +72,20 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
         {jsx}
       </DivFlexBottom>
 
-      {/* コード */}
+      {/* コード  ------------ codeFold ----------*/}
+
       {code && (
-        <Row padding={10} width={"100%"}>
-          <CodeBox code={code} codeKeyType={codeKeyType} />
-        </Row>
+        <>
+          <details
+            open={!codeFold}
+            style={{ cursor: "pointer", width: "100%" }}
+          >
+            <summary>code</summary>
+            <Row padding={10} width={"100%"}>
+              <CodeBox code={code} codeKeyType={codeKeyType} />
+            </Row>
+          </details>
+        </>
       )}
     </Column>
   )
@@ -138,11 +148,10 @@ const MainTitle = styled.div`
   }
 `
 const SubTitle = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   color: #666;
   padding: 0 30px;
   width: 100%;
-  white-space: pre;
 `
 
 const OptionSubTitle = styled(Base)`

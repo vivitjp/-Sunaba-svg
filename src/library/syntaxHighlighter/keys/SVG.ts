@@ -109,6 +109,7 @@ export const keysSVG: KeyDef[] = [
       "strokeOpacity",
       "strokeWidth",
       "transform",
+      "origin",
       "translate",
       "vectorEffect",
       "visibility",

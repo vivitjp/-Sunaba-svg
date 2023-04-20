@@ -1,9 +1,15 @@
 import { useState } from "react"
 import { UseReturnType } from "~/component"
+import { useCheck } from "~/library"
 
 export function useClick(): UseReturnType {
   const title = `イベント(event)`
-  const subTitle = '注意: fill="none" には onClick が反応しない'
+
+  const Fill = useCheck({
+    title: "塗り",
+    subTitle: "fill",
+    initValue: true,
+  })
 
   type Hover = {
     fill: string
@@ -43,7 +49,9 @@ const handleClickInside = (e: React.MouseEvent<SVGCircleElement>) => {}
    
 <div onClick={handleClickOutside}> => ${xyOutside[0]}:${xyOutside[1]}
   <svg width={700} height={200}>
-    <circle cx={100} cy={100} r={60} fill="${hover.fill}" stroke="${hover.stroke}" strokeWidth="${hover.strokeWidth}"
+    <circle cx={100} cy={100} r={60} fill="${
+      Fill.value ? hover.fill : "none"
+    }" stroke="${hover.stroke}" strokeWidth="${hover.strokeWidth}"
       pointerEvents="fill" //Mouse反応対象
       onMouseEnter={() => handleMouse(true)}
       onMouseLeave={() => handleMouse(false)}
@@ -59,7 +67,7 @@ const handleClickInside = (e: React.MouseEvent<SVGCircleElement>) => {}
           cx={100}
           cy={100}
           r={60}
-          fill={hover.fill}
+          fill={Fill.value ? hover.fill : "none"}
           stroke={hover.stroke}
           strokeWidth={hover.strokeWidth}
           pointerEvents="fill"
@@ -71,5 +79,5 @@ const handleClickInside = (e: React.MouseEvent<SVGCircleElement>) => {}
     </div>
   )
 
-  return { height: 200, title, subTitle, code, options: [], jsx }
+  return { height: 200, title, code, options: [Fill], jsx }
 }

@@ -16,7 +16,7 @@ export function useMask2(): UseReturnType {
     subTitle: "y",
     initValue: 90,
     range: [50, 130],
-    step: 10,
+    step: 1,
   })
 
   const code = `<svg width={700} height={200}>

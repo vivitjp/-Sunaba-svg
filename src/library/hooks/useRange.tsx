@@ -10,6 +10,7 @@ type Props = {
   range: [number, number]
   step: number
   width?: number
+  disabled?: boolean
 }
 
 export const useRange = ({
@@ -20,6 +21,7 @@ export const useRange = ({
   range,
   step = 1,
   width = 240,
+  disabled = false,
 }: Props): OptionsType<number> => {
   const [value, setValue] = useState<number>(initValue)
 
@@ -40,6 +42,7 @@ export const useRange = ({
           value={value}
           range={range}
           step={step}
+          disabled={disabled}
         />
         <Div width={50} fontSize={18} textAlign="center">
           {value}
