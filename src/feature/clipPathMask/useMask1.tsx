@@ -13,7 +13,7 @@ export function useMask1(): UseReturnType {
     subTitle: "y",
     initValue: 70,
     range: [-30, 170],
-    step: 10,
+    step: 1,
   })
 
   const MaskType = useSelect({

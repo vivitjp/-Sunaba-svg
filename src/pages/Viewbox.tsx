@@ -1,9 +1,9 @@
-import { Section, Column } from "~/common"
-import { useImage, FeaturePresenter } from "~/feature"
+import { Column, Section } from "~/common"
+import { FeaturePresenter, useViewbox } from "~/feature"
 
-const codes = [useImage]
+const codes = [useViewbox]
 
-export const PageImage = () => {
+export const PageViewBox = () => {
   return (
     <Section>
       <Column padding={6} gap={40}>

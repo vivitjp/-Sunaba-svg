@@ -9,7 +9,7 @@ export function useImageBlur(): UseReturnType {
     subTitle: "stdDeviation",
     initValue: 3,
     range: [0, 5],
-    step: 1,
+    step: 0.1,
   })
 
   const code = `<svg width={500} height={280} viewBox="0 0 500 280">

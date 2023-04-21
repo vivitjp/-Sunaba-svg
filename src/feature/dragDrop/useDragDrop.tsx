@@ -164,5 +164,12 @@ export const useSVGDragDrop = ({
     </svg>
   )
 
-  return { title, code, codeKeyType, options: [AlignmentGap], jsx }
+  return {
+    title,
+    code,
+    codeFold: true,
+    codeKeyType,
+    options: [AlignmentGap],
+    jsx,
+  }
 }
