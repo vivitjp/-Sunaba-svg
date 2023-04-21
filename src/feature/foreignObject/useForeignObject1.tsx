@@ -10,7 +10,7 @@ export function useForeignObject1(): UseReturnType {
     subTitle: "width",
     initValue: 200,
     range: [100, 600],
-    step: 10,
+    step: 1,
   })
 
   const code = `<svg width={700} height={200}>

@@ -6,7 +6,6 @@ import {
   DivFlexBottom,
   DivPre,
   Row,
-  Span,
   Title,
 } from "../../common/styleDiv"
 import { OptionsType } from "../../library/hooks/type"
@@ -22,8 +21,18 @@ type UseCode = {
 }
 
 export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
-  const { code, codeKeyType, title, subTitle, options, jsx, height, visible } =
-    useCode()
+  const {
+    code,
+    codeFold,
+    codeKeyType,
+    title,
+    subTitle,
+    options,
+    jsx,
+    height,
+    visible,
+    border = "#ccc",
+  } = useCode()
   const [isVisible, setIsVisible] = visible ?? [null, () => {}]
 
   return (
@@ -55,7 +64,7 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
 
       {/* JSX */}
       <DivFlexBottom
-        border={"#ccc"}
+        border={border}
         width={720}
         height={height}
         marginLeft={10}
@@ -63,11 +72,20 @@ export const FeaturePresenter: FC<UseCode> = ({ useCode }) => {
         {jsx}
       </DivFlexBottom>
 
-      {/* コード */}
+      {/* コード  ------------ codeFold ----------*/}
+
       {code && (
-        <Row padding={10} width={"100%"}>
-          <CodeBox code={code} codeKeyType={codeKeyType} />
-        </Row>
+        <>
+          <details
+            open={!codeFold}
+            style={{ cursor: "pointer", width: "100%" }}
+          >
+            <summary>code</summary>
+            <Row padding={10} width={"100%"}>
+              <CodeBox code={code} codeKeyType={codeKeyType} />
+            </Row>
+          </details>
+        </>
       )}
     </Column>
   )
@@ -130,11 +148,10 @@ const MainTitle = styled.div`
   }
 `
 const SubTitle = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   color: #666;
   padding: 0 30px;
   width: 100%;
-  white-space: pre;
 `
 
 const OptionSubTitle = styled(Base)`

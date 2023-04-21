@@ -9,7 +9,9 @@ export type UseReturnType<EX = any> = {
   subTitle?: string
   extraNote?: string
   code?: string
+  codeFold?: boolean //コードを折りたたみにする
   codeKeyType?: CodeKeyType
   options?: OptionsType<string | number | boolean | [number, number] | EX>[]
   jsx: ReactNode
+  border?: string
 }

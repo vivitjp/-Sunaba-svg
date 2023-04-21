@@ -108,7 +108,7 @@ export function useAnimateTransform(): UseReturnType {
           <defs>
             <path id={id} d={`M${x},${y} h${width} v${height} h-${width}z`} />
           </defs>
-          <use href={`#${id}`}>
+          <use href={`#${id}`} fill="orange">
             {CheckTranslate.value && (
               <animateTransform
                 attributeName="transform"

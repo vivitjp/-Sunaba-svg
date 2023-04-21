@@ -1,8 +1,9 @@
 import { Section, Column } from "~/common"
 import { useRotate, FeaturePresenter } from "~/feature"
+import { useScale } from "~/feature/transform/useScale"
 import { useTransform } from "~/feature/transform/useTranslate"
 
-const codes = [useTransform, useRotate]
+const codes = [useTransform, useRotate, useScale]
 
 export const PageTransform = () => {
   return (

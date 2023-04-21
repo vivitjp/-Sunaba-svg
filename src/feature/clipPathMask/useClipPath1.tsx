@@ -11,7 +11,7 @@ export function useClipPath1(): UseReturnType {
     subTitle: "y",
     initValue: 100,
     range: [20, 120],
-    step: 10,
+    step: 1,
   })
 
   const code = `<svg width="700" height="280">
