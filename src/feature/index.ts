@@ -64,6 +64,7 @@ export * from './symbol/useSymbol';
 export * from './text/useSvgText';
 export * from './text/useTextPath';
 export * from './transform/useRotate';
+export * from './transform/useScale';
 export * from './transform/useTranslate';
 export * from './trigonometric/useTangentByX';
 export * from './trigonometric/useTangentByXDivide';
