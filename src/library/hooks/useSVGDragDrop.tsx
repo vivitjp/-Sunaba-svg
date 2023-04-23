@@ -32,6 +32,13 @@ export const useSVGDragDrop = ({
     yOffset: 0,
   })
 
+  //■ ターゲット
+  const [isFixed, setIsFixed] = useState(false)
+
+  //■ ターゲット
+  const [isEnabledXMove, setIsEnabledXMove] = useState(true)
+  const [isEnabledYMove, setIsEnabledYMove] = useState(true)
+
   //■ Pointer Down
   const handlePointerDown = (e: React.PointerEvent<SVGElement>) => {
     //キャプチャターゲットとして指定(必須)
@@ -49,16 +56,24 @@ export const useSVGDragDrop = ({
 
   //■ Pointer Move
   const handlePointerMove = (e: React.PointerEvent<SVGElement>) => {
+    if (isFixed) return
+
     if (element.active !== true) return
     const target = e.currentTarget.getBoundingClientRect()
     const x = e.clientX - target.left
     const y = e.clientY - target.top
 
-    setElement({
+    //移動制限
+    const newElement = {
       ...element,
-      x: roundFloat(element.x - (element.xOffset - x)),
-      y: roundFloat(element.y - (element.yOffset - y)),
-    })
+      x: isEnabledXMove
+        ? roundFloat(element.x - (element.xOffset - x))
+        : element.x,
+      y: isEnabledYMove
+        ? roundFloat(element.y - (element.yOffset - y))
+        : element.y,
+    }
+    setElement(newElement)
   }
 
   //■ Pointer Up
@@ -85,17 +100,26 @@ export const useSVGDragDrop = ({
 
   return {
     dragDropProps: {
-      width: sizeWidth,
-      height: sizeHeight,
-      x: element.x,
-      y: element.y,
-      cx: element.x,
-      cy: element.y,
-      r: sizeWidth,
-      onPointerDown: handlePointerDown,
-      onPointerUp: handlePointerUp,
-      onPointerMove: handlePointerMove,
-      style: { cursor: "pointer" },
+      attr: {
+        width: sizeWidth,
+        height: sizeHeight,
+        x: element.x,
+        y: element.y,
+        cx: element.x,
+        cy: element.y,
+        r: sizeWidth,
+        style: { cursor: "pointer" },
+      },
+      event: {
+        onPointerDown: handlePointerDown,
+        onPointerUp: handlePointerUp,
+        onPointerMove: handlePointerMove,
+      },
+      method: {
+        setIsFixed,
+        setIsEnabledXMove,
+        setIsEnabledYMove,
+      },
     },
   }
 }
@@ -107,9 +131,6 @@ const rangeWithin = (
   max: number,
   targetSize: number
 ) => {
-  // const reMin = fit === "topLeft" ? min : min - roundFloat(targetSize / 2)
-  // const reMax = fit === "topLeft" ? max : max + roundFloat(targetSize / 2)
-
   return value < min ? min : value > max - targetSize ? max - targetSize : value
 }
 

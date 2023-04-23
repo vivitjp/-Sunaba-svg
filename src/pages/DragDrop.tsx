@@ -1,5 +1,6 @@
 import { Column, Section } from "~/common"
-import { FeaturePresenter, useDragDrop, useDragDropRect } from "~/feature"
+import { useDragDrop, useDragDropRect } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useDragDropRect, useDragDrop]
 

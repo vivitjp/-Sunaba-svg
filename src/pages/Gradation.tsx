@@ -3,8 +3,8 @@ import {
   useCircleGradation,
   useLinearGradation,
   useLinearGradationWithGamma,
-  FeaturePresenter,
 } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [
   useCircleGradation,

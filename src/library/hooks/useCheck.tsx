@@ -8,6 +8,7 @@ type Props = {
   extraNote?: string
   initValue: boolean
   width?: number
+  callback?: (state: boolean) => void
 }
 
 export const useCheck = ({
@@ -16,6 +17,7 @@ export const useCheck = ({
   subTitle,
   extraNote,
   width = 20,
+  callback,
 }: Props): OptionsType<boolean> => {
   const id = useId()
 
@@ -24,6 +26,7 @@ export const useCheck = ({
   const handle = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.checked
     setValue(value)
+    if (callback) callback(value)
   }, [])
 
   return {

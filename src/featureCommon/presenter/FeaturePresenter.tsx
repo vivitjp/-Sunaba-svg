@@ -120,7 +120,7 @@ const Option = ({
     {/* ExtraNote */}
     {extraNote && (
       <Row padding={"0 30px"}>
-        <DivPre color="#999">{extraNote}</DivPre>
+        <Div color="#999">{extraNote}</Div>
       </Row>
     )}
   </Column>

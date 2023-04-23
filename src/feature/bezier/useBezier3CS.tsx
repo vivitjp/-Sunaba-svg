@@ -6,42 +6,54 @@ export function useBezier3CS(): UseReturnType {
   const title = `3次ベジェ曲線(C & S)`
   const subTitle = `座標をDrag&Dropで移動`
 
-  const { dragDropProps: START } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: Start, event: StartEvent },
+  } = useSVGDragDrop({
     initXY: [50, 250],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 500],
     alignBy: 10,
   })
 
-  const { dragDropProps: C1 } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: C1, event: C1Event },
+  } = useSVGDragDrop({
     initXY: [50, 50],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 500],
     alignBy: 10,
   })
 
-  const { dragDropProps: C2 } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: C2, event: C2Event },
+  } = useSVGDragDrop({
     initXY: [250, 50],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 500],
     alignBy: 10,
   })
 
-  const { dragDropProps: C3 } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: C3, event: C3Event },
+  } = useSVGDragDrop({
     initXY: [250, 250],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 500],
     alignBy: 10,
   })
 
-  const { dragDropProps: S1 } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: S1, event: S1Event },
+  } = useSVGDragDrop({
     initXY: [450, 450],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 500],
     alignBy: 10,
   })
 
-  const { dragDropProps: S2 } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: S2, event: S2Event },
+  } = useSVGDragDrop({
     initXY: [450, 250],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 500],
@@ -49,7 +61,7 @@ export function useBezier3CS(): UseReturnType {
   })
 
   const code = `<svg width={600} height={500}>
-  <path d="M${START.x},${START.y} C${C1.x},${C1.y} ${C2.x},${C2.y} ${C3.x},${C3.y} S${S1.x},${S1.y} ${S2.x},${S2.y}" stroke="red" fill="none" />
+  <path d="M${Start.x},${Start.y} C${C1.x},${C1.y} ${C2.x},${C2.y} ${C3.x},${C3.y} S${S1.x},${S1.y} ${S2.x},${S2.y}" stroke="red" fill="none" />
 <svg>`
 
   const jsx = (
@@ -79,11 +91,11 @@ export function useBezier3CS(): UseReturnType {
       <text
         x="10"
         y="20"
-        fontSize="14px"
-      >{`M${START.x},${START.y} C${C1.x},${C1.y} ${C2.x},${C2.y} ${C3.x},${C3.y} S${S1.x},${S1.y} ${S2.x},${S2.y}`}</text>
+        style={{ fontSize: "18px" }}
+      >{`M${Start.x},${Start.y} C${C1.x},${C1.y} ${C2.x},${C2.y} ${C3.x},${C3.y} S${S1.x},${S1.y} ${S2.x},${S2.y}`}</text>
       <path
         d={
-          `M${START.x},${START.y} C${C1.x},${C1.y} ${C2.x},${C2.y} ${C3.x},${C3.y}` +
+          `M${Start.x},${Start.y} C${C1.x},${C1.y} ${C2.x},${C2.y} ${C3.x},${C3.y}` +
           `S${S1.x},${S1.y} ${S2.x},${S2.y}`
         }
         stroke="red"
@@ -91,18 +103,18 @@ export function useBezier3CS(): UseReturnType {
       />
       <path
         d={
-          `M${START.x},${START.y} L${C1.x},${C1.y} L${C2.x},${C2.y} L${C3.x},${C3.y}` +
+          `M${Start.x},${Start.y} L${C1.x},${C1.y} L${C2.x},${C2.y} L${C3.x},${C3.y}` +
           `M${S1.x},${S1.y} L${S2.x},${S2.y}`
         }
         stroke="#555"
         fill="none"
       />
-      <circle {...START} fill="blue" />
-      <circle {...C1} fill="blue" />
-      <circle {...C2} fill="blue" />
-      <circle {...C3} fill="blue" />
-      <circle {...S1} fill="blue" />
-      <circle {...S2} fill="blue" />
+      <circle {...Start} {...StartEvent} fill="red" />
+      <circle {...C1} {...C1Event} fill="blue" />
+      <circle {...C2} {...C2Event} fill="blue" />
+      <circle {...C3} {...C3Event} fill="blue" />
+      <circle {...S1} {...S1Event} fill="green" />
+      <circle {...S2} {...S2Event} fill="green" />
     </SVGRuled>
   )
 

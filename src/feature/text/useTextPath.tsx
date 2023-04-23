@@ -39,7 +39,7 @@ export const useTextPath = (): UseReturnType => {
     title: "テキスト開始位置",
     subTitle: "startOffset",
     initValue: 0,
-    range: [-100, 100],
+    range: [-140, 100],
     step: 1,
   })
 
@@ -54,7 +54,7 @@ export const useTextPath = (): UseReturnType => {
     <path id="targetCircle" d="M140,20 a100,100 0,1 1 0,200 a100,100 0,0 1 0,-200z" />
     <path id="targetWave"   d="M300,150 c50,-50 150,-50 200,0 s150,50 200,0" />
   </defs>
-
+ 
   <use xlinkHref="#targetCircle" stroke="#aaa" visibility="${
     TextPath.value ? "visible" : "hidden"
   }" />
@@ -65,7 +65,7 @@ export const useTextPath = (): UseReturnType => {
       ${Sample.value.substring(0, 40)}...
     </textPath>
   </text>
-
+ 
   <use xlinkHref="#targetWave" stroke="#aaa" visibility="${
     TextPath.value ? "visible" : "hidden"
   }" />
@@ -97,6 +97,7 @@ export const useTextPath = (): UseReturnType => {
         xlinkHref="#targetCircle"
         stroke="#aaa"
         visibility={TextPath.value ? "visible" : "hidden"}
+        fill="none"
       />
       <text fill="#777" dominantBaseline={DominantBaseline.value}>
         <textPath
@@ -114,6 +115,7 @@ export const useTextPath = (): UseReturnType => {
         xlinkHref="#targetWave"
         stroke="#aaa"
         visibility={TextPath.value ? "visible" : "hidden"}
+        fill="none"
       />
       <text fill="#777" dominantBaseline={DominantBaseline.value}>
         <textPath

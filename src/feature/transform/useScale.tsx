@@ -20,7 +20,7 @@ export const useScale = (): UseReturnType => {
   const X = useRange({
     title: "X値",
     initValue: 200,
-    range: [100, 500],
+    range: [0, 500],
     step: 10,
   })
 
@@ -39,7 +39,7 @@ export const useScale = (): UseReturnType => {
       transform="scale(${XFlip.value ? -1 : 1},${
     YFlip.value ? -1 : 1
   })" transform-origin="${X.value} ${y}"
-    >310,200 文字列は再反転</text>
+    >${X.value},${y} 文字列は再反転</text>
   </g>
 </svg>`
 
@@ -57,11 +57,12 @@ export const useScale = (): UseReturnType => {
         />
         <circle cx={X.value} cy={y} r="5" fill="red" />
         <text
-          x={X.value + 10}
+          x={X.value + 20}
           y={y}
           dominantBaseline="central"
           transform={`scale(${XFlip.value ? -1 : 1},${YFlip.value ? -1 : 1})`}
           transform-origin={`${X.value} ${y}`}
+          style={{ fontSize: "18px" }}
         >
           {X.value},{y}: 文字列は再反転
         </text>

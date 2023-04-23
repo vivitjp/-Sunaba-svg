@@ -4,6 +4,7 @@ import { useCheck } from "~/library"
 
 export function useClick(): UseReturnType {
   const title = `イベント(event)`
+  const subTitle = `Event の Propagation(Bubbling) に注目`
 
   const Fill = useCheck({
     title: "塗り",
@@ -79,5 +80,5 @@ const handleClickInside = (e: React.MouseEvent<SVGCircleElement>) => {}
     </div>
   )
 
-  return { height: 200, title, code, options: [Fill], jsx }
+  return { height: 200, title, subTitle, code, options: [Fill], jsx }
 }

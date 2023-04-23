@@ -7,6 +7,8 @@ export function useShadow(): UseReturnType {
   const Deviation = useRange({
     title: "影の範囲",
     subTitle: "stdDeviation",
+    extraNote:
+      "SVG feDropShadow の特質として、対象サイズの大きさに影響を受けることがある。細すぎると影が生成されない",
     initValue: 3,
     range: [1, 5],
     step: 1,
@@ -37,6 +39,7 @@ export function useShadow(): UseReturnType {
         </filter>
       </defs>
       <path filter="url(#filter1)" d="M20,20 h100 v100 h-100z" fill="orange" />
+      <path filter="url(#filter1)" d="M160,60 h200 v10 h-200z" fill="blue" />
     </svg>
   )
 

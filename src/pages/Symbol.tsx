@@ -1,5 +1,6 @@
 import { Section, Column } from "~/common"
-import { useSymbol, FeaturePresenter } from "~/feature"
+import { useSymbol } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useSymbol]
 export const PageSymbol = () => {

@@ -1,7 +1,8 @@
 import { Section, Column } from "~/common"
-import { useRotate, FeaturePresenter } from "~/feature"
+import { useRotate } from "~/feature"
 import { useScale } from "~/feature/transform/useScale"
 import { useTransform } from "~/feature/transform/useTranslate"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useTransform, useRotate, useScale]
 

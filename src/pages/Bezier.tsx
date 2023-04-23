@@ -1,11 +1,6 @@
 import { Column, Section } from "~/common"
-import {
-  FeaturePresenter,
-  useBezier2Q,
-  useBezier2QT,
-  useBezier3C,
-  useBezier3CS,
-} from "~/feature"
+import { useBezier2Q, useBezier2QT, useBezier3C, useBezier3CS } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useBezier2Q, useBezier2QT, useBezier3C, useBezier3CS]
 

@@ -6,21 +6,27 @@ export function useBezier2Q(): UseReturnType {
   const title = `2次ベジェ曲線(Q)`
   const subTitle = `座標をDrag&Dropで移動`
 
-  const { dragDropProps: START } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: Start, event: StartEvent },
+  } = useSVGDragDrop({
     initXY: [50, 250],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 300],
     alignBy: 10,
   })
 
-  const { dragDropProps: Q1 } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: Q1, event: Q1Event },
+  } = useSVGDragDrop({
     initXY: [50, 50],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 300],
     alignBy: 10,
   })
 
-  const { dragDropProps: Q2 } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: Q2, event: Q2Event },
+  } = useSVGDragDrop({
     initXY: [250, 50],
     sizeWidthHeight: [10, 10],
     svgWidthHeight: [600, 300],
@@ -28,7 +34,7 @@ export function useBezier2Q(): UseReturnType {
   })
 
   const code = `<svg width={600} height={300}>
-  <path d="M${START.x},${START.y} Q${Q1.x},${Q1.y} ${Q2.x},${Q2.y}" stroke="red" fill="none" />
+  <path d="M${Start.x},${Start.y} Q${Q1.x},${Q1.y} ${Q2.x},${Q2.y}" stroke="red" fill="none" />
 </svg>`
 
   const jsx = (
@@ -47,20 +53,20 @@ export function useBezier2Q(): UseReturnType {
         x="10"
         y="22"
         style={{ fontSize: "18px" }}
-      >{`M${START.x},${START.y} Q${Q1.x},${Q1.y} ${Q2.x},${Q2.y}`}</text>
+      >{`M${Start.x},${Start.y} Q${Q1.x},${Q1.y} ${Q2.x},${Q2.y}`}</text>
       <path
-        d={`M${START.x},${START.y} Q${Q1.x},${Q1.y} ${Q2.x},${Q2.y}`}
+        d={`M${Start.x},${Start.y} Q${Q1.x},${Q1.y} ${Q2.x},${Q2.y}`}
         stroke="red"
         fill="none"
       />
       <path
-        d={`M${START.x},${START.y} L${Q1.x},${Q1.y} L${Q2.x},${Q2.y}`}
+        d={`M${Start.x},${Start.y} L${Q1.x},${Q1.y} L${Q2.x},${Q2.y}`}
         stroke="#555"
         fill="none"
       />
-      <circle {...START} fill="blue" />
-      <circle {...Q1} fill="blue" />
-      <circle {...Q2} fill="blue" />
+      <circle {...Start} {...StartEvent} fill="red" />
+      <circle {...Q1} {...Q1Event} fill="blue" />
+      <circle {...Q2} {...Q2Event} fill="blue" />
     </SVGRuled>
   )
 

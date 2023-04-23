@@ -1,5 +1,6 @@
 import { Section, Column } from "~/common"
-import { useImage, FeaturePresenter } from "~/feature"
+import { useImage } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useImage]
 

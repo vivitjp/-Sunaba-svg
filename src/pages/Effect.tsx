@@ -1,10 +1,6 @@
 import { Column, Section } from "~/common"
-import {
-  useShadow,
-  useShadowGroup,
-  useImageBlur,
-  FeaturePresenter,
-} from "~/feature"
+import { useShadow, useShadowGroup, useImageBlur } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useShadow, useShadowGroup, useImageBlur]
 

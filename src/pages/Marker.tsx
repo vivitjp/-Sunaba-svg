@@ -1,5 +1,6 @@
 import { Section, Column } from "~/common"
-import { useMarker, FeaturePresenter } from "~/feature"
+import { useMarker } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useMarker]
 

@@ -1,11 +1,6 @@
 import { Column, Section } from "~/common"
-import {
-  FeaturePresenter,
-  useClipPath1,
-  useClipPath2,
-  useMask1,
-  useMask2,
-} from "~/feature"
+import { useClipPath1, useClipPath2, useMask1, useMask2 } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useClipPath1, useClipPath2, useMask1, useMask2]
 

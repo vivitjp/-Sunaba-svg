@@ -1,5 +1,6 @@
 import { Column, Section } from "~/common"
-import { FeaturePresenter, useViewbox } from "~/feature"
+import { useViewbox } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useViewbox]
 

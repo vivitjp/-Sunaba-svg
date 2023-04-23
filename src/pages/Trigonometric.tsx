@@ -1,7 +1,8 @@
 import { Section, Column } from "~/common"
-import { useTangentByX, FeaturePresenter } from "~/feature"
+import { useTangentByX } from "~/feature"
 import { useTangentByXDivide } from "~/feature/trigonometric/useTangentByXDivide"
 import { useTangentByY } from "~/feature/trigonometric/useTangentByY"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useTangentByX, useTangentByY, useTangentByXDivide]
 

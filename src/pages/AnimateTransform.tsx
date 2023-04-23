@@ -1,9 +1,7 @@
 import { Column, Section } from "~/common"
-import {
-  useAnimateTransform,
-  FeaturePresenter,
-  useAnimateTransformScale,
-} from "~/feature"
+import { useAnimateTransform, useAnimateTransformScale } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
+
 const codes = [useAnimateTransform, useAnimateTransformScale]
 
 export const PageAnimateTransform = () => {

@@ -1,4 +1,3 @@
-import { HTMLInputTypeAttribute } from "react"
 import styled, { CSSProperties } from "styled-components"
 
 export const Base = styled.div<CSSProperties & { shadow?: number }>`
@@ -51,6 +50,8 @@ export const Base = styled.div<CSSProperties & { shadow?: number }>`
     `${shadow ? `2px 2px ${shadow}px #ccc;` : "none"}`};
 
   border: ${({ border }) => `1px solid ${border ? `${border}` : "none"}`};
+
+  color: ${({ color }) => `${color}`};
 
   overflow: hidden;
 `

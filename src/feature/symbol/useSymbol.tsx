@@ -56,7 +56,7 @@ export function useSymbol(): UseReturnType {
     </symbol>
   </defs>
 
-  <use xlinkHref={id} x="20" y="20" width="${SizeWidth.value}" height="${
+  <use xlinkHref="#id" x="20" y="20" width="${SizeWidth.value}" height="${
     CheckWHSync.value ? SizeWidth.value : SizeHeight.value
   }" fill="${Color.value}" />
   <rect x="20" y="20" width="${SizeWidth.value}" height="${

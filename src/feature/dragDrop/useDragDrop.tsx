@@ -1,7 +1,8 @@
-import { CodeKeyType, useRange } from "~/library"
+import { useRange } from "~/library"
 import { useSVGDragDrop } from "../../library/hooks/useSVGDragDrop"
 import { RuledLine } from "~/library/svg/component/Kei"
 import { UseReturnType } from "~/component"
+import { useId } from "react"
 
 export function useDragDrop(): UseReturnType {
   const title = `Drag and Drop Hooks`
@@ -13,162 +14,132 @@ export function useDragDrop(): UseReturnType {
     step: 10,
   })
 
-  const { dragDropProps } = useSVGDragDrop({
+  const {
+    dragDropProps: { attr: DDSquareCorner, event: DDSquareCornerEvent },
+  } = useSVGDragDrop({
     initXY: [80, 80],
     sizeWidthHeight: [60, 60],
     svgWidthHeight: [720, 300],
     alignBy: AlignmentGap.value,
   })
 
-  const { dragDropProps: squareCenterProps } = useSVGDragDrop({
-    initXY: [320, 120],
+  const {
+    dragDropProps: { attr: DDSquareCenter, event: DDSquareCenterEvent },
+  } = useSVGDragDrop({
+    initXY: [240, 120],
     sizeWidthHeight: [60, 60],
     svgWidthHeight: [720, 300],
     alignBy: AlignmentGap.value,
   })
 
-  const { dragDropProps: circleCenterProps } = useSVGDragDrop({
-    initXY: [440, 120],
-    sizeWidthHeight: [20, 20],
+  const {
+    dragDropProps: { attr: DDCircleCenter, event: DDCircleCenterEvent },
+  } = useSVGDragDrop({
+    initXY: [360, 120],
+    sizeWidthHeight: [30, 30],
     svgWidthHeight: [720, 300],
     alignBy: AlignmentGap.value,
   })
 
-  const codeKeyType: CodeKeyType = "JSTS"
-  const code = `//Props型,TargetElement型定義省略
-export const useSVGDragDrop = ({
-  initXY: [initX, initY] = [0, 0],
-  sizeWidthHeight: [sizeWidth, sizeHeight],
-  svgWidthHeight: [svgWidth, svgHeight] = [0, 0],
-  alignBy = 0,
-}: Props) => {
-  const [element, setElement] = useState<TargetElement>({
-    x: initX,
-    y: initY,
-    active: false,
-    xOffset: 0,
-    yOffset: 0,
-  })
- 
-  //■ Pointer Down
-  const handlePointerDown = (e: React.PointerEvent<SVGElement>) => {
-    //キャプチャターゲットとして指定(必須)
-    e.currentTarget.setPointerCapture(e.pointerId)
- 
-    //CSS Style変更
-    const targetStyle = e.currentTarget.style
-    targetStyle.opacity = MOVE_OPACITY
- 
-    const target = e.currentTarget.getBoundingClientRect()
-    const x = e.clientX - target.left
-    const y = e.clientY - target.top
-    setElement({ ...element, xOffset: x, yOffset: y, active: true })
-  }
- 
-  //■ Pointer Move
-  const handlePointerMove = (e: React.PointerEvent<SVGElement>) => {
-    if (element.active !== true) return
-    const target = e.currentTarget.getBoundingClientRect()
-    const x = e.clientX - target.left
-    const y = e.clientY - target.top
- 
-    setElement({
-      ...element,
-      x: element.x - (element.xOffset - x),
-      y: element.y - (element.yOffset - y),
-    })
-  }
- 
-  //■ Pointer Up
-  const handlePointerUp = (e: React.PointerEvent<SVGElement>) => {
-    //キャプチャターゲット解放
-    e.currentTarget.releasePointerCapture
- 
-    //CSS Style変更
-    const targetStyle = e.currentTarget.style
-    targetStyle.opacity = "1"
- 
-    let [x, y] = [element.x, element.y]
- 
-    //SVG表示範囲内外調整
-    x = svgWidth && rangeWithin(x, 1, svgWidth, sizeWidth)
-    y = svgHeight && rangeWithin(y, 1, svgHeight, sizeHeight)
- 
-    //グリッド整列
-    x = alignBy ? getAlignBy(x, alignBy) : x
-    y = alignBy ? getAlignBy(y, alignBy) : y
+  const code = `<svg width={720} height={300}>
+  <RuledLine width={720} height={300} gap="${AlignmentGap.value}" />
 
-    setElement({ ...element, x: x, y: y, active: false })
-  }
- 
-  return {
-    dragDropProps: {
-      width: sizeWidth,
-      height: sizeHeight,
-      x: element.x,
-      y: element.y,
-      cx: element.x,
-      cy: element.y,
-      r: sizeWidth,
-      onPointerDown: handlePointerDown,
-      onPointerUp: handlePointerUp,
-      onPointerMove: handlePointerMove,
-    },
-  }
-}
+  <rect {...Drag&DropHooks} fill="blue" />
+  <rect {...Drag&DropHooks} fill="blue" stroke="orange" strokeWidth="2" />
+  <circle {...Drag&DropHooks} fill="orange" />
+</svg>
 `
-
+  const id = useId()
   const jsx = (
     <svg width={720} height={300}>
+      <defs>
+        <symbol id={id} viewBox="0 0 16 16">
+          <path
+            d="M0,0 L16,16 M0,16 L16,0"
+            fill="none"
+            strokeWidth={2}
+            cursor="pointer"
+          />
+        </symbol>
+      </defs>
+
       <RuledLine width={720} height={300} gap={AlignmentGap.value} />
 
       {/* 長方形(TopLeft) */}
-      <rect {...dragDropProps} fill="orange" stroke="black" />
-      <text
-        x={dragDropProps.x + 30}
-        y={dragDropProps.y + dragDropProps.height + 20}
-        textAnchor="middle"
-        style={{ fontSize: "12px" }}
-      >
-        {dragDropProps.x}:{dragDropProps.y}
-      </text>
+      <g {...DDSquareCornerEvent}>
+        <rect {...DDSquareCorner} fill="blue" />
+        <use
+          xlinkHref={`#${id}`}
+          x={DDSquareCorner.x - 8}
+          y={DDSquareCorner.y - 8}
+          width="16"
+          height="16"
+          stroke="#333"
+        />
+        <text
+          x={DDSquareCorner.x + 30}
+          y={DDSquareCorner.y + DDSquareCorner.height + 20}
+          textAnchor="miDDle"
+          style={{ fontSize: "12px" }}
+        >
+          {DDSquareCorner.x}:{DDSquareCorner.y}
+        </text>
+      </g>
 
       {/* 長方形(center: x,y をセンターに調整) */}
-      <rect
-        {...squareCenterProps}
-        x={squareCenterProps.x - Math.round(squareCenterProps.width / 2)}
-        y={squareCenterProps.y - Math.round(squareCenterProps.height / 2)}
-        fill="lightblue"
-        stroke="black"
-        strokeWidth="0"
-      />
-      <text
-        x={squareCenterProps.x}
-        y={squareCenterProps.y + squareCenterProps.height - 12}
-        textAnchor="middle"
-        style={{ fontSize: "12px" }}
-      >
-        {squareCenterProps.x}:{squareCenterProps.y}
-      </text>
+      <g {...DDSquareCenterEvent}>
+        <rect
+          {...DDSquareCenter}
+          x={DDSquareCenter.x - Math.round(DDSquareCenter.width / 2)}
+          y={DDSquareCenter.y - Math.round(DDSquareCenter.height / 2)}
+          fill="blue"
+          stroke="orange"
+          strokeWidth="2"
+        />
+        <use
+          xlinkHref={`#${id}`}
+          x={DDSquareCenter.x - 8}
+          y={DDSquareCenter.y - 8}
+          width="16"
+          height="16"
+          stroke="#fff"
+        />
+        <text
+          x={DDSquareCenter.x}
+          y={DDSquareCenter.y + DDSquareCenter.height - 12}
+          textAnchor="miDDle"
+          style={{ fontSize: "12px" }}
+        >
+          {DDSquareCenter.x}:{DDSquareCenter.y}
+        </text>
+      </g>
 
       {/* 円(center) */}
-      <circle {...circleCenterProps} fill="lightgreen" stroke="black" />
-      <text
-        x={circleCenterProps.cx}
-        y={circleCenterProps.cy + circleCenterProps.height + 20}
-        textAnchor="middle"
-        style={{ fontSize: "12px" }}
-      >
-        {circleCenterProps.cx}:{circleCenterProps.cy}
-      </text>
+      <g {...DDCircleCenterEvent}>
+        <circle {...DDCircleCenter} fill="orange" />
+        <use
+          xlinkHref={`#${id}`}
+          x={DDCircleCenter.x - 8}
+          y={DDCircleCenter.y - 8}
+          width="16"
+          height="16"
+          stroke="red"
+        />
+        <text
+          x={DDCircleCenter.cx}
+          y={DDCircleCenter.cy + DDCircleCenter.height + 20}
+          textAnchor="miDDle"
+          style={{ fontSize: "12px" }}
+        >
+          {DDCircleCenter.cx}:{DDCircleCenter.cy}
+        </text>
+      </g>
     </svg>
   )
 
   return {
     title,
     code,
-    codeFold: true,
-    codeKeyType,
     options: [AlignmentGap],
     jsx,
   }

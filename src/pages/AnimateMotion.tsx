@@ -1,10 +1,10 @@
 import { Column, Section } from "~/common"
 import {
-  FeaturePresenter,
   useAnimateMotionMpath,
   useAnimateMotionPath,
   useAnimateMotionValue,
 } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 const codes = [
   useAnimateMotionPath,
   useAnimateMotionMpath,

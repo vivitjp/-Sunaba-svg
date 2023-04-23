@@ -1,6 +1,5 @@
 import { Section, Column } from "~/common"
 import {
-  FeaturePresenter,
   useBasic1SVG,
   useBasic2Omit,
   useBasic3Group1,
@@ -12,6 +11,7 @@ import {
   useBasic7DisplayOrder,
   useBasic8CrispEdges,
 } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [
   useBasic1SVG,

@@ -1,11 +1,6 @@
 import { Column, Section } from "~/common"
-import {
-  FeaturePresenter,
-  useAnime1,
-  useAnime2,
-  useAnime3,
-  useAnime4,
-} from "~/feature"
+import { useAnime1, useAnime2, useAnime3, useAnime4 } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useAnime1, useAnime2, useAnime3, useAnime4]
 

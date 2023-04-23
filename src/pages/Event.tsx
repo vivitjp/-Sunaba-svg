@@ -1,5 +1,6 @@
 import { Column, Section } from "~/common"
-import { FeaturePresenter, useClick } from "~/feature"
+import { useClick } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useClick]
 

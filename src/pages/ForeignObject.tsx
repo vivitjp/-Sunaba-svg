@@ -1,5 +1,6 @@
 import { Column, Section } from "~/common"
-import { FeaturePresenter, useForeignObject1 } from "~/feature"
+import { useForeignObject1 } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useForeignObject1]
 

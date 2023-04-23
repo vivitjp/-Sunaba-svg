@@ -1,5 +1,6 @@
 import { Section, Column } from "~/common"
-import { useSvgText, FeaturePresenter, useTextPath } from "~/feature"
+import { useSvgText, useTextPath } from "~/feature"
+import { FeaturePresenter } from "~/featureCommon"
 
 const codes = [useSvgText, useTextPath]
 
