@@ -4,8 +4,11 @@ import { RuledLine } from "~/library/svg/component/Kei"
 import { UseReturnType } from "~/component"
 import { useId } from "react"
 
-export function useDragDrop(): UseReturnType {
+export function useDragDropGrid(): UseReturnType {
   const title = `Drag and Drop Hooks`
+
+  const svgSize: [number, number] = [720, 200]
+  const [svgWidth, svgHeight] = svgSize
 
   const AlignmentGap = useRange({
     title: "整列グリッド",
@@ -17,32 +20,32 @@ export function useDragDrop(): UseReturnType {
   const {
     dragDropProps: { attr: DDSquareCorner, event: DDSquareCornerEvent },
   } = useSVGDragDrop({
-    initXY: [80, 80],
+    initXY: [40, 40],
     sizeWidthHeight: [60, 60],
-    svgWidthHeight: [720, 300],
+    svgWidthHeight: svgSize,
     alignBy: AlignmentGap.value,
   })
 
   const {
     dragDropProps: { attr: DDSquareCenter, event: DDSquareCenterEvent },
   } = useSVGDragDrop({
-    initXY: [240, 120],
+    initXY: [200, 80],
     sizeWidthHeight: [60, 60],
-    svgWidthHeight: [720, 300],
+    svgWidthHeight: svgSize,
     alignBy: AlignmentGap.value,
   })
 
   const {
     dragDropProps: { attr: DDCircleCenter, event: DDCircleCenterEvent },
   } = useSVGDragDrop({
-    initXY: [360, 120],
+    initXY: [320, 80],
     sizeWidthHeight: [30, 30],
-    svgWidthHeight: [720, 300],
+    svgWidthHeight: svgSize,
     alignBy: AlignmentGap.value,
   })
 
-  const code = `<svg width={720} height={300}>
-  <RuledLine width={720} height={300} gap="${AlignmentGap.value}" />
+  const code = `<svg width="${svgWidth}" height="${svgHeight}">
+  <RuledLine width="${svgWidth}" height="${svgHeight}" gap="${AlignmentGap.value}" />
 
   <rect {...Drag&DropHooks} fill="blue" />
   <rect {...Drag&DropHooks} fill="blue" stroke="orange" strokeWidth="2" />
@@ -51,7 +54,7 @@ export function useDragDrop(): UseReturnType {
 `
   const id = useId()
   const jsx = (
-    <svg width={720} height={300}>
+    <svg width={svgWidth} height={svgHeight}>
       <defs>
         <symbol id={id} viewBox="0 0 16 16">
           <path
@@ -63,7 +66,7 @@ export function useDragDrop(): UseReturnType {
         </symbol>
       </defs>
 
-      <RuledLine width={720} height={300} gap={AlignmentGap.value} />
+      <RuledLine width={svgWidth} height={svgHeight} gap={AlignmentGap.value} />
 
       {/* 長方形(TopLeft) */}
       <g {...DDSquareCornerEvent}>

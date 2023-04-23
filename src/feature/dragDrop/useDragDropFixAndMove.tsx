@@ -3,15 +3,18 @@ import { useSVGDragDrop } from "../../library/hooks/useSVGDragDrop"
 import { UseReturnType } from "~/component"
 import { useEffect, useId } from "react"
 
-export function useDragDropRect(): UseReturnType {
-  const title = `Drag and Drop`
+export function useDragDropFixAndMove(): UseReturnType {
+  const title = `固定と移動制限`
+
+  const svgSize: [number, number] = [720, 200]
+  const [svgWidth, svgHeight] = svgSize
 
   const {
     dragDropProps: { attr: DDRect, event: DDRectEvent, method: DDRectMethod },
   } = useSVGDragDrop({
-    initXY: [100, 100],
+    initXY: [60, 70],
     sizeWidthHeight: [60, 60],
-    svgWidthHeight: [720, 200],
+    svgWidthHeight: svgSize,
   })
   const {
     dragDropProps: {
@@ -22,7 +25,7 @@ export function useDragDropRect(): UseReturnType {
   } = useSVGDragDrop({
     initXY: [200, 100],
     sizeWidthHeight: [30, 30],
-    svgWidthHeight: [720, 200],
+    svgWidthHeight: svgSize,
   })
 
   //Drag&Drop 固定
@@ -61,13 +64,13 @@ export function useDragDropRect(): UseReturnType {
     callback: DDCircleMethod.setIsEnabledYMove,
   })
 
-  const code = `<svg width={720} height={200}>
+  const code = `<svg width="${svgWidth}" height="${svgHeight}">
   <rect {...Drag&DropHooks} x="${DDRect.x}" y="${DDRect.y}" fill="green" />
   <circle {...Drag&DropHooks} x="${DDCircle.cx}" y="${DDCircle.cy}" fill="orange" />
 </svg>`
   const id = useId()
   const jsx = (
-    <svg width={720} height={200}>
+    <svg width={svgWidth} height={200}>
       <defs>
         <symbol id={id} viewBox="0 0 16 16">
           <path
@@ -95,8 +98,7 @@ export function useDragDropRect(): UseReturnType {
           dominantBaseline="hanging"
           style={{ fontSize: "12px" }}
         >
-          {DDRect.x - Math.round(DDRect.width / 2)}:
-          {DDRect.y - Math.round(DDRect.height / 2)}
+          {DDRect.x}:{DDRect.y}
         </text>
       </g>
 
